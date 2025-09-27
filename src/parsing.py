@@ -2,7 +2,7 @@ import numpy as np
 import random
 import json
 import re
-
+from collections import defaultdict
 
 def generate_reactions(complexes, species_names=None):
     """
@@ -263,3 +263,143 @@ def load_trajectory(filename):
     state_list = [np.array(state, dtype=float) for state in data["states"]]
 
     return time_list, state_list
+
+def calc_compatible_reactions(xi_vector, stoichiometric_matrix):
+    """
+    Identify reactions whose stoichiometric vectors match the given change vector.
+
+    Args:
+        xi_vector (array-like): Vector representing the stoichiometric change to match.
+        stoichiometric_matrix (2D array-like): Matrix containing stoichiometric coefficients of all reactions.
+
+    Returns:
+        list: Indices of reactions whose stoichiometric change matches xi_vector.
+    """
+    # Ensure inputs are NumPy arrays for safe vectorized comparison
+    xi_vector = np.asarray(xi_vector)
+    stoichiometric_matrix = np.asarray(stoichiometric_matrix)
+
+    # Vectorized comparison: all columns that match xi_vector
+    matches = np.all(stoichiometric_matrix == xi_vector[:, None], axis=0)
+
+    # Return indices where match is True
+    compatible_reactions = np.where(matches)[0].tolist()
+    return compatible_reactions
+
+
+def propensity_values(x, reactant_matrix, j_values):
+    """
+    Compute propensities for a vector of reactions (j_values) given the current state.
+
+    Args:
+        x (array-like): Current state vector containing populations of each species.
+        reactant_matrix (2D array-like): Matrix with stoichiometric coefficients for reactants.
+        j_values (array-like): Indices of reactions to compute propensities for.
+
+    Returns:
+        np.ndarray: Vector of propensities corresponding to each j in j_values.
+    """
+    x = np.asarray(x)  # Ensure state vector is NumPy array
+    reactant_matrix = np.asarray(reactant_matrix)
+    
+    propensities = np.zeros(len(j_values))
+
+    for idx, j in enumerate(j_values):
+        propensity = 1
+        # Loop over species instead of hard-coding 3
+        for i in range(len(x)):
+            r = reactant_matrix[i, j]
+            if r == 2:
+                propensity *= x[i] * (x[i] - 1) / 2  # combinatorial factor
+            else:
+                propensity *= x[i] ** r  # 0^0 = 1, 1^1 = x[i]
+        propensities[idx] = propensity
+
+    return propensities
+
+
+def calc_XCurr_ChangeTimePropensitySimple(fullStateList, fullTimeList, reactant_matrix, stoichiometric_matrix, verbose=True):
+    """
+    Determine for each state visited and stoichiometric change:
+        - Number of times the change occurs
+        - Cumulative time jumps
+        - Propensities for each change
+
+    Supports both single trajectory or a list of trajectories.
+
+    Args:
+        fullStateList (list of lists or single list): States visited for each trajectory.
+        fullTimeList (list of lists or single list): Times corresponding to states.
+        reactant_matrix (2D array-like): Reactant stoichiometry matrix.
+        stoichiometric_matrix (2D array-like): Stoichiometric change matrix.
+        verbose (bool, default True): Print progress information.
+
+    Returns:
+        tuple: (col_dict, XCurrKeys, X_Counts, T_Values, X_Propensity)
+            - col_dict: mapping from stoichiometric change tuple to column index
+            - XCurrKeys: list of unique visited states
+            - X_Counts: dict of counts of each change at each state
+            - T_Values: dict of cumulative times for each change at each state
+            - X_Propensity: dict of propensity arrays for each state and change
+    """
+    
+    # Wrap single trajectory into a list of trajectories
+    if isinstance(fullStateList[0], np.ndarray) and isinstance(fullTimeList[0], (float, int, np.float64)):
+        fullStateList = [fullStateList]
+        fullTimeList  = [fullTimeList]
+        if verbose:
+            print("Wrapped single trajectory into list of trajectories.")
+
+    # Identify unique stoichiometric changes
+    unique_cols = np.unique(stoichiometric_matrix.T, axis=0)
+    unique_stoichiometric_matrix = unique_cols.T
+    col_dict = {tuple(unique_stoichiometric_matrix[:, j]): j for j in range(unique_stoichiometric_matrix.shape[1])}
+
+    if verbose:
+        print(f"Tracking data for {unique_stoichiometric_matrix.shape[1]} unique stoichiometric changes")
+
+    # Initialize containers
+    X_Counts     = defaultdict(lambda: np.zeros(unique_stoichiometric_matrix.shape[1], dtype=int))
+    T_Values     = defaultdict(lambda: np.zeros(unique_stoichiometric_matrix.shape[1], dtype=float))
+    X_Propensity = defaultdict(lambda: [[] for _ in range(unique_stoichiometric_matrix.shape[1])])
+
+    # Loop over trajectories
+    for p, (state_list, time_list) in enumerate(zip(fullStateList, fullTimeList)):
+        if verbose:
+            print(f"Processing trajectory {p+1} of {len(fullStateList)}")
+        for i in range(len(state_list) - 2):  # last state is not a jump
+            if verbose and i % 1000 == 0:
+                print(f"\tProcessing state {i} of {len(state_list)-1}")
+            
+            XCurr  = state_list[i]
+            deltaX = state_list[i+1] - state_list[i]
+            deltaT = time_list[i+1] - time_list[i]
+
+            deltaX_tuple = tuple(deltaX.astype(int))
+            index = col_dict.get(deltaX_tuple, -1)
+
+            if index != -1:
+                XCurr_key = tuple(int(val) for val in XCurr)
+                X_Counts[XCurr_key][index] += 1
+                T_Values[XCurr_key][index] += deltaT
+            else:
+                if verbose:
+                    print(f"\tStep {i}: deltaX {deltaX_tuple} not in unique stoichiometric matrix")
+
+    if verbose:
+        print("Finished processing states. Computing propensities...")
+
+    XCurrKeys = list(X_Counts.keys())
+    for state_idx, XCurr_key in enumerate(XCurrKeys):
+        if verbose and state_idx % 1000 == 0:
+            print(f"\tProcessing propensities for state {state_idx} = {XCurr_key}")
+        # Compute propensities using vectorized compatible reaction indices
+        for idx in range(unique_stoichiometric_matrix.shape[1]):
+            change_vector = np.array(list(col_dict.keys())[idx])
+            compatible = calc_compatible_reactions(change_vector, stoichiometric_matrix)
+            X_Propensity[XCurr_key][idx] = propensity_values(XCurr_key, reactant_matrix, compatible)
+
+    if verbose:
+        print("Finished successfully.")
+
+    return col_dict, XCurrKeys, X_Counts, T_Values, X_Propensity
