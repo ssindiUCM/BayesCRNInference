@@ -1,13 +1,3 @@
-Here’s a polished, updated version of your README.md with a few key additions:
-
-* Added **save/load trajectory instructions**.
-* Clarified **data/ folder usage**.
-* Minor formatting tweaks for clarity.
-
-You can copy-paste this directly:
-
----
-
 # BayesCRNInference
 
 Bayesian inference framework for chemical reaction networks (CRNs) using MCMC.
