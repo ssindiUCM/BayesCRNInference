@@ -75,6 +75,32 @@ def generate_reactions(complexes, species_names=None):
 
     return reactant_matrix, product_matrix, stoichiometric_matrix, reaction_names, parameter_names
 
+def get_reaction_indices(reaction_names_full, reactions_to_select):
+    """
+    Given a full list of reaction names and a list of reactions to select,
+    return the indices corresponding to the selected reactions (exact match).
+
+    Parameters
+    ----------
+    reaction_names_full : list of str
+        All reaction names in the full CRN.
+    reactions_to_select : list of str
+        Subset of reaction names to select (exact match).
+
+    Returns
+    -------
+    indices : list of int
+        Indices of reactions_to_select in reaction_names_full.
+    """
+    indices = []
+    for r in reactions_to_select:
+        try:
+            i = reaction_names_full.index(r + ":")  # add colon to match your format
+            indices.append(i)
+        except ValueError:
+            raise ValueError(f"Reaction '{r}' not found in reaction_names_full")
+    return indices
+
 
 _valid_ident_re = re.compile(r'^[A-Za-z_][A-Za-z0-9_]*$')
 
@@ -86,12 +112,57 @@ def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
                      reaction_names, parameter_names, species_names,
                      N=20, alpha=2.6, beta=0.4, seed=None):
     """
-    Construct a random sub-CRN by sampling N reactions from the full set and
-    create propensity functions whose signatures match parameter/species names.
+    Randomly sample a subset of reactions from a full CRN and construct propensity functions.
 
-    This version builds the same kind of lambda strings your original code used,
-    but checks that parameter and species names are safe identifiers before eval.
+    PARAMETERS
+    ----------
+    reactant_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric coefficients of reactants for all reactions.
+    product_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric coefficients of products for all reactions.
+    stoichiometric_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric changes for all reactions (product - reactant).
+    reaction_names : list of str, length num_reactions
+        Names of all reactions, e.g., "X1_to_X2".
+    parameter_names : list of str, length num_reactions
+        Names of the parameters corresponding to each reaction, e.g., "k0", "k1".
+    species_names : list of str, length num_species
+        Names of all species in the system.
+    N : int, optional (default=20)
+        Number of reactions to randomly sample.
+    alpha : float, optional (default=2.6)
+        Shape parameter for gamma distribution used to generate reaction rate constants.
+    beta : float, optional (default=0.4)
+        Scale parameter for gamma distribution used to generate reaction rate constants.
+    seed : int or None, optional
+        Random seed for reproducibility.
+
+    RETURNS
+    -------
+    CRN_stoichiometric_matrix : np.ndarray, shape (num_species, N)
+        Stoichiometric matrix for the sampled reactions.
+    CRN_reaction_names : list of str, length N
+        Names of the sampled reactions.
+    CRN_parameter_names : list of str, length N
+        Parameter names for the sampled reactions.
+    CRN_propensities : list of callable, length N
+        Propensity functions for each sampled reaction.
+        Each function takes arguments: (parameter, species variables)
+        and returns the propensity value based on the reactants.
+
+        Example:
+            Reaction:  X1 + X2 -> 2 X2
+            Reactant vector: [1, 1]   # 1 X1, 1 X2
+            Parameter: k0
+            Generated propensity: lambda k0, X1, X2: k0 * X1 * X2
+
+    parameter_values : dict
+        Dictionary mapping parameter names to sampled gamma-distributed values.
+        e.g., {"k0": 1.23, "k7": 0.45}
+    sampled_indices : list of int, length N
+        Indices of the sampled reactions in the original full CRN.
     """
+
     if seed is not None:
         np.random.seed(seed)
         random.seed(seed)
@@ -179,11 +250,135 @@ def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
     return (CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
             CRN_propensities, parameter_values, sampled_indices)
 
+def build_subCRN_from_names(reactant_matrix, product_matrix, stoichiometric_matrix,
+                            reaction_names, parameter_names, species_names,
+                            selected_names, rates=None,
+                            alpha=2.6, beta=0.4, seed=None):
+    """
+    Construct a sub-CRN given a selection of reaction names and optional rates.
+
+    This function selects reactions by name from the full CRN and generates
+    the associated stoichiometric submatrix, reaction names, parameter names,
+    propensities, and parameter values. If no rates are provided, parameters
+    are sampled from a Gamma(alpha, beta) distribution.
+
+    Parameters
+    ----------
+    reactant_matrix : ndarray (num_species x num_reactions)
+        Full reactant matrix for the CRN.
+    product_matrix : ndarray (num_species x num_reactions)
+        Full product matrix for the CRN.
+    stoichiometric_matrix : ndarray (num_species x num_reactions)
+        Full stoichiometric matrix for the CRN.
+    reaction_names : list of str
+        Names of all reactions in the full CRN.
+    parameter_names : list of str
+        Names of all parameters in the full CRN.
+    species_names : list of str
+        Names of species in the CRN.
+    selected_names : list of str
+        Names of reactions to select for the sub-CRN.
+    rates : list of float, optional
+        Rates corresponding to selected reactions. If None, gamma prior is used.
+    alpha : float, optional
+        Shape parameter of Gamma distribution used if rates=None. Default=2.6.
+    beta : float, optional
+        Scale parameter of Gamma distribution used if rates=None. Default=0.4.
+    seed : int, optional
+        Random seed for reproducibility.
+
+    Returns
+    -------
+    CRN_stoichiometric_matrix : ndarray
+        Stoichiometric matrix for selected reactions.
+    CRN_reaction_names : list of str
+        Names of selected reactions.
+    CRN_parameter_names : list of str
+        Names of parameters corresponding to selected reactions.
+    CRN_propensities : list of callables
+        Propensity functions for each selected reaction.
+    CRN_parameter_values : dict
+        Dictionary mapping parameter names to their numeric values.
+    CRN_indices : list of int
+        Indices of selected reactions in the full CRN.
+    """
+    import numpy as np
+    import random
+    import re
+
+    if seed is not None:
+        np.random.seed(seed)
+        random.seed(seed)
+
+    # Get exact indices of the selected reactions using the robust helper
+    CRN_indices = get_reaction_indices(reaction_names, selected_names)
+
+    # Extract submatrices and names
+    CRN_stoichiometric_matrix = stoichiometric_matrix[:, CRN_indices]
+    CRN_reaction_names = [reaction_names[i] for i in CRN_indices]
+    CRN_parameter_names = [parameter_names[i] for i in CRN_indices]
+
+    # Prepare outputs
+    CRN_propensities = []
+    CRN_parameter_values = {}
+
+    for idx, par_name in zip(CRN_indices, CRN_parameter_names):
+        reactants = reactant_matrix[:, idx]
+
+        # Determine parameter value: use provided rates or gamma prior
+        if rates is not None:
+            rate_val = rates[CRN_indices.index(idx)]  # match index to rates list
+        else:
+            rate_val = np.random.gamma(alpha, beta)
+        CRN_parameter_values[par_name] = rate_val
+
+        # Build propensity function depending on reactants
+        nz = np.nonzero(reactants)[0]  # species with non-zero stoichiometry
+        propensity_string = ""
+
+        if len(nz) == 0:
+            # Zero reactants: lambda k: k
+            propensity_string = f"lambda {par_name}: {par_name}"
+        elif len(nz) == 1:
+            i = nz[0]
+            sname = species_names[i]
+            multiplicity = int(reactants[i])
+            if multiplicity == 1:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}"
+            elif multiplicity == 2:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}*({sname}-1)/2"
+            else:
+                terms = "*".join([f"({sname}-{j})" for j in range(multiplicity)])
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*({terms})/{np.math.factorial(multiplicity)}"
+        elif len(nz) == 2:
+            i, j = nz
+            s1, s2 = species_names[i], species_names[j]
+            propensity_string = f"lambda {par_name}, {s1}, {s2}: {par_name}*{s1}*{s2}"
+        else:
+            raise ValueError("Only bi-molecular reactions with up to 2 distinct reactant species supported.")
+
+        # Extra safety: verify identifiers
+        tokens = re.findall(r'\b[A-Za-z_][A-Za-z0-9_]*\b', propensity_string)
+        for t in tokens:
+            if t in {'lambda', 'return'}:
+                continue
+            if t not in parameter_names and t not in species_names:
+                raise ValueError(f"Disallowed identifier in propensity: {t}")
+
+        # Create function object
+        CRN_propensities.append(eval(propensity_string))
+
+    return (CRN_stoichiometric_matrix,
+            CRN_reaction_names,
+            CRN_parameter_names,
+            CRN_propensities,
+            CRN_parameter_values,
+            CRN_indices)
 
 def generate_single_trajectory(rn, parameter_values, species_names,
                                finalTime=120, minVal=5, maxVal=5, seed=None):
     """
-    Generate a single stochastic trajectory for a given CRN.
+    Generate a single stochastic trajectory for a given CRN, allowing species-specific initial bounds.
 
     Parameters
     ----------
@@ -195,10 +390,10 @@ def generate_single_trajectory(rn, parameter_values, species_names,
         Names of the species.
     finalTime : float
         Time until which the trajectory is simulated.
-    minVal : int
-        Minimum initial count per species.
-    maxVal : int
-        Maximum initial count per species.
+    minVal : int or list/array
+        Minimum initial count per species. If int, applied to all species. If list/array, must match number of species.
+    maxVal : int or list/array
+        Maximum initial count per species. If int, applied to all species. If list/array, must match number of species.
     seed : int, optional
         Random seed for reproducibility.
 
@@ -212,10 +407,29 @@ def generate_single_trajectory(rn, parameter_values, species_names,
     if seed is not None:
         np.random.seed(seed)
 
-    # Generate random initial counts
-    initial_counts = np.random.randint(low=minVal, high=maxVal + 1, size=len(species_names))
-    initial_state = dict(zip(species_names, initial_counts))
+    num_species = len(species_names)
 
+    # Convert single int to array for species-specific bounds
+    if np.isscalar(minVal):
+        minVal_array = np.full(num_species, minVal, dtype=int)
+    else:
+        minVal_array = np.array(minVal, dtype=int)
+        if len(minVal_array) != num_species:
+            raise ValueError("Length of minVal array must match number of species.")
+
+    if np.isscalar(maxVal):
+        maxVal_array = np.full(num_species, maxVal, dtype=int)
+    else:
+        maxVal_array = np.array(maxVal, dtype=int)
+        if len(maxVal_array) != num_species:
+            raise ValueError("Length of maxVal array must match number of species.")
+
+    # Generate random initial counts per species
+    initial_counts = np.array([
+        np.random.randint(low=min_val, high=max_val + 1)
+        for min_val, max_val in zip(minVal_array, maxVal_array)
+    ])
+    initial_state = dict(zip(species_names, initial_counts))
     print(f"Initial state: {initial_state}")
 
     # Run SSA simulation
@@ -225,6 +439,7 @@ def generate_single_trajectory(rn, parameter_values, species_names,
     rn.plot_trajectories(time_list, state_list)
 
     return time_list, state_list
+
 
 def save_trajectory(time_list, state_list, filename):
     """
