@@ -20,7 +20,12 @@ Key features:
 ```text
 BayesCRNInference/
 │
-├── CRN/                 # Supporting CRN code (adapted from collaborator)
+├── CRN_Simulation/      # Supporting CRN code (adapted from Zhou Fang)
+│   ├── CRN.py
+│   ├── MatrixExponentialKrylov.py
+│   ├── DistributionOfSystems.py
+│   ├── MarginalDistribution.py
+│   └── __init__.py|  
 │
 ├── src/                 # Core source code (functions)
 │   ├── parsing.py       # Functions for parsing stochastic trajectory data
