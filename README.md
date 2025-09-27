@@ -52,14 +52,20 @@ BayesCRNInference/
 
 * Python 3.9+
 * Jupyter
-* Standard scientific Python stack: `numpy`, `scipy`, `matplotlib`
-* (Optional) `tqdm` for progress bars
+* Required Python packages (see requirements.txt for version details):
+    - numpy
+    - scipy
+    - seaborn
+    - matplotlib
+    - scikit-learn
+    - torch
 
 You can install dependencies via:
 
 ```bash
 pip install -r requirements.txt
 ```
+Note: CRN_Simulation is a local module included in this repository and does not need to be installed via pip.
 
 
 ### Running Examples
