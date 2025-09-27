@@ -138,9 +138,9 @@ You are free to use, share, and modify this code, but **any derivative work must
 ---
 
 ## ✨ Acknowledgments
-
+* Code developed by Suzanne Sindi (ssindi(at)ucmerced.edu).
 * Core CRN code adapted from Zhou Fang (zhfang(at)amss.ac.cn).
-* Code package developed to accompany tentatively titled: *Bayesian Inference in Stochastic Biochemical Reaction Systems with Full Trajectory Data*.
+* Code package developed to accompany tentatively titled: *Bayesian Inference in Stochastic Biochemical Reaction Systems with Full Trajectory Data.*
 
 ---
 
