@@ -529,91 +529,104 @@ def propensity_values(x, reactant_matrix, j_values):
 
     return propensities
 
-def parse_trajectories(fullStateList, fullTimeList, reactant_matrix, compatible_reactions, verbose=True):
+def parse_trajectory(state_list, time_list, reactant_matrix, compatible_reactions, verbose=True):
     """
-    Parse one or more trajectories to compute, for each unique state:
-        - The counts of each stoichiometric change
-        - Cumulative waiting times
-        - Propensity arrays for each state and compatible reactions
+    Parse a single stochastic trajectory to compute, for each unique state:
+      - counts of each unique stoichiometric change (jump_counts)
+      - cumulative waiting times for each change (waiting_times)
+      - propensity arrays for each change at that state (propensities)
 
-    Supports both a single trajectory or a list of trajectories.
+    Assumes a single trajectory (state_list, time_list). If you have multiple
+    trajectories, call this function for each and combine the results in post-processing.
 
     Args:
-        fullStateList (list of np.ndarray or single np.ndarray): States visited for each trajectory.
-        fullTimeList  (list of np.ndarray or single np.ndarray): Times corresponding to states.
-        reactant_matrix (np.ndarray): Reactant stoichiometry matrix.
-        compatible_reactions (dict): Mapping from stoichiometric change tuple to list of reaction indices.
-        verbose (bool): Print progress information.
+        state_list (list[np.ndarray] or np.ndarray): ordered sequence of state vectors.
+        time_list  (list[float] or np.ndarray): ordered sequence of times corresponding to state_list.
+        reactant_matrix (np.ndarray): reactant stoichiometry matrix (num_species x num_reactions).
+        compatible_reactions (dict): mapping from stoichiometric change tuple -> list of reaction indices.
+        verbose (bool): print progress messages (default True).
 
     Returns:
-        tuple:
-            unique_changes: list of unique stoichiometric change vectors (tuples)
-            unique_states: list of unique visited states (tuples)
-            jump_counts: dict mapping state → counts of each unique change
-            waiting_times: dict mapping state → cumulative times for each unique change
-            propensities: dict mapping state → list of propensity arrays for each change
+        unique_changes (list[tuple]): list of unique stoichiometric change vectors (tuples), order preserved.
+        unique_states  (list[tuple]): list of unique visited states (tuples).
+        jump_counts    (defaultdict): state_key -> np.array counts of length len(unique_changes).
+        waiting_times  (defaultdict): state_key -> np.array waiting times of length len(unique_changes).
+        propensities   (defaultdict): state_key -> list (length len(unique_changes)) of propensity arrays
+                                      (each entry is an array of propensities for compatible reactions).
     """
+    import numpy as np
+    from collections import defaultdict
 
-    # -------------------------------------------
-    # Wrap single trajectory into list of trajectories if needed
-    # -------------------------------------------
-    if isinstance(fullStateList[0], np.ndarray) and isinstance(fullTimeList[0], (float, int, np.float64)):
-        fullStateList = [fullStateList]
-        fullTimeList  = [fullTimeList]
-        if verbose:
-            print("Wrapped single trajectory into list of trajectories.")
+    # ---------- Input validation ----------
+    if state_list is None or time_list is None:
+        raise ValueError("state_list and time_list must be provided (single trajectory).")
 
-    # -------------------------------------------
-    # Unique stoichiometric changes
-    # -------------------------------------------
+    # Convert to numpy-friendly sequences (but keep original list semantics)
+    # Accept both Python lists and numpy arrays.
+    if isinstance(state_list, np.ndarray):
+        # expect shape (T, num_species) or (T,) of arrays; convert to list of 1-D arrays
+        state_list = [np.asarray(s) for s in state_list]
+    else:
+        state_list = [np.asarray(s) for s in state_list]
+
+    if isinstance(time_list, np.ndarray):
+        time_list = list(time_list)
+    else:
+        time_list = list(time_list)
+
+    if len(state_list) != len(time_list):
+        raise ValueError("state_list and time_list must have equal length.")
+
+    if len(state_list) < 2:
+        raise ValueError("Trajectory too short: need at least two timepoints.")
+
+    # ---------- Prepare unique changes ----------
     unique_changes = list(compatible_reactions.keys())
     num_unique_changes = len(unique_changes)
     if verbose:
-        print(f"Tracking {num_unique_changes} unique stoichiometric changes across all trajectories.")
+        print(f"Tracking {num_unique_changes} unique stoichiometric changes (single trajectory).")
+        print(f"Trajectory length: {len(state_list)} timepoints.  Will iterate to len-2 to avoid final non-jump.")
 
-    # -------------------------------------------
-    # Initialize containers
-    # -------------------------------------------
+    # ---------- Initialize containers ----------
     jump_counts   = defaultdict(lambda: np.zeros(num_unique_changes, dtype=int))
     waiting_times = defaultdict(lambda: np.zeros(num_unique_changes, dtype=float))
     propensities  = defaultdict(lambda: [[] for _ in range(num_unique_changes)])
 
-    # -------------------------------------------
-    # Loop over all trajectories
-    # -------------------------------------------
-    for traj_idx, (state_list, time_list) in enumerate(zip(fullStateList, fullTimeList)):
-        if verbose:
-            print(f"Processing trajectory {traj_idx+1} of {len(fullStateList)}")
+    # ---------- Main loop over states (stop at len-2) ----------
+    # (we do not compute the delta that involves the final printed state at t_final)
+    for i in range(len(state_list) - 2):   # <-- your desired stopping point
+        Xcurr = np.asarray(state_list[i])
+        Xnext = np.asarray(state_list[i + 1])
+        deltaX = Xnext - Xcurr
+        deltaT = time_list[i + 1] - time_list[i]
 
-        for i in range(len(state_list) - 2):  # last state has no jump
-            current_state = state_list[i]
-            deltaX = state_list[i+1] - state_list[i]
-            deltaT = time_list[i+1] - time_list[i]
-
+        # normalize delta to ints for dictionary keys
+        try:
             deltaX_tuple = tuple(deltaX.astype(int))
-            if deltaX_tuple in unique_changes:
-                state_key = tuple(int(x) for x in current_state)
-                idx = unique_changes.index(deltaX_tuple)
-                jump_counts[state_key][idx] += 1
-                waiting_times[state_key][idx] += deltaT
-            else:
-                if verbose:
-                    print(f"\tStep {i}: deltaX {deltaX_tuple} not in unique changes")
+        except Exception:
+            # fallback in case deltaX is list-like
+            deltaX_tuple = tuple(int(x) for x in deltaX)
 
-    # -------------------------------------------
-    # Compute propensities for each state and change
-    # -------------------------------------------
-    for state_key in jump_counts.keys():
+        if deltaX_tuple in compatible_reactions:
+            state_key = tuple(int(x) for x in Xcurr)
+            idx = unique_changes.index(deltaX_tuple)   # index in unique_changes
+            jump_counts[state_key][idx] += 1
+            waiting_times[state_key][idx] += deltaT
+        else:
+            if verbose:
+                print(f"\tStep {i}: deltaX {deltaX_tuple} not in compatible_reactions (ignored)")
+
+    # ---------- Compute propensities for each observed state ----------
+    # We only compute propensities for states that appeared in jump_counts
+    for state_key in list(jump_counts.keys()):
         for idx, deltaX_tuple in enumerate(unique_changes):
-            reaction_indices = compatible_reactions[deltaX_tuple]
-            # Placeholder for actual propensity calculation
+            reaction_indices = compatible_reactions[deltaX_tuple]  # list of reaction indices (order preserved)
+            # compute propensity vector for this state and this stoich-change (preserves order)
             propensities[state_key][idx] = propensity_values(state_key, reactant_matrix, reaction_indices)
 
-    # List of unique states visited
     unique_states = list(jump_counts.keys())
 
     if verbose:
-        print("Finished parsing trajectories.")
-
+        print(f"Finished parsing single trajectory. Observed {len(unique_states)} unique states.")
     return unique_changes, unique_states, jump_counts, waiting_times, propensities
 
