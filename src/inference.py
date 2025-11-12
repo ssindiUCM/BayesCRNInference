@@ -3,6 +3,7 @@ import random
 import json
 import re
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 def is_whole_number(val):
     """
@@ -154,56 +155,6 @@ def extract_local_data(jump_counts, waiting_times, propensities, unique_changes,
     return local_counts, local_waiting_times, local_propensities, selected_deltaX
 
 
-#def local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta):
-#    """
-#    Compute the LOCAL log-likelihood function for a given stoichiometric change.
-#
-#    Args:
-#        local_counts:        dict mapping state x -> counts n_{x,l} for the selected change
-#        local_waiting_times: dict mapping state x -> cumulative waiting time tau_x
-#        local_propensities:  dict mapping state x -> propensities g_j(x) (for each compatible reaction)
-#
-#        Parameter: theta: vector of parameters theta_j for each propensity
-#    
-#    Returns:
-#        log-likelihood value (float)
-#    """
-#    log_likelihood_value = 0
-#
-#    numEvents = sum(local_counts.values())
-#
-#    # Check for zero theta
-#    if np.linalg.norm(theta, ord=2) == 0:
-#        if numEvents == 0:
-#            return 0       # no events observed, log-likelihood = log(1)
-#        else:
-#            return -np.inf # events observed, but zero rates -> log-likelihood = -infinity
-#
-#    # Loop over all states
-#    for state in local_propensities:
-#        # Make sure the state exists in all dictionaries
-#        if state in local_counts and state in local_waiting_times:
-#            g_x   = local_propensities[state]   # propensities g_j(x)
-#            n_xl  = local_counts[state]         # observed counts n_{x,l}
-#            tau_x = local_waiting_times[state]  # cumulative waiting time tau_x
-#
-#            # Normalization term: sum_j theta_j * g_j(x)
-#            normalization = np.dot(theta, g_x)
-#
-#            # Handle zero normalization
-#            if normalization == 0 and n_xl > 0:
-#                # Observed events but zero propensity -> log(0)
-#                return -np.inf
-#            elif normalization == 0 and n_xl == 0:
-#                term1 = 0
-#            else:
-#                term1 = n_xl * np.log(normalization)
-#            
-#            term2 = tau_x * normalization
-#            log_likelihood_value += term1 - term2
-#
-#    return log_likelihood_value
-
 def local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta):
     """
     Compute the LOCAL log-likelihood function for a given stoichiometric change.
@@ -252,3 +203,114 @@ def local_log_likelihood(local_counts, local_waiting_times, local_propensities, 
     log_likelihood_value = np.sum(log_terms - exp_terms)
 
     return log_likelihood_value
+
+def plot_likelihood_vs_theta_multiplier(local_counts, local_waiting_times, local_propensities, localTheta,
+                                        delta=0.5, num_points=50, title=None):
+    """
+    For a given local theta vector, vary it by a multiplier and plot the log-likelihood.
+
+    Parameters
+    ----------
+    local_counts, local_waiting_times, local_propensities : arrays
+        Local data for the selected stoichiometric change.
+    localTheta : np.ndarray
+        True parameter vector for this local reaction set.
+    delta : float
+        Range around 1 to vary the multiplier (1 +/- delta). Default 0.5 gives 0.5x to 1.5x.
+    num_points : int
+        Number of multiplier points to evaluate. Default 50.
+    title : str
+        Optional title for the plot.
+
+    Returns
+    -------
+    multipliers : np.ndarray
+        Multipliers evaluated.
+    log_likelihood_values : list
+        Log-likelihood values for each multiplier.
+    max_ll : float
+        Maximum log-likelihood observed.
+    best_multiplier : float
+        Multiplier achieving maximum log-likelihood.
+    best_theta : np.ndarray
+        Theta corresponding to maximum log-likelihood.
+    """
+    # Compute total observed counts for this local stoichiometric change
+    total_counts = sum(local_counts.values())
+    print(f"Total observed jumps for this local stoichiometric change: {total_counts}")
+
+
+    # Generate the range of multipliers around 1
+    multipliers = np.linspace(1 - delta, 1 + delta, num_points)
+
+    # Store log-likelihood values
+    log_likelihood_values = []
+
+    # Track the best result
+    max_ll = -np.inf
+    best_multiplier = None
+    best_theta = None
+
+    print(f"Local True Theta = {localTheta}")
+    true_ll = local_log_likelihood(local_counts, local_waiting_times, local_propensities, localTheta)
+    print(f"Log-Likelihood at True Theta = {true_ll}")
+
+    # Iterate over multipliers
+    for rho in multipliers:
+        theta_scaled = localTheta * rho  # scale the entire local theta
+        ll = local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta_scaled)
+        log_likelihood_values.append(ll)
+
+        # Track maximum
+        if ll > max_ll:
+            max_ll = ll
+            best_multiplier = rho
+            best_theta = theta_scaled
+
+    print(f"Maximum Log-Likelihood = {max_ll}")
+    print(f"Best Multiplier = {best_multiplier}")
+    print(f"Best Theta = {best_theta}")
+
+    # Plot results
+    plt.figure(figsize=(6,4))
+    plt.plot(multipliers, log_likelihood_values, marker='o', label='Log-Likelihood')
+    plt.axvline(1.0, color='red', linestyle='--', label='True Theta Multiplier')
+    plt.xlabel('Multiplier of Local True Theta')
+    plt.ylabel('Log Likelihood')
+    plt.title(title if title is not None else 'Log Likelihood vs Multiplier of Local True Theta')
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+    return multipliers, log_likelihood_values, max_ll, best_multiplier, best_theta
+
+def get_positive_deltaX_indices_and_values(jump_counts_dict, unique_changes):
+    """
+    Identify the indices of unique stoichiometric changes that have any positive counts across all states,
+    and return the corresponding deltaX values.
+
+    Parameters
+    ----------
+    jump_counts_dict : dict
+        Keys: states (tuples)
+        Values: arrays of counts, length = len(unique_changes)
+    unique_changes : list or array
+        List of unique stoichiometric changes, aligned with count arrays
+
+    Returns
+    -------
+    positive_indices : list of int
+        Indices into unique_changes that have at least one positive count
+    positive_deltaX : list
+        Entries from unique_changes corresponding to positive_indices
+    """
+    positive_indices_set = set()
+    
+    for counts in jump_counts_dict.values():
+        positive_indices_set.update(np.nonzero(counts > 0)[0])
+    
+    positive_indices = sorted(positive_indices_set)
+    positive_deltaX = [unique_changes[i] for i in positive_indices]
+    
+    return positive_indices, positive_deltaX
+

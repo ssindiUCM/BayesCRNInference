@@ -131,11 +131,15 @@ def _safe_ident(name):
     """Return True if `name` is a safe Python identifier we allow in generated code."""
     return bool(_valid_ident_re.match(name))
 
-def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
-                     reaction_names, parameter_names, species_names,
-                     N=20, alpha=2.6, beta=0.4, seed=None):
+def build_CRN_bySamplingReactions(reactant_matrix, product_matrix, stoichiometric_matrix,
+                                  reaction_names, parameter_names, species_names,
+                                  N=20, alpha=2.6, beta=0.4, seed=None, verbose=True):
     """
     Randomly sample a subset of reactions from a full CRN and construct propensity functions.
+
+    This function returns both the sampled CRN and a full-length "ground truth" parameter
+    vector (`trueTheta`) for the entire CRN. Optionally prints a readable summary table
+    of sampled reactions and parameter values.
 
     PARAMETERS
     ----------
@@ -159,6 +163,9 @@ def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
         Scale parameter for gamma distribution used to generate reaction rate constants.
     seed : int or None, optional
         Random seed for reproducibility.
+    verbose : bool, optional (default=True)
+        If True, prints a formatted summary of sampled reactions, their indices,
+        parameter values, and the full trueTheta vector.
 
     RETURNS
     -------
@@ -170,18 +177,11 @@ def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
         Parameter names for the sampled reactions.
     CRN_propensities : list of callable, length N
         Propensity functions for each sampled reaction.
-        Each function takes arguments: (parameter, species variables)
-        and returns the propensity value based on the reactants.
-
-        Example:
-            Reaction:  X1 + X2 -> 2 X2
-            Reactant vector: [1, 1]   # 1 X1, 1 X2
-            Parameter: k0
-            Generated propensity: lambda k0, X1, X2: k0 * X1 * X2
-
+    trueTheta : np.ndarray
+        Full-length vector of reaction parameters for the entire CRN.
+        Sampled reactions have their gamma-sampled value; unsampled remain 0.
     parameter_values : dict
-        Dictionary mapping parameter names to sampled gamma-distributed values.
-        e.g., {"k0": 1.23, "k7": 0.45}
+        Dictionary mapping sampled parameter names to their gamma-distributed values.
     sampled_indices : list of int, length N
         Indices of the sampled reactions in the original full CRN.
     """
@@ -205,121 +205,125 @@ def sample_reactions(reactant_matrix, product_matrix, stoichiometric_matrix,
     CRN_stoichiometric_matrix = stoichiometric_matrix[:, sampled_indices]
     CRN_reaction_names = [reaction_names[i] for i in sampled_indices]
     CRN_parameter_names = [parameter_names[i] for i in sampled_indices]
+    
+    # Set up trueTheta: full-length CRN vector, zeros initially
+    trueTheta = np.zeros(stoichiometric_matrix.shape[1])
 
     CRN_propensities = []
     parameter_values = {}
 
-    # For debugging/traceback clarity: number of species
     num_species = reactant_matrix.shape[0]
 
     for idx in sampled_indices:
         reactants = reactant_matrix[:, idx]
-        par_name = parameter_names[idx]   # e.g., "k0"
-        # sample parameter value (true value)
+        par_name  = parameter_names[idx]
+
+        # Sample parameter value
         pVal = np.random.gamma(alpha, beta)
         parameter_values[par_name] = pVal
+        trueTheta[idx] = pVal
 
         # Build propensity lambda string depending on reactants
         nz = np.nonzero(reactants)[0]
         propensity_string = ""
 
         if len(nz) == 0:
-            # zero reactants, lambda k0: k0
+            # Zero reactants
             propensity_string = f"lambda {par_name}: {par_name}"
-
         elif len(nz) == 1:
             i = nz[0]
             sname = species_names[i]
             multiplicity = int(reactants[i])
             if multiplicity == 1:
-                # lambda k0, X: k0*X
                 propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}"
             elif multiplicity == 2:
-                # lambda k0, X: k0*X*(X-1)/2
-                propensity_string = (f"lambda {par_name}, {sname}: "
-                                     f"{par_name}*{sname}*({sname}-1)/2")
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}*({sname}-1)/2"
             else:
-                # general multiplicity fallback using falling factorial
-                # (rare given bi-molecular assumption)
-                # produce product like X*(X-1)*... for count terms
                 terms = "*".join([f"({sname}-{j})" for j in range(multiplicity)])
                 propensity_string = f"lambda {par_name}, {sname}: {par_name}*({terms})/{np.math.factorial(multiplicity)}"
-
         elif len(nz) == 2:
             i, j = nz
             s1, s2 = species_names[i], species_names[j]
-            # lambda k0, X, Y: k0*X*Y
             propensity_string = f"lambda {par_name}, {s1}, {s2}: {par_name}*{s1}*{s2}"
-
         else:
             raise ValueError("Only up to bi-molecular reactants supported here (<=2 distinct reactant species).")
 
-        # Extra safety: verify all identifiers in propensity_string are allowed
-        # Extract tokens that look like identifiers and ensure they are either
-        # parameter names or species names
+        # Safety check on identifiers
         tokens = re.findall(r'\b[A-Za-z_][A-Za-z0-9_]*\b', propensity_string)
         for t in tokens:
-            if t in {'lambda', 'return'}:  # python keywords that may appear
+            if t in {'lambda', 'return'}:
                 continue
             if t not in parameter_names and t not in species_names:
-                # allow numeric names like '2' are not matched by regex; so any token here must be known
                 raise ValueError(f"Disallowed identifier in propensity: {t} (prop string: {propensity_string})")
 
-        # Create the function object by eval
-        # Safe-ish because we validated all identifiers used are from our allowed lists.
+        # Create function object
         propensity_func = eval(propensity_string)
         CRN_propensities.append(propensity_func)
 
+    # Verbose output
+    if verbose:
+        print(f"\nSampling {N} reactions out of {stoichiometric_matrix.shape[1]} total reactions in the CRN.\n")
+        print(f"{'Index':<5} {'Param':<6} {'Reaction Name':<25} {'Value':<8}")
+        print("-"*50)
+        for idx, pname, rname in zip(sampled_indices, CRN_parameter_names, CRN_reaction_names):
+            print(f"{idx:<5} {pname:<6} {rname:<25} {parameter_values[pname]:<8.3f}")
+        print("\nFull trueTheta vector (length {}):".format(len(trueTheta)))
+        #print(trueTheta)
+
     return (CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
-            CRN_propensities, parameter_values, sampled_indices)
+            CRN_propensities, trueTheta, parameter_values, sampled_indices)
 
-def build_subCRN_from_names(reactant_matrix, product_matrix, stoichiometric_matrix,
-                            reaction_names, parameter_names, species_names,
-                            selected_names, rates=None,
-                            alpha=2.6, beta=0.4, seed=None):
+
+
+def build_CRN_byNameSelection(reactant_matrix, product_matrix, stoichiometric_matrix,
+                              reaction_names, parameter_names, species_names,
+                              selected_names, rates=None,
+                              alpha=2.6, beta=0.4, seed=None, verbose=True):
     """
-    Construct a sub-CRN given a selection of reaction names and optional rates.
+    Construct a CRN by selecting specific reactions by name, with optional rates.
 
-    This function selects reactions by name from the full CRN and generates
-    the associated stoichiometric submatrix, reaction names, parameter names,
-    propensities, and parameter values. If no rates are provided, parameters
-    are sampled from a Gamma(alpha, beta) distribution.
-
-    Parameters
+    PARAMETERS
     ----------
-    reactant_matrix : ndarray (num_species x num_reactions)
-        Full reactant matrix for the CRN.
-    product_matrix : ndarray (num_species x num_reactions)
-        Full product matrix for the CRN.
-    stoichiometric_matrix : ndarray (num_species x num_reactions)
-        Full stoichiometric matrix for the CRN.
-    reaction_names : list of str
+    reactant_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric coefficients of reactants for all reactions.
+    product_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric coefficients of products for all reactions.
+    stoichiometric_matrix : np.ndarray, shape (num_species, num_reactions)
+        Stoichiometric changes for all reactions (product - reactant).
+    reaction_names : list of str, length num_reactions
         Names of all reactions in the full CRN.
-    parameter_names : list of str
-        Names of all parameters in the full CRN.
-    species_names : list of str
-        Names of species in the CRN.
+    parameter_names : list of str, length num_reactions
+        Names of the parameters corresponding to each reaction.
+    species_names : list of str, length num_species
+        Names of all species in the system.
     selected_names : list of str
-        Names of reactions to select for the sub-CRN.
+        Names of reactions to select for the CRN.
     rates : list of float, optional
-        Rates corresponding to selected reactions. If None, gamma prior is used.
-    alpha : float, optional
-        Shape parameter of Gamma distribution used if rates=None. Default=2.6.
-    beta : float, optional
-        Scale parameter of Gamma distribution used if rates=None. Default=0.4.
-    seed : int, optional
+        If provided, exact values for the selected reactions; otherwise, sampled from Gamma(alpha, beta).
+    alpha : float, optional (default=2.6)
+        Shape parameter for gamma distribution used if rates=None.
+    beta : float, optional (default=0.4)
+        Scale parameter for gamma distribution used if rates=None.
+    seed : int or None, optional
         Random seed for reproducibility.
+    verbose : bool, optional (default=True)
+        If True, print a table summarizing the selected reactions and their parameter values.
 
-    Returns
+    RETURNS
     -------
-    CRN_stoichiometric_matrix : ndarray
-        Stoichiometric matrix for selected reactions.
+    CRN_stoichiometric_matrix : np.ndarray
+        Stoichiometric matrix for the selected reactions.
     CRN_reaction_names : list of str
-        Names of selected reactions.
+        Names of the selected reactions.
     CRN_parameter_names : list of str
-        Names of parameters corresponding to selected reactions.
-    CRN_propensities : list of callables
+        Parameter names corresponding to the selected reactions.
+    CRN_propensities : list of callable
         Propensity functions for each selected reaction.
+    trueTheta : np.ndarray
+        Full-length vector of reaction parameters for the entire CRN.
+        - Length: number of reactions in the full CRN (stoichiometric_matrix.shape[1])
+        - For selected reactions, trueTheta[idx] holds the provided or sampled value
+        - For non-selected reactions, trueTheta[idx] = 0
     CRN_parameter_values : dict
         Dictionary mapping parameter names to their numeric values.
     CRN_indices : list of int
@@ -330,7 +334,7 @@ def build_subCRN_from_names(reactant_matrix, product_matrix, stoichiometric_matr
         np.random.seed(seed)
         random.seed(seed)
 
-    # Get exact indices of the selected reactions using the robust helper
+    # Get exact indices of the selected reactions
     CRN_indices = get_reaction_indices(reaction_names, selected_names)
 
     # Extract submatrices and names
@@ -338,26 +342,29 @@ def build_subCRN_from_names(reactant_matrix, product_matrix, stoichiometric_matr
     CRN_reaction_names = [reaction_names[i] for i in CRN_indices]
     CRN_parameter_names = [parameter_names[i] for i in CRN_indices]
 
-    # Prepare outputs
+    # Initialize outputs
     CRN_propensities = []
     CRN_parameter_values = {}
+    trueTheta = np.zeros(stoichiometric_matrix.shape[1])  # full-length vector
+
+    num_species = reactant_matrix.shape[0]
 
     for idx, par_name in zip(CRN_indices, CRN_parameter_names):
         reactants = reactant_matrix[:, idx]
 
-        # Determine parameter value: use provided rates or gamma prior
+        # Determine parameter value
         if rates is not None:
-            rate_val = rates[CRN_indices.index(idx)]  # match index to rates list
+            rate_val = rates[CRN_indices.index(idx)]
         else:
             rate_val = np.random.gamma(alpha, beta)
         CRN_parameter_values[par_name] = rate_val
+        trueTheta[idx] = rate_val  # store in full-length trueTheta
 
         # Build propensity function depending on reactants
-        nz = np.nonzero(reactants)[0]  # species with non-zero stoichiometry
+        nz = np.nonzero(reactants)[0]
         propensity_string = ""
 
         if len(nz) == 0:
-            # Zero reactants: lambda k: k
             propensity_string = f"lambda {par_name}: {par_name}"
         elif len(nz) == 1:
             i = nz[0]
@@ -385,15 +392,25 @@ def build_subCRN_from_names(reactant_matrix, product_matrix, stoichiometric_matr
             if t not in parameter_names and t not in species_names:
                 raise ValueError(f"Disallowed identifier in propensity: {t}")
 
-        # Create function object
         CRN_propensities.append(eval(propensity_string))
+
+    # Verbose output: table of selected reactions and parameters
+    if verbose:
+        print("\nSelected CRN Reactions:")
+        print(f"{'Index':<6} {'Parameter':<8} {'Reaction Name':<30} {'Value':<10}")
+        print("-" * 60)
+        for idx, pname, rname in zip(CRN_indices, CRN_parameter_names, CRN_reaction_names):
+            print(f"{idx:<6} {pname:<8} {rname:<30} {trueTheta[idx]:<10.4f}")
+        print(f"\nFull trueTheta vector: {trueTheta}\n")
 
     return (CRN_stoichiometric_matrix,
             CRN_reaction_names,
             CRN_parameter_names,
             CRN_propensities,
+            trueTheta,
             CRN_parameter_values,
             CRN_indices)
+
 
 def generate_single_trajectory(rn, parameter_values, species_names,
                                finalTime=120, minVal=5, maxVal=5, seed=None):
