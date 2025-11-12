@@ -155,7 +155,66 @@ def extract_local_data(jump_counts, waiting_times, propensities, unique_changes,
     return local_counts, local_waiting_times, local_propensities, selected_deltaX
 
 
-def local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta):
+def local_log_likelihood(Filtered_X_Counts,Filtered_T_Vals, Filtered_X_Propensities, theta):
+    """
+    Compute the LOCAL log-likelihood function given the data and parameters theta.
+
+    **Precomputed**
+    Filtered_X_Counts:       Dictionary of counts for each state x (n_{x,l}.
+    Filtered_T_Vals:         Dictionary of target values for each state x. (tau_{x})
+    Filtered_X_Propensities: Dictionary of propensities g_j(x) for each state x. (lambda_{x,l})
+
+    **Parameter**
+    theta: Vector of parameters (theta_j) for each propensity.
+    
+    Returns the log-likelihood value.
+    """
+    log_likelihood_value = 0
+
+    numEvents = sum(Filtered_X_Counts.values())
+
+    if np.linalg.norm(theta, ord=2) == 0:
+        if numEvents == 0: #We have no observations!
+            return 0       #Return log(1)
+        else:               #We observe data! But no rates
+            return -np.inf #Return log(0)
+    
+    # Iterate over all states in the dictionary
+    for state in Filtered_X_Propensities:
+        # Make sure that the state exists in all dictionaries
+        if state in Filtered_X_Counts and state in Filtered_T_Vals:
+            g_x   = Filtered_X_Propensities[state]  # propensities g_j(x)
+            n_xl  = Filtered_X_Counts[state]        # observed counts n_{x, l}
+            tau_x = Filtered_T_Vals[state]          # target values tau_{x}
+        
+            # Compute the normalization term: sum_{j} theta_j * g_j(x)
+            normalization = np.dot(theta, g_x)  # This is the sum_{j} theta_j * g_j(x)
+
+            # Handle zero or negative normalization explicitly
+            if normalization == 0 and n_xl > 0:
+                #print(f"We should never be here!")
+                #print(f"State = {state}")
+                #print(f"Theta = {theta}")
+                #print(f"g_x = {g_x}")
+                #print(f"n_xl = {n_xl}")
+                return -np.inf  # log(0) is -infinity, and this is proper behavior
+            elif normalization == 0 and n_xl == 0:
+                term1 = 0
+            else:
+                term1 = n_xl * np.log(normalization)
+            
+            term2 = tau_x * normalization
+            log_likelihood_value += term1 - term2
+
+            # Calculate the log-likelihood for this state
+            #if normalization > 0:
+            #    term1 = n_xl * np.log(normalization)  # n_{x,l} * log( sum_j theta_j g_j(x) )
+            #    term2 = tau_x * normalization         # tau_{x} * sum_j theta_j g_j(x)
+            #    log_likelihood_value += term1 - term2
+    
+    return log_likelihood_value
+
+#def local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta):
     """
     Compute the LOCAL log-likelihood function for a given stoichiometric change.
 
@@ -170,39 +229,39 @@ def local_log_likelihood(local_counts, local_waiting_times, local_propensities, 
     Returns:
         log-likelihood value (float)
     """
-    theta = np.asarray(theta)
+ #   theta = np.asarray(theta)
 
     # Stack everything into arrays
-    states = list(local_propensities.keys())
-    G = np.vstack([local_propensities[s] for s in states])       # shape (num_states, num_props)
-    N = np.array([local_counts[s] for s in states])              # shape (num_states,)
-    T = np.array([local_waiting_times[s] for s in states])      # shape (num_states,)
-
-    # Basic checks
-    if len(theta) != G.shape[1]:
-        raise ValueError(f"Theta length {len(theta)} does not match propensity length {G.shape[1]}")
-    if np.any(theta < 0):
-        raise ValueError("All theta values must be non-negative")
-
-    # Compute normalization for all states
-    norms = G @ theta  # shape (num_states,)
-
-    # Handle zero normalization
-    if np.any(norms == 0):
-        zero_mask = (norms == 0)
-        if np.any(N[zero_mask] > 0):
-            # Observed events but zero propensity -> log-likelihood = -inf
-            return -np.inf
-        else:
-            # No events for these states, log(0) term = 0
-            norms[zero_mask] = 1  # temporarily safe for log
-
-    # Vectorized log-likelihood computation
-    log_terms = N * np.log(norms)
-    exp_terms = T * norms
-    log_likelihood_value = np.sum(log_terms - exp_terms)
-
-    return log_likelihood_value
+#    states = list(local_propensities.keys())
+#    G = np.vstack([local_propensities[s] for s in states])       # shape (num_states, num_props)
+#   N = np.array([local_counts[s] for s in states])              # shape (num_states,)
+#    T = np.array([local_waiting_times[s] for s in states])      # shape (num_states,)
+#
+#    # Basic checks
+#    if len(theta) != G.shape[1]:
+#        raise ValueError(f"Theta length {len(theta)} does not match propensity length {G.shape[1]}")
+#    if np.any(theta < 0):
+#        raise ValueError("All theta values must be non-negative")
+#
+#    # Compute normalization for all states
+#    norms = G @ theta  # shape (num_states,)
+#
+#    # Handle zero normalization
+#    if np.any(norms == 0):
+#        zero_mask = (norms == 0)
+#        if np.any(N[zero_mask] > 0):
+#   # Observed events but zero propensity -> log-likelihood = -inf
+#            return -np.inf
+#        else:
+#            # No events for these states, log(0) term = 0
+#            norms[zero_mask] = 1  # temporarily safe for log
+#
+#    # Vectorized log-likelihood computation
+#    log_terms = N * np.log(norms)
+#    exp_terms = T * norms
+#    log_likelihood_value = np.sum(log_terms - exp_terms)
+#
+#    return log_likelihood_value
 
 def plot_likelihood_vs_theta_multiplier(local_counts, local_waiting_times, local_propensities, localTheta,
                                         delta=0.5, num_points=50, title=None):
