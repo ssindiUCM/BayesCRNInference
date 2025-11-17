@@ -80,7 +80,8 @@ def extract_local_data(jump_counts, waiting_times, propensities, unique_changes,
     # Extract the relevant information for each state
     # -------------------------------------------
     local_counts = {state: counts[index_to_extract] for state, counts in jump_counts.items()}
-    local_waiting_times = {state: times[index_to_extract] for state, times in waiting_times.items()}
+    #local_waiting_times = {state: times[index_to_extract] for state, times in waiting_times.items()}
+    local_waiting_times = {state: np.sum(times) for state, times in waiting_times.items()}
     local_propensities = {state: props[index_to_extract] for state, props in propensities.items()}
 
     # -------------------------------------------
@@ -343,33 +344,25 @@ def plot_likelihood_vs_theta_multiplier(local_counts, local_waiting_times, local
 
     return multipliers, log_likelihood_values, max_ll, best_multiplier, best_theta
 
-def get_positive_deltaX_indices_and_values(jump_counts_dict, unique_changes):
-    """
-    Identify the indices of unique stoichiometric changes that have any positive counts across all states,
-    and return the corresponding deltaX values.
-
-    Parameters
-    ----------
-    jump_counts_dict : dict
-        Keys: states (tuples)
-        Values: arrays of counts, length = len(unique_changes)
-    unique_changes : list or array
-        List of unique stoichiometric changes, aligned with count arrays
-
-    Returns
-    -------
-    positive_indices : list of int
-        Indices into unique_changes that have at least one positive count
-    positive_deltaX : list
-        Entries from unique_changes corresponding to positive_indices
-    """
+def get_positive_deltaX_indices_and_values(jump_counts_dict, unique_changes, verbose=True):
     positive_indices_set = set()
     
-    for counts in jump_counts_dict.values():
-        positive_indices_set.update(np.nonzero(counts > 0)[0])
+    for state_idx, counts in enumerate(jump_counts_dict.values()):
+        pos_indices_this_state = np.nonzero(counts > 0)[0]
+        if verbose and len(pos_indices_this_state) > 0:
+            print(f"State {state_idx}: positive indices = {pos_indices_this_state}, counts = {counts[pos_indices_this_state]}")
+        positive_indices_set.update(pos_indices_this_state)
+    
+    if verbose:
+        print(f"\tLength of unique_changes:", len(unique_changes))
+        print(f"\nAll positive indices set across all states (unsorted): {positive_indices_set}")
     
     positive_indices = sorted(positive_indices_set)
     positive_deltaX = [unique_changes[i] for i in positive_indices]
+    
+    if verbose:
+        print(f"Sorted positive indices: {positive_indices}")
+        print(f"Corresponding ΔX values: {positive_deltaX}\n")
     
     return positive_indices, positive_deltaX
 
