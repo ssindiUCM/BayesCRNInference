@@ -215,54 +215,6 @@ def local_log_likelihood(Filtered_X_Counts,Filtered_T_Vals, Filtered_X_Propensit
     
     return log_likelihood_value
 
-#def local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta):
-    """
-    Compute the LOCAL log-likelihood function for a given stoichiometric change.
-
-    Vectorized over all states.
-
-    Args:
-        local_counts:        dict mapping state x -> counts n_{x,l} for the selected change
-        local_waiting_times: dict mapping state x -> cumulative waiting time tau_x
-        local_propensities:  dict mapping state x -> propensities g_j(x) (for each compatible reaction)
-        theta:               vector of parameters theta_j for each propensity (must be non-negative)
-    
-    Returns:
-        log-likelihood value (float)
-    """
- #   theta = np.asarray(theta)
-
-    # Stack everything into arrays
-#    states = list(local_propensities.keys())
-#    G = np.vstack([local_propensities[s] for s in states])       # shape (num_states, num_props)
-#   N = np.array([local_counts[s] for s in states])              # shape (num_states,)
-#    T = np.array([local_waiting_times[s] for s in states])      # shape (num_states,)
-#
-#    # Basic checks
-#    if len(theta) != G.shape[1]:
-#        raise ValueError(f"Theta length {len(theta)} does not match propensity length {G.shape[1]}")
-#    if np.any(theta < 0):
-#        raise ValueError("All theta values must be non-negative")
-#
-#    # Compute normalization for all states
-#    norms = G @ theta  # shape (num_states,)
-#
-#    # Handle zero normalization
-#    if np.any(norms == 0):
-#        zero_mask = (norms == 0)
-#        if np.any(N[zero_mask] > 0):
-#   # Observed events but zero propensity -> log-likelihood = -inf
-#            return -np.inf
-#        else:
-#            # No events for these states, log(0) term = 0
-#            norms[zero_mask] = 1  # temporarily safe for log
-#
-#    # Vectorized log-likelihood computation
-#    log_terms = N * np.log(norms)
-#    exp_terms = T * norms
-#    log_likelihood_value = np.sum(log_terms - exp_terms)
-#
-#    return log_likelihood_value
 
 def plot_likelihood_vs_theta_multiplier(local_counts, local_waiting_times, local_propensities, localTheta,
                                         delta=0.5, num_points=50, title=None):
@@ -343,6 +295,80 @@ def plot_likelihood_vs_theta_multiplier(local_counts, local_waiting_times, local
     plt.show()
 
     return multipliers, log_likelihood_values, max_ll, best_multiplier, best_theta
+
+def plot_likelihood_vs_theta_interpolation(local_counts, local_waiting_times, local_propensities,
+                                           theta1, theta2, num_points=50, title=None):
+    """
+    Plot the log-likelihood as a function of alpha, where
+    theta(alpha) = alpha * theta1 + (1 - alpha) * theta2.
+
+    Parameters
+    ----------
+    local_counts, local_waiting_times, local_propensities : arrays/dicts
+        Local data for the selected stoichiometric change.
+    theta1, theta2 : np.ndarray
+        Two true parameter vectors to interpolate between.
+    num_points : int
+        Number of alpha points to evaluate. Default 50.
+    title : str
+        Optional title for the plot.
+
+    Returns
+    -------
+    alphas : np.ndarray
+        Alpha values evaluated (0 to 1).
+    log_likelihood_values : list
+        Log-likelihood values for each alpha.
+    max_ll : float
+        Maximum log-likelihood observed.
+    best_alpha : float
+        Alpha achieving maximum log-likelihood.
+    best_theta : np.ndarray
+        Theta corresponding to maximum log-likelihood.
+    """
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Generate alpha values between 0 and 1
+    alphas = np.linspace(0, 1, num_points)
+    log_likelihood_values = []
+
+    # Track the best result
+    max_ll = -np.inf
+    best_alpha = None
+    best_theta = None
+
+    print(f"Theta1 = {theta1}")
+    print(f"Theta2 = {theta2}")
+
+    for alpha in alphas:
+        theta_alpha = alpha * theta1 + (1 - alpha) * theta2
+        ll = local_log_likelihood(local_counts, local_waiting_times, local_propensities, theta_alpha)
+        log_likelihood_values.append(ll)
+
+        if ll > max_ll:
+            max_ll = ll
+            best_alpha = alpha
+            best_theta = theta_alpha
+
+    print(f"Maximum Log-Likelihood = {max_ll}")
+    print(f"Best Alpha = {best_alpha}")
+    print(f"Best Theta = {best_theta}")
+
+    # Plot
+    plt.figure(figsize=(6,4))
+    plt.plot(alphas, log_likelihood_values, marker='o', label='Log-Likelihood')
+    plt.axvline(1.0, color='red', linestyle='--', label='Theta1')
+    plt.axvline(0.0, color='green', linestyle='--', label='Theta2')
+    plt.xlabel(r'Alpha ($\theta(\alpha) = \alpha \theta_1 + (1-\alpha) \theta_2$)')
+    plt.ylabel('Log Likelihood')
+    plt.title(title if title is not None else 'Log Likelihood vs Theta Interpolation')
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+    return alphas, log_likelihood_values, max_ll, best_alpha, best_theta
+
 
 def get_positive_deltaX_indices_and_values(jump_counts_dict, unique_changes, verbose=True):
     positive_indices_set = set()
