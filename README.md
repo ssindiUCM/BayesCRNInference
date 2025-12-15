@@ -71,6 +71,7 @@ BayesCRNInference/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+```
 
 ---
 
@@ -102,11 +103,13 @@ Install dependencies via:
 
 ```bash
 pip install -r requirements.txt
+```
 
 To verify your environment, run:
 
 ```text
 check_requirements.ipynb
+```
 
 ---
 
