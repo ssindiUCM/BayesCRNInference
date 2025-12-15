@@ -88,16 +88,19 @@ All inference logic, likelihood construction, and MCMC algorithms are implemente
 
 ### Requirements
 
+
 - Python 3.9+
 - Jupyter Notebook
 
-Core dependencies include:
-- numpy
-- scipy
-- matplotlib
-- seaborn
-- scikit-learn
-- torch
+Core dependencies (versions are pinned in `requirements.txt`):
+
+- numpy ≥ 1.23, < 2.0  
+- scipy ≥ 1.10, < 2.0  
+- matplotlib ≥ 3.7, < 3.8  
+- seaborn ≥ 0.12, < 0.13  
+- scikit-learn ≥ 1.3, < 1.5  
+- torch ≥ 2.0, < 2.2  
+- joblib ≥ 1.3, < 1.5  
 
 Install dependencies via:
 
