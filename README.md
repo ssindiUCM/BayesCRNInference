@@ -1,20 +1,41 @@
 # BayesCRNInference
 
-Bayesian inference framework for chemical reaction networks (CRNs) using MCMC.
-This code supports **exact stochastic trajectory data** under **mass-action kinetics** with **discrete molecular counts**, and allows joint inference of both **network structure** and **reaction rates**.
+Bayesian inference framework for **stochastic chemical reaction networks (CRNs)** using **exact trajectory data** under **mass-action kinetics**.
+
+This repository accompanies a research manuscript and is intended to support **methodological transparency and reproducibility**, rather than to function as a general-purpose inference library.
 
 ---
 
 ## 📖 Overview
 
-This repository contains code used in our manuscript to demonstrate Bayesian MCMC inference on stochastic CRN trajectories.
+This code implements Bayesian inference for stochastic biochemical reaction networks using **fully observed stochastic trajectories** (e.g., Gillespie simulations).
 
-Key features:
+The central scientific goal is to infer:
+- **Reaction rate parameters**
+- **Network structure** (distinguishing absent reactions from reactions with very small rates)
 
-* Inference from **exact stochastic trajectories** (not approximations).
-* Models assume **mass-action kinetics** with discrete counts.
-* Supports inference of both **reaction rates** and **network structure** (detecting reactions that are absent vs. very small).
-* Includes reproducible **example notebooks** from the manuscript.
+from **exact discrete-state trajectories**, without diffusion or moment approximations.
+
+Inference is performed using MCMC, leveraging a decomposition of the likelihood into contributions from **local stoichiometric changes**.
+
+---
+
+## 🔬 Scientific Scope and Assumptions
+
+This code assumes:
+
+- Discrete molecular counts
+- Continuous-time Markov jump processes
+- Mass-action kinetics
+- Fully observed state trajectories (event times and states)
+
+It is **not** designed for:
+- Partial observations
+- Time-discretized data
+- Deterministic or diffusion approximations
+- Black-box CRN inference
+
+Users are expected to be familiar with stochastic CRNs and Bayesian inference.
 
 ---
 
@@ -23,31 +44,42 @@ Key features:
 ```text
 BayesCRNInference/
 │
-├── CRN_Simulation/      # Supporting CRN code (adapted from Zhou Fang)
+├── CRN_Simulation/          # External CRN simulation code (prior work)
 │   ├── CRN.py
 │   ├── MatrixExponentialKrylov.py
 │   ├── DistributionOfSystems.py
 │   ├── MarginalDistribution.py
-│   └── __init__.py  
+│   └── __init__.py
 │
-├── src/                 # Core source code (functions)
-│   ├── parsing.py       # Functions for parsing stochastic trajectory data
-│   ├── mcmc.py          # Functions for MCMC sampling and inference
-│   └── inference.py     # (Optional) high-level wrappers combining parsing + MCMC
+├── src/                     # Inference and likelihood construction
+│   ├── parsing.py           # Trajectory parsing and sufficient statistics
+│   ├── mcmc.py              # MCMC algorithms
+│   └── inference.py         # High-level inference utilities
 │
-├── examples/            # Reproducible Jupyter notebooks
-│   ├── example1.ipynb   # Simple toy example
-│   ├── example2.ipynb   # Intermediate example
-│   ├── example3.ipynb   # Full manuscript example
+├── examples/                # Jupyter notebooks reproducing manuscript analyses
+│   ├── example1.ipynb
+│   ├── example2.ipynb
+│   └── example3.ipynb
 │
-├── main_examples.ipynb  # Clean single notebook demonstrating manuscript runs
+├── data/                    # Example stochastic trajectories (tracked)
+│   ├── example1_crn1_trajectory.json
+│   ├── example2_crn2_trajectory.json
+│   └── example3_trajectory.json
 │
-├── data/                # Folder for generated trajectories (ignored by Git)
+├── check_requirements.ipynb # Environment and dependency check
 │
-├── README.md            # Project description
-├── LICENSE              # GNU GPL v3 license
-└── .gitignore           # Ignore Python build artifacts, notebooks, data, etc.
-```
+├── README.md
+├── LICENSE
+└── .gitignore
+
+---
+
+## 🧩 External CRN Simulation Code
+
+The directory `CRN_Simulation/` contains **supporting simulation code adapted from prior work** and is included to enable trajectory generation and visualization.
+
+This code is **not the focus of the repository**.  
+All inference logic, likelihood construction, and MCMC algorithms are implemented in `src/`.
 
 ---
 
@@ -55,83 +87,85 @@ BayesCRNInference/
 
 ### Requirements
 
-* Python 3.9+
-* Jupyter
-* Required Python packages (see `requirements.txt` for pinned versions):
+- Python 3.9+
+- Jupyter Notebook
 
-  * numpy
-  * scipy
-  * seaborn
-  * matplotlib
-  * scikit-learn
-  * torch
+Core dependencies include:
+- numpy
+- scipy
+- matplotlib
+- seaborn
+- scikit-learn
+- torch
 
-You can install dependencies via:
+Install dependencies via:
 
 ```bash
 pip install -r requirements.txt
-```
 
-> Note: `CRN_Simulation` is a local module included in this repository and does not need to be installed via pip.
+To verify your environment, run:
 
----
-
-### Running Examples
-
-To reproduce results from the manuscript:
-
-1. Open `main_examples.ipynb` in Jupyter.
-2. Run all cells top-to-bottom.
-3. To explore more detail, see individual notebooks in `examples/`.
+```text
+check_requirements.ipynb
 
 ---
 
-### Generating and Loading Trajectories
+## 📊 Example Trajectories
 
-Example trajectories are saved in the `data/` folder (create it locally if it doesn’t exist).
+The `data/` directory contains **example stochastic trajectories** used in the accompanying notebooks.
 
-**Generate and save a trajectory:**
+These trajectories:
+- Are generated from known CRNs
+- Serve as illustrative inputs for inference
+- Are included to support transparency and ease of use
 
-```python
-from src.parsing import generate_single_trajectory, save_trajectory
+They should **not** be interpreted as canonical datasets.
 
-time_list, state_list = generate_single_trajectory(
-    rn,
-    parameter_values,
-    species_names,
-    finalTime=120,
-    minVal=5,
-    maxVal=5,
-    seed=42
-)
-save_trajectory(time_list, state_list, filename="../data/example3_trajectory.json")
-```
+---
 
-**Load a saved trajectory:**
+## 📓 Reproducing Analyses
 
-```python
-from src.parsing import load_trajectory
+The notebooks in `examples/` demonstrate the inference pipeline used in the manuscript:
 
-time_list, state_list = load_trajectory("../data/example3_trajectory.json")
-rn.plot_trajectories(time_list, state_list)
-```
+1. Load or generate a stochastic trajectory
+2. Parse trajectory data into sufficient statistics
+3. Construct local likelihood components
+4. Run MCMC for rate and/or structure inference
+5. Visualize posterior distributions
 
-> **Note:** Files inside `data/` are ignored by Git to avoid syncing generated outputs.
+Because inference relies on stochastic simulation and MCMC:
+- Exact numerical results may vary between runs
+- Qualitative posterior behavior and conclusions should be consistent
+
+---
+
+## 🔁 Reproducibility Philosophy
+
+This repository prioritizes:
+
+- **Methodological reproducibility**
+- **Likelihood transparency**
+- **Clear separation of modeling assumptions**
+
+It does **not** guarantee:
+- Identical MCMC traces
+- Bitwise reproducibility of figures
+- Exact posterior samples across environments
+
+Random seeds are used where appropriate to improve stability, but stochastic variation is expected.
 
 ---
 
 ## ⚖️ License
 
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
-You are free to use, share, and modify this code, but **any derivative work must also remain open-source under the same license**.
+
+You are free to use, modify, and distribute this code, provided that any derivative work is released under the same license.
 
 ---
 
 ## ✨ Acknowledgments
-* Code developed by Suzanne Sindi (ssindi(at)ucmerced.edu).
-* Core CRN code adapted from Zhou Fang (zhfang(at)amss.ac.cn).
-* Code package developed to accompany tentatively titled: *Bayesian Inference in Stochastic Biochemical Reaction Systems with Full Trajectory Data.*
 
----
-
-
+- Code developed by **Suzanne Sindi** (ssindi(at)ucmerced.edu)
+- CRN simulation code adapted from **Zhou Fang** (zhfang(at)amss.ac.cn)
+- Developed to accompany a manuscript on Bayesian inference for stochastic biochemical reaction networks with full trajectory data
