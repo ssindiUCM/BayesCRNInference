@@ -2,8 +2,11 @@ import numpy as np
 import random
 import json
 import re
+import os
 from collections import defaultdict
 import matplotlib.pyplot as plt
+from scipy.optimize import minimize
+
 
 def is_whole_number(val):
     """
@@ -392,3 +395,103 @@ def get_positive_deltaX_indices_and_values(jump_counts_dict, unique_changes, ver
     
     return positive_indices, positive_deltaX
 
+def plot_l1_path(lambdas, theta_path, obj_values, results_dir, index, reaction_names=None, true_theta=None):
+    """
+    Plot L1 path of parameters vs lambda and the objective value.
+    
+    Parameters
+    ----------
+    lambdas : array-like
+        Array of lambda values used in L1 sweep
+    theta_path : array-like, shape (num_lambdas, num_parameters)
+        Optimized theta for each lambda
+    obj_values : array-like
+        Objective function values for each lambda
+    results_dir : str
+        Directory to save plots
+    index : int
+        Index of the stoichiometric change
+    reaction_names : list of str, optional
+        Names of reactions
+    true_theta : array-like, optional
+        True parameter values for plotting as dashed lines
+    """
+    n_params = theta_path.shape[1]
+    fig, axes = plt.subplots(1, n_params + 1, figsize=(4*(n_params+1), 4))
+
+    # Plot each parameter vs lambda
+    for i in range(n_params):
+        axes[i].plot(lambdas, theta_path[:, i], marker='o', label=f"θ_{i}")
+        axes[i].set_xscale('log')
+        axes[i].set_xlabel('Lambda')
+        axes[i].set_ylabel('Parameter Value')
+        axes[i].grid(True, alpha=0.3)
+        if reaction_names is not None:
+            axes[i].set_title(reaction_names[i])
+        # Plot horizontal line for true theta
+        if true_theta is not None:
+            axes[i].axhline(true_theta[i], color='red', linestyle='--', label='True θ')
+        axes[i].legend()
+
+    # Plot objective value
+    axes[-1].plot(lambdas, obj_values, marker='o', color='black', label='Objective')
+    axes[-1].set_xscale('log')
+    axes[-1].set_xlabel('Lambda')
+    axes[-1].set_ylabel('Objective Value')
+    axes[-1].grid(True, alpha=0.3)
+    axes[-1].legend()
+
+    plt.tight_layout()
+    filename = os.path.join(results_dir, f"L1_result_index_{index}.png")
+    plt.savefig(filename, dpi=300)
+    plt.close(fig)
+
+def run_l1_path(
+    local_counts,
+    local_waiting_times,
+    local_propensities,
+    theta_init,
+    lambdas
+):
+    """
+    Runs an L1-regularized optimization path.
+    """
+    num_lambdas = len(lambdas)
+    dim = len(theta_init)
+
+    theta_path = np.zeros((num_lambdas, dim))
+    obj_values = np.zeros(num_lambdas)
+
+    theta_current = theta_init.copy()
+
+    bounds = [(0.0, None)] * dim  # enforce non-negativity
+
+    for i, lam in enumerate(lambdas):
+        res = minimize(
+            l1_objective,
+            theta_current,
+            args=(local_counts, local_waiting_times, local_propensities, lam),
+            method="L-BFGS-B",
+            bounds=bounds
+        )
+
+        theta_current = res.x
+        theta_path[i, :] = theta_current
+        obj_values[i] = -res.fun  # convert back to max objective
+
+        # Optional early stopping: everything is zero
+        if np.all(theta_current < 1e-8):
+            theta_path = theta_path[:i+1]
+            obj_values = obj_values[:i+1]
+            lambdas = lambdas[:i+1]
+            break
+
+    return lambdas, theta_path, obj_values
+
+def l1_objective(theta, counts, waiting_times, propensities, lam):
+    """
+    Negative penalized log-likelihood
+    """
+    ll = local_log_likelihood(counts, waiting_times, propensities, theta)
+    penalty = lam * np.sum(np.abs(theta))
+    return -(ll - penalty)
