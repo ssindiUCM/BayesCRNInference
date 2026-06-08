@@ -280,7 +280,174 @@ def build_CRN_bySamplingReactions(reactant_matrix, product_matrix, stoichiometri
     return (CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
             CRN_propensities, trueTheta, parameter_values, sampled_indices)
 
+def build_CRN_bySamplingReactions_withConstraints(
+        reactant_matrix, product_matrix, stoichiometric_matrix,
+        reaction_names, parameter_names, species_names,
+        unique_changes, compatible_reactions,
+        N=20, n_ambiguous_changes=2, min_reactions_per_change=2,
+        alpha=2.6, beta=0.4, seed=None, verbose=True):
+    """
+    Sample N reactions from a full CRN, with a structural constraint:
+    at least `n_ambiguous_changes` stoichiometric changes must each be
+    represented by at least `min_reactions_per_change` sampled reactions.
 
+    This ensures the resulting CRN contains genuine stoichiometric ambiguity —
+    i.e., the net change alone does not uniquely identify the reaction.
+
+    Parameters
+    ----------
+    reactant_matrix, product_matrix, stoichiometric_matrix : np.ndarray
+    reaction_names, parameter_names, species_names : lists
+    unique_changes : list of tuples
+        All unique stoichiometric change vectors (from generate_reactions).
+    compatible_reactions : dict
+        Maps stoichiometric change tuple -> list of reaction indices.
+    N : int
+        Total number of reactions to sample.
+    n_ambiguous_changes : int
+        Number of stoichiometric changes that must each have >=min_reactions_per_change
+        reactions sampled. Default 2.
+    min_reactions_per_change : int
+        Minimum number of reactions sampled per guaranteed ambiguous change. Default 2.
+    alpha, beta : float
+        Gamma distribution parameters for rate constants.
+    seed : int or None
+    verbose : bool
+
+    Returns
+    -------
+    Same 7-tuple as build_CRN_bySamplingReactions:
+        CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
+        CRN_propensities, trueTheta, parameter_values, sampled_indices
+    """
+    if seed is not None:
+        np.random.seed(seed)
+        random.seed(seed)
+
+    # --- Validate N is large enough ---
+    min_required = n_ambiguous_changes * min_reactions_per_change
+    if N < min_required:
+        raise ValueError(
+            f"N={N} is too small: need at least {n_ambiguous_changes} changes × "
+            f"{min_reactions_per_change} reactions = {min_required} reactions."
+        )
+
+    # --- Phase 1: find stoichiometric changes with enough compatible reactions ---
+    # Filter to only changes that have >= min_reactions_per_change options
+    eligible_changes = [
+        ch for ch in unique_changes
+        if len(compatible_reactions[ch]) >= min_reactions_per_change
+    ]
+    if len(eligible_changes) < n_ambiguous_changes:
+        raise ValueError(
+            f"Only {len(eligible_changes)} stoichiometric change(s) have "
+            f">= {min_reactions_per_change} compatible reactions, "
+            f"but n_ambiguous_changes={n_ambiguous_changes} were requested."
+        )
+
+    # Randomly pick n_ambiguous_changes of those eligible changes
+    chosen_changes = random.sample(eligible_changes, n_ambiguous_changes)
+
+    if verbose:
+        print(f"\n[Constraint] Guaranteeing {n_ambiguous_changes} ambiguous stoichiometric changes:")
+        for ch in chosen_changes:
+            print(f"  ΔX={ch}  →  {len(compatible_reactions[ch])} compatible reactions available")
+
+    # For each chosen change, sample min_reactions_per_change reactions from its pool
+    guaranteed_indices = []
+    for ch in chosen_changes:
+        pool = compatible_reactions[ch]
+        chosen = random.sample(pool, min_reactions_per_change)
+        guaranteed_indices.extend(chosen)
+
+    # Deduplicate (in case two changes share a reaction index — rare but possible)
+    guaranteed_indices = list(dict.fromkeys(guaranteed_indices))
+
+    if verbose:
+        print(f"  Guaranteed reaction indices ({len(guaranteed_indices)} total): {guaranteed_indices}")
+
+    # --- Phase 2: fill remaining slots randomly ---
+    n_remaining = N - len(guaranteed_indices)
+    all_indices = list(range(len(reaction_names)))
+    remaining_pool = [i for i in all_indices if i not in guaranteed_indices]
+
+    if n_remaining > len(remaining_pool):
+        raise ValueError(
+            f"Cannot sample {n_remaining} additional reactions: "
+            f"only {len(remaining_pool)} reactions remain after guaranteed set."
+        )
+
+    filler_indices = random.sample(remaining_pool, n_remaining)
+    sampled_indices = guaranteed_indices + filler_indices
+
+    if verbose:
+        print(f"  Filler reactions sampled: {len(filler_indices)}")
+        print(f"  Total sampled: {len(sampled_indices)}\n")
+
+    # --- Build CRN (identical logic to build_CRN_bySamplingReactions) ---
+    CRN_stoichiometric_matrix = stoichiometric_matrix[:, sampled_indices]
+    CRN_reaction_names  = [reaction_names[i]  for i in sampled_indices]
+    CRN_parameter_names = [parameter_names[i] for i in sampled_indices]
+
+    trueTheta        = np.zeros(stoichiometric_matrix.shape[1])
+    CRN_propensities = []
+    parameter_values = {}
+    num_species      = reactant_matrix.shape[0]
+
+    for idx in sampled_indices:
+        reactants = reactant_matrix[:, idx]
+        par_name  = parameter_names[idx]
+
+        pVal = np.random.gamma(alpha, beta)
+        parameter_values[par_name] = pVal
+        trueTheta[idx] = pVal
+
+        nz = np.nonzero(reactants)[0]
+        if len(nz) == 0:
+            propensity_string = f"lambda {par_name}: {par_name}"
+        elif len(nz) == 1:
+            i = nz[0]
+            sname = species_names[i]
+            multiplicity = int(reactants[i])
+            if multiplicity == 1:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}"
+            elif multiplicity == 2:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}*({sname}-1)/2"
+            else:
+                terms = "*".join([f"({sname}-{j})" for j in range(multiplicity)])
+                propensity_string = (
+                    f"lambda {par_name}, {sname}: "
+                    f"{par_name}*({terms})/{np.math.factorial(multiplicity)}"
+                )
+        elif len(nz) == 2:
+            i, j = nz
+            s1, s2 = species_names[i], species_names[j]
+            propensity_string = f"lambda {par_name}, {s1}, {s2}: {par_name}*{s1}*{s2}"
+        else:
+            raise ValueError("Only up to bimolecular reactants supported (<=2 distinct species).")
+
+        # Safety check
+        tokens = re.findall(r'\b[A-Za-z_][A-Za-z0-9_]*\b', propensity_string)
+        for t in tokens:
+            if t in {'lambda', 'return'}:
+                continue
+            if t not in parameter_names and t not in species_names:
+                raise ValueError(f"Disallowed identifier in propensity: {t}")
+
+        CRN_propensities.append(eval(propensity_string))
+
+    # --- Verbose summary ---
+    if verbose:
+        print(f"Sampling {N} reactions out of {stoichiometric_matrix.shape[1]} total.\n")
+        print(f"{'Index':<6} {'Param':<8} {'Reaction Name':<30} {'Value':<8} {'Guaranteed'}")
+        print("-" * 65)
+        for idx, pname, rname in zip(sampled_indices, CRN_parameter_names, CRN_reaction_names):
+            tag = "✓" if idx in guaranteed_indices else ""
+            print(f"{idx:<6} {pname:<8} {rname:<30} {parameter_values[pname]:<8.3f} {tag}")
+        print(f"\nFull trueTheta vector (length {len(trueTheta)}).")
+
+    return (CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
+            CRN_propensities, trueTheta, parameter_values, sampled_indices)
 
 def build_CRN_byNameSelection(reactant_matrix, product_matrix, stoichiometric_matrix,
                               reaction_names, parameter_names, species_names,

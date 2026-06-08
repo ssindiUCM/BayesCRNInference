@@ -169,7 +169,7 @@ def adaptive_mcmc(theta_init, log_likelihood_fn, alpha, beta, pi,
 def adaptive_mcmc_spike_slab(local_counts, local_waiting_times, local_propensities,
                              theta_init, trueTheta, num_iterations=1000,
                              alpha=1.0, beta=1.0, pi=0.5,
-                             epsilon=1e-6, burn_in=100, adapt_every_n=1):
+                             epsilon=1e-6, burn_in=100, adapt_every_n=1, printEveryNSteps=10000):
     """
     Adaptive Metropolis MCMC with Spike-and-Slab prior via transformation over theta*.
     
@@ -204,7 +204,7 @@ def adaptive_mcmc_spike_slab(local_counts, local_waiting_times, local_propensiti
     mu = theta_star.copy()
     cov = np.eye(d) * 0.01  # small initial covariance
 
-    printEveryNSteps = 10000
+    #printEveryNSteps = 10000
     
     for iteration in range(1, num_iterations + 1):
         # Propose new theta_star
