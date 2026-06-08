@@ -690,6 +690,243 @@ def load_trajectory(filename):
 
     return time_list, state_list
 
+def _build_propensities_from_reactant_matrix(reactant_matrix, species_names, parameter_names):
+    """
+    Reconstruct propensity lambda functions from a reactant matrix.
+
+    Uses the same logic as build_CRN_bySamplingReactions. Each column of
+    reactant_matrix corresponds to one reaction; the propensity form is
+    determined solely by the reactant stoichiometry (unimolecular,
+    bimolecular, or zeroth-order). Called internally by load_reaction_network.
+
+    Parameters
+    ----------
+    reactant_matrix : np.ndarray, shape (num_species, num_reactions)
+        Reactant stoichiometry for each reaction.
+    species_names : list of str
+    parameter_names : list of str
+        One parameter name per reaction column.
+
+    Returns
+    -------
+    propensities : list of callable
+    """
+    import math
+    propensities = []
+    for col_idx in range(reactant_matrix.shape[1]):
+        reactants = reactant_matrix[:, col_idx]
+        par_name  = parameter_names[col_idx]
+        nz = np.nonzero(reactants)[0]
+
+        if len(nz) == 0:
+            propensity_string = f"lambda {par_name}: {par_name}"
+        elif len(nz) == 1:
+            i = nz[0]
+            sname = species_names[i]
+            multiplicity = int(reactants[i])
+            if multiplicity == 1:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}"
+            elif multiplicity == 2:
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*{sname}*({sname}-1)/2"
+            else:
+                terms = "*".join([f"({sname}-{j})" for j in range(multiplicity)])
+                fac   = math.factorial(multiplicity)
+                propensity_string = f"lambda {par_name}, {sname}: {par_name}*({terms})/{fac}"
+        elif len(nz) == 2:
+            i, j   = nz
+            s1, s2 = species_names[i], species_names[j]
+            propensity_string = f"lambda {par_name}, {s1}, {s2}: {par_name}*{s1}*{s2}"
+        else:
+            raise ValueError(
+                f"Only up to bimolecular reactions are supported "
+                f"(reaction {col_idx} has {len(nz)} distinct reactant species)."
+            )
+
+        propensities.append(eval(propensity_string))
+
+    return propensities
+
+
+def save_reaction_network(
+    species_names,
+    reactant_matrix,
+    CRN_stoichiometric_matrix,
+    CRN_reaction_names,
+    CRN_parameter_names,
+    trueTheta,
+    parameter_values,
+    sampled_indices,
+    unique_changes,
+    compatible_reactions,
+    filename,
+):
+    """
+    Save a sampled reaction network to a JSON file.
+
+    Stores everything needed to reconstruct:
+      - the CRN object (for SSA simulation and trajectory plotting)
+      - trueTheta, parameter_values, sampled_indices (for inference)
+      - reactant_matrix, unique_changes, compatible_reactions (for parse_trajectory)
+
+    Propensity lambda functions are *not* serialized directly; they are
+    rebuilt automatically by load_reaction_network from the reactant matrix.
+
+    Parameters
+    ----------
+    species_names : list of str
+    reactant_matrix : np.ndarray, shape (num_species, num_reactions_full)
+        Full reactant matrix from generate_reactions — needed for parse_trajectory
+        and to rebuild propensity functions on load.
+    CRN_stoichiometric_matrix : np.ndarray, shape (num_species, N_sampled)
+    CRN_reaction_names : list of str, length N_sampled
+    CRN_parameter_names : list of str, length N_sampled
+    trueTheta : np.ndarray
+        Full-length parameter vector (length = total reactions in full CRN).
+    parameter_values : dict
+        Maps sampled parameter names -> rate values.
+    sampled_indices : list of int
+        Indices of sampled reactions in the full CRN.
+    unique_changes : list of tuples
+        All unique stoichiometric change vectors from the full CRN.
+    compatible_reactions : dict
+        Maps stoichiometric change tuple -> list of reaction indices (full CRN).
+    filename : str
+        Output JSON file path.
+
+    Example
+    -------
+    >>> save_reaction_network(
+    ...     species_names, reactant_matrix,
+    ...     CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
+    ...     trueTheta, parameter_values, sampled_indices,
+    ...     unique_changes, compatible_reactions,
+    ...     filename="../data/example5_network.json"
+    ... )
+    """
+    data = {
+        "species_names":             species_names,
+        "CRN_reaction_names":        CRN_reaction_names,
+        "CRN_parameter_names":       CRN_parameter_names,
+        "CRN_stoichiometric_matrix": np.array(CRN_stoichiometric_matrix).tolist(),
+        "reactant_matrix":           np.array(reactant_matrix).tolist(),
+        "trueTheta":                 np.array(trueTheta).tolist(),
+        "parameter_values":          {k: float(v) for k, v in parameter_values.items()},
+        "sampled_indices":           [int(i) for i in sampled_indices],
+        # unique_changes: list of tuples → list of lists
+        "unique_changes": [
+            [int(x) for x in uc] for uc in unique_changes
+        ],
+        # compatible_reactions: tuple keys → JSON string keys (parsed back on load)
+        "compatible_reactions": {
+            json.dumps([int(x) for x in k]): [int(i) for i in v]
+            for k, v in compatible_reactions.items()
+        },
+    }
+
+    with open(filename, "w") as f:
+        json.dump(data, f, indent=2)
+
+    print(f"Reaction network saved to {filename}")
+    print(f"  Species:   {species_names}")
+    print(f"  Reactions: {len(CRN_reaction_names)} sampled  |  "
+          f"{len(trueTheta)} total in full CRN")
+    print(f"  Unique stoichiometric changes: {len(unique_changes)}")
+
+
+def load_reaction_network(filename):
+    """
+    Load a saved reaction network from a JSON file and reconstruct all components.
+
+    Propensity lambda functions are rebuilt from the stored reactant matrix —
+    no external state or re-running of generate_reactions is required.
+
+    Parameters
+    ----------
+    filename : str
+        Path to the JSON file produced by save_reaction_network.
+
+    Returns
+    -------
+    reactionNetwork : CRN
+        Fully reconstructed CRN object (ready for SSA / plot_trajectories).
+    CRN_stoichiometric_matrix : np.ndarray
+    CRN_reaction_names : list of str
+    CRN_parameter_names : list of str
+    trueTheta : np.ndarray
+    parameter_values : dict
+    sampled_indices : list of int
+    reactant_matrix : np.ndarray
+        Full reactant matrix (pass directly to parse_trajectory).
+    unique_changes : list of tuples
+        Pass directly to parse_trajectory / extract_local_data.
+    compatible_reactions : dict
+        Tuple-keyed dict; pass directly to parse_trajectory / extract_local_data.
+    species_names : list of str
+
+    Example
+    -------
+    >>> (reactionNetwork,
+    ...  CRN_stoichiometric_matrix, CRN_reaction_names, CRN_parameter_names,
+    ...  trueTheta, parameter_values, sampled_indices,
+    ...  reactant_matrix, unique_changes, compatible_reactions,
+    ...  species_names) = load_reaction_network("../data/example5_network.json")
+    """
+    from CRN_Simulation.CRN import CRN
+
+    with open(filename, "r") as f:
+        data = json.load(f)
+
+    species_names             = data["species_names"]
+    CRN_reaction_names        = data["CRN_reaction_names"]
+    CRN_parameter_names       = data["CRN_parameter_names"]
+    CRN_stoichiometric_matrix = np.array(data["CRN_stoichiometric_matrix"])
+    reactant_matrix           = np.array(data["reactant_matrix"])
+    trueTheta                 = np.array(data["trueTheta"])
+    parameter_values          = data["parameter_values"]
+    sampled_indices           = data["sampled_indices"]
+    unique_changes            = [tuple(uc) for uc in data["unique_changes"]]
+
+    # Restore tuple keys for compatible_reactions
+    compatible_reactions = {}
+    for k_str, v in data["compatible_reactions"].items():
+        k_tuple = tuple(int(x) for x in json.loads(k_str))
+        compatible_reactions[k_tuple] = v
+
+    # Rebuild propensity functions from the sampled columns of reactant_matrix
+    CRN_reactant_matrix = reactant_matrix[:, sampled_indices]
+    CRN_propensities = _build_propensities_from_reactant_matrix(
+        CRN_reactant_matrix, species_names, CRN_parameter_names
+    )
+
+    reactionNetwork = CRN(
+        species_names=species_names,
+        stoichiometric_matrix=CRN_stoichiometric_matrix,
+        parameters_names=CRN_parameter_names,
+        reaction_names=CRN_reaction_names,
+        propensities=CRN_propensities,
+    )
+
+    print(f"Reaction network loaded from {filename}")
+    print(f"  Species:   {species_names}")
+    print(f"  Reactions: {len(CRN_reaction_names)} sampled  |  "
+          f"{len(trueTheta)} total in full CRN")
+    print(f"  Unique stoichiometric changes: {len(unique_changes)}")
+
+    return (
+        reactionNetwork,
+        CRN_stoichiometric_matrix,
+        CRN_reaction_names,
+        CRN_parameter_names,
+        trueTheta,
+        parameter_values,
+        sampled_indices,
+        reactant_matrix,
+        unique_changes,
+        compatible_reactions,
+        species_names,
+    )
+
+
 def propensity_values(x, reactant_matrix, j_values):
     """
     Compute propensities for a vector of reactions (j_values) given the current state.
