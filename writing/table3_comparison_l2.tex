@@ -1,0 +1,36 @@
+% Table 3 — Bayesian vs LASSO polynomial L2 comparison
+\begin{table}[htbp]
+\centering
+\small
+\caption{%
+  Polynomial-space $L^2$ error comparison:
+  Bayesian spike-and-slab (\textbf{Bayes}) vs.\ sparse-learning-CRN
+  (\textbf{LASSO}, fixed $\lambda = 0.01$).
+  $L^2 = \|\hat{c} - c_{\mathrm{true}}\|_2$ in the 15-dimensional
+  polynomial basis. ``(r)\rq\rq\/ = results still running.
+}
+\label{tab:comparison-l2}
+\begin{tabular}{rlr|rr|rr|rr}
+\toprule
+\multicolumn{3}{c}{} & \multicolumn{2}{c}{$T=100$} & \multicolumn{2}{c}{$T=200$} & \multicolumn{2}{c}{$T=400$} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+\textbf{Ch} & \textbf{Change} & \textbf{Obs} & Bayes & LASSO & Bayes & LASSO & Bayes & LASSO \\
+\midrule
+0 & $-2A$ & 60 & \textbf{0.008} & 0.487 & \textit{(r)} & 0.374 & \textit{(r)} & 0.317 \\
+1 & $-2A$, $+1X$, $+1Y$ & 129 & \textbf{0.060} & 0.754 & \textit{(r)} & 0.851 & \textit{(r)} & 0.993 \\
+2 & $-2A$, $+1B$ & 230 & \textbf{0.061} & 0.962 & \textit{(r)} & 0.879 & \textit{(r)} & 0.938 \\
+3 & $-2B$, $+1X$ & 615 & \textbf{0.056} & 0.843 & \textit{(r)} & 1.005 & \textit{(r)} & 1.009 \\
+4 & $-1X$, $+1Y$ & 138 & \textbf{0.045} & 0.226 & \textit{(r)} & 0.292 & \textit{(r)} & 0.320 \\
+5 & $-1Y$ & 310 & \textbf{0.108} & 0.632 & \textit{(r)} & 0.411 & \textit{(r)} & 0.174 \\
+6 & $+1Y$ & 184 & \textbf{0.126} & 0.484 & \textit{(r)} & 0.451 & \textit{(r)} & 0.178 \\
+7 & $+1X$, $-1Y$ & 136 & \textbf{0.034} & 0.143 & \textit{(r)} & 0.188 & \textit{(r)} & 0.168 \\
+8 & $+1B$, $-1X$ & 427 & \textbf{0.096} & 0.832 & \textit{(r)} & 0.816 & \textit{(r)} & 0.686 \\
+9 & $+1B$, $-1X$, $+1Y$ & 317 & \textbf{0.092} & 0.360 & \textit{(r)} & 0.308 & \textit{(r)} & 0.182 \\
+10 & $+1B$, $-1Y$ & 326 & \textbf{0.067} & 0.209 & \textit{(r)} & 0.160 & \textit{(r)} & 0.153 \\
+11 & $+1B$ & 378 & \textbf{0.168} & 0.713 & \textit{(r)} & 0.342 & \textit{(r)} & 0.283 \\
+12 & $+2B$ & 64 & \textbf{0.020} & 0.797 & \textit{(r)} & 0.163 & \textit{(r)} & 0.519 \\
+13 & $+1A$, $-1B$ & 580 & \textbf{0.049} & 0.991 & \textit{(r)} & 0.411 & \textit{(r)} & 0.195 \\
+14 & $+1A$ & 255 & \textbf{0.040} & 0.408 & \textit{(r)} & 0.262 & \textit{(r)} & 0.152 \\
+\bottomrule
+\end{tabular}
+\end{table}

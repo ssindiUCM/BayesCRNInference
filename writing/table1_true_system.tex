@@ -1,0 +1,39 @@
+% Table 1 — True CRN system description
+\begin{table}[htbp]
+\centering
+\caption{%
+  The true 20-reaction CRN over species $A,B,X,Y$.
+  Channels group reactions sharing the same net stoichiometric change.
+  Both the sparse-learning and Bayesian methods infer one independent
+  propensity per channel; within each channel up to 5 bimolecular
+  mass-action reactions are candidates.
+  Obs\ $=$ observed firings in the $T{=}100$ trajectory set.
+}
+\label{tab:true-system}
+\begin{tabular}{rlllr}
+\toprule
+\textbf{Ch} & \textbf{Change} & \textbf{Reaction} & \textbf{Rate $k$} & \textbf{Obs} \\
+\midrule
+0 & $-2A$ & $2A \to \emptyset$ & 0.4528 & 60 \\
+1 & $-2A$, $+1X$, $+1Y$ & $2A \to X+Y$ & 1.0206 & 129 \\
+2 & $-2A$, $+1B$ & $2A \to B$ & 1.5713 & 230 \\
+3 & $-2B$, $+1X$ & $2B \to X$ & 1.9789 & 615 \\
+4 & $-1X$, $+1Y$ & $X+Y \to 2Y$ & 0.4887 & 138 \\
+5 & $-1Y$ & $A+Y \to A$ & 0.5897 & 310 \\
+ &  & $X+Y \to X$ & 0.7676 &  \\
+6 & $+1Y$ & $A \to A+Y$ & 0.2803 & 184 \\
+ &  & $Y \to 2Y$ & 1.0673 &  \\
+7 & $+1X$, $-1Y$ & $A+Y \to A+X$ & 0.6456 & 136 \\
+8 & $+1B$, $-1X$ & $2X \to B+X$ & 1.2593 & 427 \\
+ &  & $A+X \to A+B$ & 0.4167 &  \\
+9 & $+1B$, $-1X$, $+1Y$ & $X \to B+Y$ & 1.2783 & 317 \\
+10 & $+1B$, $-1Y$ & $A+Y \to A+B$ & 0.4221 & 326 \\
+ &  & $X+Y \to B+X$ & 0.9061 &  \\
+11 & $+1B$ & $A \to A+B$ & 1.0464 & 378 \\
+ &  & $X \to B+X$ & 0.7167 &  \\
+12 & $+2B$ & $\emptyset \to 2B$ & 0.6782 & 64 \\
+13 & $+1A$, $-1B$ & $B \to A$ & 2.2031 & 580 \\
+14 & $+1A$ & $A \to 2A$ & 1.5168 & 255 \\
+\bottomrule
+\end{tabular}
+\end{table}

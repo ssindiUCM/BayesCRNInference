@@ -1,0 +1,33 @@
+% Table 2b — LASSO lambda sweep at T=200
+\begin{table}[htbp]
+\centering
+\caption{%
+  Polynomial-space $L^2$ error for sparse-learning-CRN at $T{=}200$
+  across regularisation strengths $\lambda$.
+  \textbf{Bold}: minimum $L^2$ per channel.
+  No single $\lambda$ minimises error across all channels simultaneously,
+  illustrating the fundamental limitation of global regularisation.
+}
+\label{tab:lasso-lambda-sweep}
+\begin{tabular}{rlrrrrrrr}
+\toprule
+\textbf{Ch} & \textbf{Change} & \textbf{Obs} & $\lambda=0.001$ & $\lambda=0.005$ & $\lambda=0.01$ & $\lambda=0.05$ & $\lambda=0.1$ & $\lambda=0.5$ \\
+\midrule
+0 & $-2A$ & 115 & 1.087 & 0.431 & 0.374 & 0.294 & 0.251 & \textbf{0.245} \\
+1 & $-2A$, $+1X$, $+1Y$ & 263 & 1.477 & 0.919 & 0.851 & 0.632 & 0.570 & \textbf{0.556} \\
+2 & $-2A$, $+1B$ & 452 & 0.919 & 0.881 & 0.879 & 0.866 & \textbf{0.832} & 0.833 \\
+3 & $-2B$, $+1X$ & 1185 & 1.215 & 1.044 & 1.005 & \textbf{0.693} & 0.953 & 1.032 \\
+4 & $-1X$, $+1Y$ & 252 & 1.867 & 0.763 & 0.292 & 0.083 & \textbf{0.029} & 0.073 \\
+5 & $-1Y$ & 626 & 0.750 & 0.575 & 0.411 & 0.078 & \textbf{0.057} & 0.201 \\
+6 & $+1Y$ & 398 & 0.540 & \textbf{0.378} & 0.451 & 0.481 & 0.648 & 1.124 \\
+7 & $+1X$, $-1Y$ & 264 & 0.388 & 0.234 & 0.188 & 0.078 & \textbf{0.038} & 0.120 \\
+8 & $+1B$, $-1X$ & 860 & 1.153 & 0.993 & 0.816 & 0.695 & \textbf{0.668} & 0.690 \\
+9 & $+1B$, $-1X$, $+1Y$ & 603 & 0.594 & 0.465 & 0.308 & \textbf{0.155} & 0.322 & 1.315 \\
+10 & $+1B$, $-1Y$ & 629 & 0.176 & 0.170 & 0.160 & \textbf{0.083} & 0.084 & 0.202 \\
+11 & $+1B$ & 713 & 0.452 & 0.393 & \textbf{0.342} & 0.493 & 0.568 & 1.309 \\
+12 & $+2B$ & 127 & 0.456 & 0.219 & \textbf{0.163} & 0.310 & 0.361 & 0.687 \\
+13 & $+1A$, $-1B$ & 1143 & 0.375 & \textbf{0.236} & 0.411 & 0.294 & 0.637 & 2.249 \\
+14 & $+1A$ & 512 & 0.492 & 0.302 & \textbf{0.262} & 0.542 & 0.786 & 1.547 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+% Table 2a — LASSO polynomial L2 error, fixed lambda
+\begin{table}[htbp]
+\centering
+\caption{%
+  Polynomial-space $L^2$ error for sparse-learning-CRN (fixed $\lambda=0.01$)
+  across trajectory lengths.
+  $L^2 = \|\hat{{c}} - c_{{\mathrm{{true}}}}\|_2$ over the 15-dimensional
+  polynomial basis. Obs $=$ observed firings in $T{=}100$ trajectories.
+}
+\label{tab:lasso-fixed-lambda}
+\begin{tabular}{rllrrrr}
+\toprule
+\textbf{Ch} & \textbf{Change} & \textbf{Obs} & $T=100$ & $T=200$ & $T=400$ \\
+\midrule
+0 & $-2A$ & 60 & 0.487 & 0.374 & 0.317 \\
+1 & $-2A$, $+1X$, $+1Y$ & 129 & 0.754 & 0.851 & 0.993 \\
+2 & $-2A$, $+1B$ & 230 & 0.962 & 0.879 & 0.938 \\
+3 & $-2B$, $+1X$ & 615 & 0.843 & 1.005 & 1.009 \\
+4 & $-1X$, $+1Y$ & 138 & 0.226 & 0.292 & 0.320 \\
+5 & $-1Y$ & 310 & 0.632 & 0.411 & 0.174 \\
+6 & $+1Y$ & 184 & 0.484 & 0.451 & 0.178 \\
+7 & $+1X$, $-1Y$ & 136 & 0.143 & 0.188 & 0.168 \\
+8 & $+1B$, $-1X$ & 427 & 0.832 & 0.816 & 0.686 \\
+9 & $+1B$, $-1X$, $+1Y$ & 317 & 0.360 & 0.308 & 0.182 \\
+10 & $+1B$, $-1Y$ & 326 & 0.209 & 0.160 & 0.153 \\
+11 & $+1B$ & 378 & 0.713 & 0.342 & 0.283 \\
+12 & $+2B$ & 64 & 0.797 & 0.163 & 0.519 \\
+13 & $+1A$, $-1B$ & 580 & 0.991 & 0.411 & 0.195 \\
+14 & $+1A$ & 255 & 0.408 & 0.262 & 0.152 \\
+\bottomrule
+\end{tabular}
+\end{table}
