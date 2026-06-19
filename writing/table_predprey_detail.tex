@@ -1,0 +1,28 @@
+% Table 4 — Predator-prey Bayesian detail
+\begin{table}[htbp]
+\centering
+\small
+\caption{Predator-prey inference at $T=40$ (5{,}805 events total). All candidate mass-action reactions for each stoichiometric channel $\xi_\ell$ are shown. $k^*$: true rate (bold if active). $\hat{k}$: posterior mean (95\% credible interval). $\Pr(\text{off})$: spike-and-slab exclusion probability. LASSO propensity at $\lambda=0.01$. Entries marked ``---'' have $\Pr(\text{off})>0.99$: the posterior is overwhelmingly concentrated on the spike component (rate $=0$), so the credible interval collapses to a point at zero and is not reported. $^\dagger$~Mechanistically impossible under mass-action kinetics.}
+\label{tab:predprey_detail}
+\begin{tabular}{l l r r l r l}
+\toprule
+$\xi_\ell$ & Candidate reaction & $k^*$ & Events & $\hat{k}$\;(95\% CI) & $\Pr(\text{off})$ & LASSO \\
+\midrule
+\multirow{3}{*}{$(+1,\;0)$} & $\emptyset\to A$ & $0$ & 1933 & --- & $0.995$ &  \\
+ & $A\to 2A$ & \textbf{1.0000} &  & $1.0024\;(0.9587,\,1.0480)$ & $0.000$ & $0.969\,A$ \\
+ & $B\to A+B$ & $0$ &  & --- & $1.000$ &  \\
+\midrule
+\multirow{3}{*}{$(-1,\;0)$} & $A\to \emptyset$ & \textbf{0.1000} & 190 & $0.0995\;(0.0859,\,0.1140)$ & $0.000$ & $0.018\,A + 0.036\,B^{\,\dagger}$ \\
+ & $2A\to A$ & $0$ &  & --- & $1.000$ &  \\
+ & $A+B\to B$ & $0$ &  & --- & $1.000$ &  \\
+\midrule
+\multirow{3}{*}{$(-1,+1)$} & $A\to B$ & $0$ & 1843 & --- & $1.000$ &  \\
+ & $2A\to A+B$ & $0$ &  & --- & $1.000$ &  \\
+ & $A+B\to 2B$ & \textbf{0.0100} &  & $0.0101\;(0.0096,\,0.0105)$ & $0.000$ & $0.010\,AB$ \\
+\midrule
+\multirow{3}{*}{$(0,\;-1)$} & $B\to \emptyset$ & \textbf{0.5000} & 1837 & $0.4918\;(0.4705,\,0.5144)$ & $0.000$ & $0.497\,B$ \\
+ & $2B\to B$ & $0$ &  & --- & $1.000$ &  \\
+ & $A+B\to A$ & $0$ &  & --- & $1.000$ &  \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,47 @@
+% Bayesian spike-and-slab detail T=400
+\begin{table}[htbp]
+\centering
+\small
+\caption{Bayesian spike-and-slab posterior estimates, $T=400$. Stoichiometric change $\xi_\ell$ and observed event count (Obs) are shown once per channel. True rate $k^*$ is bold for active reactions. $\hat{k}$ and 95\% credible interval are combined. Candidates with $\Pr(\text{off})>0.99$ are omitted.}
+\label{tab:bayes-detail-T400}
+\begin{tabular}{lrlrll}
+\toprule
+\textbf{Change} & \textbf{Obs} & \textbf{Reaction} & \textbf{True $k^*$} & $\hat{k}$\;(95\% CI) & $\Pr(\text{off})$ \\
+\midrule
+$-2A$ & 232 & $2A \to \emptyset$ & \textbf{0.4528} & 0.4409\;[0.386,\,0.499] & 0.0000 \\
+\midrule
+$-2A$, $+1X$, $+1Y$ & 533 & $2A \to X+Y$ & \textbf{1.0206} & 1.0090\;[0.924,\,1.096] & 0.0000 \\
+\midrule
+$-2A$, $+1B$ & 893 & $2A \to B$ & \textbf{1.5713} & 1.6866\;[1.579,\,1.800] & 0.0000 \\
+\midrule
+$-2B$, $+1X$ & 2346 & $2B \to X$ & \textbf{1.9789} & 2.0054\;[1.923,\,2.088] & 0.0000 \\
+\midrule
+$-1X$, $+1Y$ & 482 & $X+Y \to 2Y$ & \textbf{0.4887} & 0.4832\;[0.441,\,0.527] & 0.0000 \\
+\midrule
+\multirow{2}{*}{$-1Y$} & \multirow{2}{*}{1232} & $A+Y \to A$ & \textbf{0.5897} & 0.5656\;[0.481,\,0.655] & 0.0000 \\
+ &  & $X+Y \to X$ & \textbf{0.7676} & 0.7964\;[0.719,\,0.875] & 0.0000 \\
+\midrule
+\multirow{2}{*}{$+1Y$} & \multirow{2}{*}{766} & $A \to A+Y$ & \textbf{0.2803} & 0.2703\;[0.217,\,0.328] & 0.0000 \\
+ &  & $Y \to 2Y$ & \textbf{1.0673} & 1.0607\;[0.968,\,1.158] & 0.0000 \\
+\midrule
+$+1X$, $-1Y$ & 515 & $A+Y \to A+X$ & \textbf{0.6456} & 0.6655\;[0.609,\,0.723] & 0.0000 \\
+\midrule
+\multirow{2}{*}{$+1B$, $-1X$} & \multirow{2}{*}{1717} & $2X \to B+X$ & \textbf{1.2593} & 1.2025\;[1.100,\,1.311] & 0.0000 \\
+ &  & $A+X \to A+B$ & \textbf{0.4167} & 0.4013\;[0.346,\,0.459] & 0.0000 \\
+\midrule
+$+1B$, $-1X$, $+1Y$ & 1197 & $X \to B+Y$ & \textbf{1.2783} & 1.3182\;[1.243,\,1.394] & 0.0000 \\
+\midrule
+\multirow{2}{*}{$+1B$, $-1Y$} & \multirow{2}{*}{1236} & $A+Y \to A+B$ & \textbf{0.4221} & 0.3912\;[0.315,\,0.474] & 0.0000 \\
+ &  & $X+Y \to B+X$ & \textbf{0.9061} & 0.9360\;[0.861,\,1.019] & 0.0000 \\
+\midrule
+\multirow{2}{*}{$+1B$} & \multirow{2}{*}{1400} & $A \to A+B$ & \textbf{1.0464} & 1.0716\;[0.947,\,1.199] & 0.0000 \\
+ &  & $X \to B+X$ & \textbf{0.7167} & 0.7584\;[0.667,\,0.851] & 0.0000 \\
+\midrule
+$+2B$ & 252 & $\emptyset \to 2B$ & \textbf{0.6782} & 0.6343\;[0.558,\,0.713] & 0.0000 \\
+\midrule
+$+1A$, $-1B$ & 2260 & $B \to A$ & \textbf{2.2031} & 2.2325\;[2.139,\,2.326] & 0.0000 \\
+\midrule
+$+1A$ & 1054 & $A \to 2A$ & \textbf{1.5168} & 1.5844\;[1.491,\,1.682] & 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,2271 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bbold}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{enumitem}
+\usepackage{cleveref}
+\usepackage[version=3]{mhchem}
+\usepackage{mathabx}
+\usepackage{mathbbold}
+\usepackage{tikz}
+\usepackage{siunitx}
+
+\usepackage{booktabs}   % required for \toprule, \midrule, \bottomrule
+\usepackage{pdflscape}  % required for the landscape coefficient table only
+
+
+\def\dd{\text{d}}
+\def\supp{\text{supp}} % support of a function. 
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\iu}{\mathrm{i}\mkern1mu}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand{\backvec}[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
+
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+\newtheorem{condition}{Condition}
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Article Title}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+
+\author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+
+\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\tableofcontents
+
+Notations:
+
+$d$: the total number of species
+
+$R$: the total number of reactions
+
+$j$ and $r$: the indices of reactions
+
+$\lambda_j (\theta_j, x) = \theta_j g_j(x)$
+
+$N$: the total number of jumps in a period of time 
+
+$n$: the indices of jump times, i.e., $t_n$
+
+$\zeta_j$: the stoichiometric reaction vector for the $j$-th reaction
+
+$\xi_1, \dots, \xi_{R^*}$: the unique reaction vectors.
+
+$\mathcal C_\ell = \{ j| \zeta_j = \xi_\ell \}
+\ \text{ for } \ 
+\ell=1,\dots,R^*.$ (Category)
+
+$\left| \mathcal C_\ell \right| $ the cardinality of the set $\mathcal C_\ell$.
+
+$\mathbb S$ state space for $X(t)$
+ 
+ 
+
+
+~\\~\\~\\~
+
+The formal expression of the reactions:
+\begin{align*}
+    \nu_{1,j} S_1, \dots, \nu_{n, j}S_n
+    \to \nu'_{1,j} S_1, \dots, \nu'_{d, j}S_d
+\end{align*}
+We denote $\nu_j = \left(\nu_{1, j},\dots, \nu_{n,j}\right)^{\top}$.
+The dynamics:
+\begin{align*}
+    X(t) = X(0) + \sum_{j=1}^{r} \zeta_j R_j\left( \int_{0}^t\lambda_j(\theta_j,X(s)) \dd s\right)
+\end{align*}
+where $r$ is the number of the reactions, $X(t)$ is the state vector at time $t$, $\theta_j$ is the parameter of the $j$-th reaction, the vector $\zeta_{j}$ is the stoichiometric reaction vector, $\lambda_j$ is the propensity functions, and $R_j(t)$ are unit rate Poisson processes.
+For a given trajectory, we denote $t_0=0$ and $t_1, t_2 \dots$ as the consecutive time points where the reaction fires.  
+
+\textbf{Notes from Meeting with Enrico}
+\begin{itemize}
+    \item Identifiably: Before any data.
+\item Posterior Consistency: Given infinite data
+\item Practical Identifiably: Given the data you have
+\end{itemize}
+
+\begin{itemize}
+\item Move the non-identifiable example earlier - pathological 
+\item And then do the real system.
+\end{itemize}
+
+\newpage
+
+\section{Introduction}
+
+
+
+More explicit (less technical) intro, discussion of related refs goes here? Explicit discussion of meaning of ``identifiability'', in the precise statistical sense and practical comp bio sense. 
+
+\textcolor{red}{(Not Clear Where this Should Go) Several recent approaches, including \cite{siam_Zhang2019},  cast inference as a sparse regression problem over a fixed dictionary of candidate propensity functions, with sparsity enforced through penalized optimization and empirically chosen regularization parameters. In contrast, our method assumes mass-action kinetics and performs joint Bayesian inference over reaction rates and network structure using a spike-and-slab prior. This yields posterior uncertainty over network connectivity and enforces sparsity directly at the level of reactions rather than through coefficient shrinkage. (Suzanne realized that they need to tune $\lambda$ for each reaction channel.)}
+
+\newpage
+
+\section{Problem formulation}
+\textcolor{red}{Consider that we experimentally observe the temporal evolution of the molecule counts of $d$ chemical species undergoing some unknown reactions, and that any change in these counts can be accurately tracked. Moreover, suppose that we have enumerated all possible reactions that could occur in the system, forming a large and redundant chemical reaction network that likely includes many more mechanisms than those actually governing the dynamics. The problem we address is to determine which reactions are truly active (network structure identification) and to infer the corresponding rate constants (parameter inference).}
+
+
+Consider the redundant reaction network $G$, consisting of $d$  species, denoted by $\{ S_1, S_2, \ldots, S_d \}$, and by a set $\mathcal{R}$ of $R$ reaction (possibly very large) of the form
+\begin{equation} \label{ex_intro}
+\nu_{1,j} S_1 + \cdots + \nu_{d, j} S_d
+\xrightarrow[]{\theta_j} \nu'_{1,j} S_1 + \cdots + \nu'_{d, j} S_d
+\ \text{ with } \
+1 \leq j \leq R,
+\end{equation}
+where $\theta_j$ is the parameter associated with the $j$-th reaction.
+We refer to the linear combination of the species on the left-hand side of the arrows as the source complex, and the ones on the right-hand side as the product complex.
+
+Let $X(t) = (X_1 (t), \ldots, X_d (t))$ denote the state vector at time $t$ (molecule counts).
+The stochastic dynamics of $G$ in \eqref{ex_intro} satisfy
+\begin{align*}
+X (t) = X (0) + \sum_{j=1}^{R} \zeta_j Y_j
+\left( \int_{0}^t\lambda_j(\theta_j, X(s)) \dd s \right),
+\end{align*}
+where $\zeta_{j} = (\nu'_{1, j} - \nu_{1, j}, \ldots, \nu'_{d, j} - \nu_{d, j})^{\top} \in \mathbb{Z}^d$ is the stoichiometric reaction vector for the $j$-th reaction, $\lambda_j$ is its propensity function, and $Y_j(t)$ is a unit-rate Poisson process.
+
+Assume that the propensity functions are
+\begin{align*}
+\lambda(\theta, X) := (\lambda_1( \theta_1, X), \ldots, \lambda_R (\theta_R, X)),
+\end{align*}
+with $\boldsymbol{\theta} := ( \theta_1,\theta_2,\cdots, \theta_R)$.
+
+% \textcolor{blue}{For simplicity, we consider in this paper that all the propensity follows mass-action kinetics, i.e., $\lambda_{j}(\theta_j, x) = \theta_j \,g_j(x)$ with $g_j(x) = \prod_{i=1}^d x_i^{\nu_{i,j}}$.}
+Throughout this paper, we consider that all propensities follow the stochastic mass-action kinetics; that is, for every $1 \leq j \leq R$,
+%\begin{align}
+%    \lambda_{j}(\theta_j, x) = \theta_j \,g_j(x)
+%\ \text{ with } \
+%g_j(x) = \prod_{i=1}^d x_i^{\nu_{i,j}}.
+%\label{def:propensity-mass-action-kinetic}
+%\end{align}
+
+\textcolor{red}{
+\begin{align}
+    \lambda_{j}(\theta_j, x) = \theta_j \,g_j(x)
+\ \text{ with } \
+g_j(x) = \prod_{s=1}^d   \frac{x_s!}{( x_s- \nu_{s,j}) ! }
+.
+\label{def:propensity-mass-action-kinetic}
+\end{align}
+with rate constants $\theta_j\geq 0$ that can be either positive or vanishing.
+}
+
+\textcolor{red}{
+Enrico: We assume we fully observe a long enough trajectory $X_{0:T} : =  \{X(t), ~ t\in[0,T]\}$, containing $n$ jumps, which implies our data is formed by the couples
+\[\{(t_i, X(t_i)),~ i\in{0,\cdots,N}\}\]
+where $t_i$ are the jump times and $X(t_i)\in \mathbb{Z}^d_{\geq 0}$ is the target state of the corresponding jump. 
+Our goal is to identify at the same time the set of reactions that really determines such a trajectory (in other words, whose rate constants are non-zero), and the values of the positive reaction rate parameters $\{ \theta_1, \theta_2, \ldots, \theta_r \}$ from observations. 
+In the case that all the reactions in our redundant set $\mathcal{R}$ cause different stoichiometric changes ($\zeta_j\neq \zeta_{j'}$ for every $j,j' \in \{1, \dots, R\})$ maximum likelihood estimators are available in closed form (cf. \cite{Wilkinson2018}) and would estimate to zero all rate constants $\theta_j$ such that the corresponding stoichiometric change $\zeta_j$ is never observed in the trajectory and would instead be positive otherwise.
+However, since the active reactions are not known in advance, we need to consider that different reactions might share the same reaction vector. We denote by $\xi_1, \dots, \xi_{R^*}$, $(R^*\leq R )$, the set of unique random vectors in the network.
+For every $1 \leq \ell \leq R^*$, we denote by $\mathcal C_\ell$ the set of reactions whose stoichiometric reaction vectors are equal to $\xi_\ell$, that is,
+\[
+\mathcal C_\ell \triangleq \{j \ | \ \zeta_j=\xi_\ell \}
+\ \text{ for } \ 
+\ell=1,\dots,R^*.
+\]
+% (i.e., $\mathcal O_\ell \triangleq \{j|   \zeta_j=\xi_\ell \}$).
+To ensure clarity, we adopt the following notation:
+\[
+\mathcal C_\ell = \{ j_{\ell, 1}, \dots, j_{\ell, \left| \mathcal C_\ell \right|} \}
+\ \text{ for } \ 
+\ell=1,\dots,R^*.
+\]
+In this case, maximum likelihood estimators are no longer available in closed form, and the likelihood must be maximized numerically. It is worth noting that the problem can quickly become computationally intensive as the size of the network increases. Although various mechanisms exist within the frequentist framework to promote sparsity, the computations may still become prohibitively demanding.
+To give a motivating example that will be further addressed later, we consider a reaction network that contains all possible reactions among 3 species that are at most bimolecular (see Section XXXXX for a definition and a more formal description of the example). The number of possible different reactions is 90, and they generate 42 unique reaction vectors. We can easily see that the number of different network structures that are formed by setting to zero a subset of the rate constants is huge and that the task of selecting the \emph{active} network structure, and simultaneously estimating the parameters, is far from trivial.
+In this paper, we address the problem with three main contributions. First, we study the issue of identifiability, then we introduce a trick to efficiently calculate the likelihood, which can be used both in the frequentist and in the Bayesian setting and third, we recast the problem in the Bayesian framework, adopting spike and slab priors and providing sufficient conditions to ensure posterior consistency. 
+}
+
+\section{Other stuff to be decided about}
+
+This raises the following questions:
+\begin{enumerate}[label=\textbf{Q\arabic*}.]
+
+\item 
+\textbf{Identification problem: }
+Given a long enough trajectory $X_{0:T} : =  \{X(t), ~ t\in[0,T]\}$, we aim to compute the posterior distribution
+%we would like to compute the posterior 
+\begin{align*}
+    p(\theta|X_{0:T} ) ~\propto~ p\left(X_{0:T}\big| \theta\right)\, q(\theta)
+\end{align*}
+which reflects our belief about the system parameters $\theta$.
+%parameter values. 
+Here, $ p\left(X_{0:T}\big| \theta\right)$ is the likelihood of the entire trajectory under parameters $\theta$, and $q(\theta)$ is the prior distribution reflecting our initial belief about the system parameters.
+
+\medskip
+
+\item
+\textbf{Identifiability: } \label{definition identifiability}
+Furthermore, we aim to determine whether the system parameters are identifiable from the observed data.
+
+\begin{itemize}
+\item A parameter $\theta_j$ is termed \textit{structurally identifiable} if as $T \to \infty$, the marginal posterior $p(\theta_j \mid X_{0:T})$ almost surely converges to a Dirac delta distribution centered at the true parameter value, and \textcolor{blue}{the maximum likelihood estimate also converges to the true parameter value.}
+This property means that the true parameter can, in principle, be estimated with arbitrary accuracy as the length of the observed data increases. \\[-1pt]
+
+\textcolor{red}{(9/15: What about the prior does it influence things. Posterior consistency...Asymptotic Statistics Aad Van Der Vaart)}
+
+
+\item Given a finite-length trajectory $X_{0:T}$, a parameter $\theta_j$ is termed \textit{practically identifiable} if the marginal posterior $p(\theta_j|X_{0:T} )$ is unimodal, indicating that the true parameter value lies close to the posterior mode, 
+and the posterior demonstrates stability consistent with convergence
+% \textcolor{blue}{and the posterior is ``on the way to convergence"}. 
+\end{itemize}
+\end{enumerate}
+
+\textcolor{red}{TBD: compare with the maximum likelihood result in the other paper. We are working on the Bayesian setting. }
+
+\cite{siam_Zhang2019}, \cite{grzeg_logistic}
+
+\textcolor{red}{TBD: compare with the identifiability setting in Jinsu and German's paper. }
+
+%(\textcolor{red}{Zhou: I am thinking of rewriting it. This definition seems not the one we need. We need an identification definition based on observations and the aim is to identify the most likely network resulting in the observed data.})
+
+% Given the observed trajectory of the network, what network structures ensure that the parameter vector
+% \[
+% \theta := (\theta_1, \theta_2, \ldots, \theta_r) \in [0, \infty)^r,
+% \]
+% is (uniquely) identifiable?
+% We say that $\theta$ is identifiable for the process $X$ if, for any $X \in \mathbb{Z}_{+}^d$,
+% \begin{align} \notag
+% \lambda (\theta, X) &= \lambda (\theta', X)
+% \ \iff \ \theta = \theta'. 
+% \end{align}
+
+Throughout this paper, we assume that each reaction in $G$ involves at most two species in its substrate complex and at most two species in its product complex.
+We begin by determining the total number of possible product complexes in $G$.
+
+\begin{enumerate}
+\item[(1)] The product complex has $0$ species: $1$ combination $\{ 0 \}$.
+
+\item[(2)] The product complex has $1$ species: $d$ combinations  $\{ S_1, S_2, \ldots, S_d \}$.
+
+\item[(3)] The product complex has $2$ species:
+\begin{itemize}
+\item $\binom{d}{2} = \frac{d(d-1)}{2}$ combinations  $\{ S_i + S_j \text{ with } i \neq j \}$. \\[-1pt]
+
+\item $d$ combinations  $\{ 2 S_1, 2 S_2, \ldots, 2 S_d \}$.
+\end{itemize}
+\end{enumerate}
+Thus, the total number of possible product complexes is:
+\[
+1 + d + \binom{d}{2} + d = \frac{(d+1)(d+2)}{2}.
+\]
+For reactions with distinct substrate and product complexes, the total number of such reactions is:
+\begin{equation}
+    \begin{aligned}
+    \left( \frac{(d+1)(d+2)}{2} \right) \times \left( \frac{(d+1)(d+2)}{2} - 1 \right) = \frac{d(d+1)(d+2)(d+3)}{4}.
+        \label{eq:total_reaction_numbers}
+    \end{aligned}
+\end{equation}
+
+
+(\textcolor{red}{Zhou: I would suggest to put the following example into the appendix.})
+For instance, in the three-species case $d = 3$, the total number of possible reactions is $90$.
+In this setting, our question is to determine which of these $90$ possible reactions may guarantee the identifiability of the parameter vector $\theta$.
+
+To begin with, we consider the types of reactions present in the total reactions.
+These total reactions \eqref{eq:total_reaction_numbers} can be categorised into two classes: those with a unique stoichiometric reaction vector, and those that share the same stoichiometric reaction vector. For the case of at most bimolecular reactions, repeated stoichiometric reaction vectors occur only on the three simplest reactions,
+\begin{align*}
+ (\text{Pure birth}): &\emptyset \rightarrow X, \quad\quad \text{\# of reactions}:d(d+1)\\
+ (\text{Pure death}): &X \rightarrow \emptyset, \quad\quad \text{\# of reactions}:d(d+1) \\
+(\text{Species conversion}): &X_1 \rightarrow X_2, \quad\quad \text{\# of reactions}:d(d+1)(d-1),
+\end{align*}
+where we can add one more species to both the substrate and product complexes. Thus, for $d$ species, there are $d+1$ reactions that share the same stoichiometric reaction vector. The total number of reactions in \eqref{eq:total_reaction_numbers} with shared repeated stoichiometric reaction vector is $d(d+1)^2$. 
+
+In our three-species case, the total of 90 reactions consists of 42 reactions with a unique stoichiometric reaction vector and 48 with a shared stoichiometric reaction vector. For a stoichiometric reaction change, there are $4$ possible reactions. For instance, the pure birth type $(+1,0,0)$ of species $X_1$ contains four possible reactions $\emptyset \rightarrow X_1,X_1 \rightarrow 2X_1, X_2 \rightarrow X_1+X_2,X_3 \rightarrow X_3+X_1 $. From the given fully observed data, we face two tasks for reactions with shared stoichiometric reaction vectors. The first is to infer the reaction structure that generates the dataset, and the second is to infer the corresponding model parameters.
+
+
+\section{Likelihood Computation}
+
+
+One key step in the identification problem is the likelihood computation, which is described in this section.
+
+For consecutive time points $t_n$ and $t_{n+1}$, the likelihood that the $j$-th reaction fires after a waiting time $t_{n+1} -t_{n}$, given the state $X(t_{n})=x$ and parameters $\theta$, has the expression \cite[Chapter 5.3.1]{Anderson2015Stochastic}
+% the likelihood $p\left(t_{n+1} -t_{n} = \tau, \text{ $j$-th reaction fires} \big| \theta, X(t_{n})=x\right)$ has the expression \cite[Chapter 5.3.1]{Anderson2015Stochastic}
+\begin{align*}
+    p\left(t_{i+1} -t_{i} = \tau, \text{ $j$-th reaction fires} \mid \theta, X(t_{i})=x\right)
+    = \lambda_j(\theta_j, x) 
+    \exp\left\{
+        - \tau \sum_{k=1}^R \lambda_k(\theta_k, x)\right\}.
+\end{align*}
+Then, for a given vector $v$, consider the likelihood
+\[
+p\left(t_{n+1} -t_{n} = \tau, X(t_{n+1}) - X(t_n) = v \mid \theta, X(t_{n})=x\right).
+\]
+This probability is given by
+\begin{align*}
+    % p\left(t_{n+1} -t_{n} = \tau, X(t_{n+1}) - X(t_n) = v \big| \theta, X(t_{n})=x\right)
+    % & = 
+    \left(\sum_{j: \zeta_j = v}
+    \lambda_j(\theta_j, x) \right)
+    \exp\left\{
+        - \tau \sum_{j=1}^R \lambda_j(\theta_j, x)\right\}.
+\end{align*}
+By denoting the number of total jumps as $N$, the above results suggest that the likelihood of an entire trajectory given parameters $\theta$ (denoted by $p\left(X_{0:T}\big| \theta\right)$) has the expression
+\begin{align*}
+    p\left(X_{0:T}\big| \theta\right)
+    =& \left[\prod_{n=0}^{N-1}
+    \left(\sum_{j: \zeta_j = X(t_{n+1}) -X(t_n)}
+    \lambda_j\left(\theta_j, X(t_n)\right) \right)\right]
+    \exp\left\{
+        - \int_{0}^T \sum_{j=1}^R \lambda_j(\theta_j, X(s)) \dd s
+    \right\},
+\end{align*}
+and the log-likelihood has the expression:
+\begin{align*}
+    \log p\left(X_{0:T}\big| \theta\right)
+    = \sum_{i=0}^{N-1} \log\left(\sum_{j: \zeta_j = X(t_{n+1}) -X(t_n)}
+    \lambda_j\left(\theta_j, X(t_n)\right) \right)
+    - \int_{0}^T \sum_{j=1}^R \lambda_j(\theta_j, X(s)) \dd s.
+\end{align*}
+% Furthermore, the derivative of the log-likelihood has the expression:
+% \begin{align*}
+%     \nabla_{\theta} \log p\left(X_{0:T}\big| \theta\right)
+%     = \sum_{i=0}^{N_J-1} \frac{\sum_{j: \zeta_j = X(t_i+1) -X(t_i)}
+%     \nabla_\theta \lambda_j \left(\theta_j, X(t_i)\right) }{\sum_{j: \zeta_j = X(t_i+1) -X(t_i)}
+%     \lambda_j\left(\theta_j, X(t_i)\right) }
+%     - \int_{0}^T \sum_{k=1}^r \nabla_\theta \lambda_k(\theta_k, X(s)) \dd s.
+% \end{align*}
+
+\subsection{Log-likelihood decomposition}
+
+We can further decompose the log-likelihood into several independent parts according to the stoichiometric reaction vectors, to facilitate easier analysis and computation.
+To this end, following the strategy in \cite[Supplementary Information, Section S3]{fang2024advanced}, we first select a set of distinct vectors from the collection of stoichiometric reaction vectors $\{ \zeta_j \}^{R}_{j=1}$,
+%we first select distinct vectors from the set of $\zeta_j$'s,
+ensuring that each type is chosen.
+We denote these selected vectors by 
+$\xi_1, \dots, \xi_{R^*}$.
+For every $1 \leq \ell \leq R^*$, we denote by $\mathcal C_\ell$ the set of reactions whose stoichiometric reaction vectors are equal to $\xi_\ell$, that is,
+\[
+\mathcal C_\ell \triangleq \{j \ | \ \zeta_j=\xi_\ell \}
+\ \text{ for } \ 
+\ell=1,\dots,R^*.
+\]
+% (i.e., $\mathcal O_\ell \triangleq \{j|   \zeta_j=\xi_\ell \}$).
+To ensure clarity, we adopt the following notation:
+\[
+\mathcal C_\ell = \{ j_{\ell, 1}, \dots, j_{\ell, \left| \mathcal C_\ell \right|} \}
+\ \text{ for } \ 
+\ell=1,\dots,R^*.
+\]
+We also denote by $\overrightarrow{\theta_\ell}$ the vector of parameters relevant to the reactions in $\mathcal C_\ell$. 
+Let the (local) likelihood $L_\ell$ be defined as
+%Let $L_\ell$ be
+\begin{equation}
+\begin{aligned}
+L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) = \left[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+    \left( \sum_{j\in\mathcal C_\ell} \lambda_j\left(\theta_j, X(t_n)\right) \right)\right]
+    \exp\left\{
+        - \int_0^T \sum_{j\in\mathcal C_\ell} \lambda_j(\theta_j, X(s)) \dd s
+    \right\}.
+\end{aligned}
+\label{eq:local_likelihood_with_times}
+\end{equation}
+Then, the log-likelihood can be decomposed as 
+\begin{align*}
+    \log p\left(X_{0:T}\big| \theta\right)
+    = 
+    \sum_{\ell =1}^{R^*} \log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right),
+\end{align*}
+where the local components $L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ (for $\ell =1,\dots, r_1$) are independent of each other given the trajectory $X_{0:T}$.
+In other words, $L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ is the likelihood for the parameter vector $\overrightarrow{\theta_\ell}$.
+
+
+% \subsection{Concavity of the log-likelihood and practical identifiability}
+
+% Often, people call a system practically identifiable when the likelihood function has a unique maximum, i.e., unimodal. 
+% This is particularly the case when the log-likelihood is strictly concave and the feasible region for the parameters is bounded.
+
+% Due to the aforementioned log-likelihood decomposition, we can even further illustrate this practical identifiability for each group of parameters $\overrightarrow{\theta_\ell}$.
+% In the following, we provide two conditions that ensure such practical identifiability.
+% % In what follows, we provide some conditions for such practical identifiability. 
+
+% \medskip
+
+% \textit{Case 1: Strict concave log-likelihood. } 
+% For each local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$, its Hessian matrix has the form 
+% \begin{align*}
+% H_{\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)}
+% = - \sum_{n: X(t_{n+1})-X(t_n) = \xi_\ell} \frac{1}{ \big( \sum_{j \in \mathcal C_\ell} \lambda_j \left(\theta_j, X(t_n)\right) \big)^2 } \widebar{M}_{n, \ell} (\widebar{M}_{n,\ell})^{\top} ,
+% \end{align*}
+% where
+% \[
+% \widebar{M}_{n, \ell} = (g_{j_{\ell, 1}}(X(t_n)), \dots, g_{j_{\ell, \left|\mathcal C_\ell\right|}}(X(t_n)))^{\top}.
+% \]
+% This expression suggests that the local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ is always concave.
+% Moreover, it is strictly concave if and only if 
+% \begin{align}\label{eq. local cancavity check}
+%     \left[~
+%     \mathbbold 1_{\{X(t_1)- X(t_0)=\xi_\ell\}} \widebar{M}_{1,\ell} ~, ~\dots~,~ 
+%     \mathbbold 1_{\{X(t_{N})- X(t_{N -1})=\xi_\ell\}} \widebar{M}_{N-1, \ell}
+%     \right]
+%     \text{ is full row rank}.
+% \end{align}
+% Therefore, condition \eqref{eq. local cancavity check} serves as a sufficient criterion for the practical identifiability of the parameters $\overrightarrow{\theta_\ell}$.
+
+% \medskip
+
+% \textit{Case 2: Absent jump directions. } 
+% When a jump type $\xi_\ell$ is never observed, the Hessian matrix $H_{\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)}$ is zero, meaning that the log-likelihood is a linear function.
+% In this situation, the gradient is given by
+% %In this case, we can immediately have the gradient 
+% \begin{align*}
+%     \nabla_{\overrightarrow{\theta_\ell}}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) 
+%      = -\int_0^T \nabla_{\overrightarrow{\theta_\ell}}\sum_{j\in\mathcal C_\ell } \lambda_j(\theta_j, X(s)) \dd s
+%      = - \int_0^{T} M_{\ell}^{X(s)} \dd s,
+% \end{align*}
+% where $M_{\ell}^{x} = \left(g_{j_{\ell, 1}}(x), \dots, g_{j_{\ell, \left|\mathcal C_\ell\right|}}(x)\right)^{\top}$ is element-wisely non-negative. 
+% When the integral $\int_0^{T} M_{\ell}^{X(s)} \dd s$ is element-wisely positive, 
+% the log-likelihood function is unimodal, with its maximum at zero.
+% % the log-likelihood function is also unimodal, with the mode being zero. 
+% Therefore, such parameters $\overrightarrow{\theta_\ell}$ are also considered ``practically identifiable."
+
+\section{Identifiability analysis}\label{section identifiability analysis}
+
+
+\subsection{Pratical identifiability and concavity of the log-likelihood}
+
+The aforementioned log-likelihood decomposition allows for practical identifiability for each group of parameters $\overrightarrow{\theta_\ell}$.
+Recall that a parameter is referred to as practically identifiable when its posterior has a unique maximum, i.e., unimodal (see \ref{definition identifiability}). 
+Assuming a uniform prior distribution, this analysis turns to investigate the unimodality of the likelihood. 
+This unimodality is particularly the case when the log-likelihood is strictly concave and the feasible region for the parameters is bounded.
+In the following, we provide two conditions that ensure such practical identifiability.
+% In what follows, we provide some conditions for such practical identifiability. 
+
+\medskip
+
+\textit{Case 1: Strict concave log-likelihood. } 
+For each local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$, when it has finite values, its Hessian matrix has the form
+\begin{align*}
+H_{\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)}
+= - \sum_{n: X(t_{n+1})-X(t_n) = \xi_\ell} \frac{1}{ \big( \sum_{j \in \mathcal C_\ell} \lambda_j \left(\theta_j, X(t_n)\right) \big)^2 } \widebar{M}_{n, \ell} (\widebar{M}_{n,\ell})^{\top} ,
+\end{align*}
+where
+\[
+\widebar{M}_{n, \ell} = (g_{j_{\ell, 1}}(X(t_n)), \dots, g_{j_{\ell, \left|\mathcal C_\ell\right|}}(X(t_n)))^{\top}.
+\]
+This expression suggests that the local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ is always concave.
+Moreover, it is strictly concave if and only if 
+\begin{align}\label{eq. local cancavity check}
+    \left[~
+    \mathbbold 1_{\{X(t_1)- X(t_0)=\xi_\ell\}} \widebar{M}_{1,\ell} ~, ~\dots~,~ 
+    \mathbbold 1_{\{X(t_{N})- X(t_{N -1})=\xi_\ell\}} \widebar{M}_{N-1, \ell}
+    \right]
+    \text{ is full row rank}.
+\end{align}
+Therefore, condition \eqref{eq. local cancavity check} serves as a sufficient criterion for the practical identifiability of the parameters $\overrightarrow{\theta_\ell}$ given uniform priors.
+
+\medskip
+
+\textit{Case 2: Absent jump directions. } 
+When a jump type $\xi_\ell$ is never observed, the Hessian matrix $H_{\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)}$ is zero, meaning that the log-likelihood is a linear function.
+In this situation, the gradient is given by
+%In this case, we can immediately have the gradient 
+\begin{align*}
+    \nabla_{\overrightarrow{\theta_\ell}}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) 
+     = -\int_0^T \nabla_{\overrightarrow{\theta_\ell}}\sum_{j\in\mathcal C_\ell } \lambda_j(\theta_j, X(s)) \dd s
+     = - \int_0^{T} M_{\ell}^{X(s)} \dd s,
+\end{align*}
+where $M_{\ell}^{x} = \left(g_{j_{\ell, 1}}(x), \dots, g_{j_{\ell, \left|\mathcal C_\ell\right|}}(x)\right)^{\top}$ is element-wisely non-negative. 
+Then, the log-likelihood function is unimodal, with its maximum at zero, if 
+\begin{align}
+\text{the integral $\int_0^{T} M_{\ell}^{X(s)} \dd s$ is element-wisely positive.}
+\end{align}
+% the log-likelihood function is also unimodal, with the mode being zero. 
+Therefore, such parameters $\overrightarrow{\theta_\ell}$ are also considered ``practically identifiable", given uniform priors.
+
+\subsection{Structural identifiability analysis based on rank conditions.}
+
+The previous subsection shows the concavity and rank conditions in \eqref{eq. local cancavity check} play a central role in practical identifiability analysis.
+In this section, we extend these tools to structural identifiability analysis for ergodic reaction networks. 
+
+
+%\textcolor{red}{TBD: MLE convergence does not necessarily mean convergence of the posterior.}
+
+\begin{condition}\label{Condition recurrence and irreducibility}
+
+    The process $X(t)$ is positive recurrent and irreducible on a set $\mathbb S \subset \mathbb Z_{\geq 0}^d$.
+    Moreover, the stationary mean of this ergodic system almost surely (denoted by $\mathbb P_\text{st}$) satisfies 
+    \begin{align}\label{eq. finiteness of the moments}
+        \mathbb E_{X^* \sim \mathbb P_\text{st}}\left[
+        % \left(\sum_{j\in\mathcal C_\ell}
+        %     \lambda_{j}(\theta^*_j,X^*)
+        %     \right)
+            \left(1 + 
+            \sum_{j\in\mathcal C_\ell} g_j(X^*)
+            % \left|\log
+            % \left(
+            %     \sum_{j\in\mathcal C_\ell}
+            %     \lambda_{j}(\theta^*_j,X^*)
+            % \right)\right|^2
+            \right)^u\right] < \infty
+        && \text{for any $u>0$ and every $\ell = 1,\dots R^*$}.
+    \end{align}
+\end{condition}
+
+\begin{condition}\label{condition boundedness of the support}
+
+    The prior density $q(\theta)$ is continuous and positive in the region $\mathbb R^{R}_{\geq 0}$.
+    %The prior density $q(\theta)$ has a compact support (denoted by $\supp(q)$), and its value is positive in a neighborhood of the true parameter $\theta^*$.
+\end{condition}
+
+
+
+First, we rephrase the structural identifiability problem from the large deviation perspective.
+\Cref{Condition recurrence and irreducibility} suggests that the process $X(t)$ is ergodic and further implies that each local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ (see \eqref{eq:local_likelihood_with_times}) admits a convergence relation (see \Cref{Proposition convergence of the log-likelihood} in the Appendix)
+\begin{align}\label{eq. convergence of the log likelihood}
+    \lim_{T\to\infty} \frac{1}{T} \log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+    ~=~
+    I_{\ell}\left(\overrightarrow{\theta_\ell}\right) && \text{almost surely for each $\overrightarrow{\theta_\ell}$ in $\mathbb R^{R}_{\geq 0}$}
+\end{align}
+where the rate function $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ is defined by 
+\begin{align}\label{eq I(theta)}
+        I_{\ell}\left(\overrightarrow{\theta_\ell}\right)
+        = 
+        \mathbb E_{X^*\sim \mathbb P_\text{st}}\left[
+            \left(\sum_{j\in\mathcal C_\ell}
+            \lambda_{j}(\theta^*_j,X^*)
+            \right)
+            \log
+            \left(
+                \sum_{j\in\mathcal C_\ell}
+                \lambda_{j}(\theta_j,X^*)
+            \right)
+            - 
+            \left(\sum_{j\in\mathcal C_\ell}
+            \lambda_{j}(\theta_j,X^*)
+            \right)
+        \right]
+\end{align}
+with $0\log0$ being defined as 0.
+Moreover, the scaled log-likelihood is even uniformly convergent within a region around the actual system parameter $\theta^*$ (see \Cref{proposition uniform convergence of the log-likelihood}).
+This convergence result, together with the Bayesian rule, demonstrates that the shape of the posterior $p(\overrightarrow{\theta_\ell}|X_{0:T})$ is approximately determined by the rate function $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ according to a large-deviation-like formula 
+\begin{align*}
+    p\left(\overrightarrow{\theta_\ell} \big|X_{0:T}\right) ~\approx~
+    \frac{1}{Z_T}\,q_{\ell}\left(\overrightarrow{\theta_\ell}\right)\,
+    e^{T\, I_{\ell}\left(\overrightarrow{\theta_\ell}\right)}
+\end{align*}
+with $Z_T$ the normalization factor, $q_{\ell}$ is the prior density of the parameters. 
+Consequently, the actual parameters associated with the reactions in $\mathcal C_\ell$ (denoted by $\overrightarrow{\theta^*_\ell}$) is structurally identifiable (meaning the consistency of both the posterior distribution and the maximum a posteriori estimate) when $\overrightarrow{\theta^*_\ell}$ is the unique maximum of $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$  (see \Cref{thm structural identifiability based on I} and \Cref{thm convergence of local MLE}).
+Notably, it is easy to verify that this identifiability result also holds when the prior distribution does not admit a density but assigns positive probability to every neighborhood of $\overrightarrow{\theta^*_\ell}$.
+
+
+
+Then, our analysis shifts to the rate function $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ to provide checkable conditions for structural identifiability. 
+By the concavity property of the logarithmic function, \Cref{proposition maximality of I} shows that the actual parameter $\theta^*_\ell$ is always a maximum of the function $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$, that is,
+\begin{align*}%\label{eq. maximum of I}
+    I_{\ell}\left(\overrightarrow{\theta^*_\ell}\right)
+    \geq
+    I_{\ell}\left(\overrightarrow{\theta_\ell}\right)
+\end{align*}
+where the equality holds if and only if 
+\begin{align}\label{eq. sufficient and necessary conditions for structural identifiability}
+    \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x) 
+    && 
+    \text{for all $x\in\mathbb S$.}
+\end{align}
+
+Consequently, if condition~\eqref{eq. sufficient and necessary conditions for structural identifiability} is violated for any parameter $\overrightarrow{\theta_\ell}$ in the non-negative orthant, then the actual system parameters $\overrightarrow{\theta^*_\ell}$ are structurally identifiable.
+Moreover, in \Cref{corollary necessary and sufficient conditons for identifiability}, we show that the violation of~\eqref{eq. sufficient and necessary conditions for structural identifiability} is a necessary and sufficient condition for structural identifiability.
+
+Under mass-action kinetics, we now provide a ranking condition for the existence of a unique maximum of $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ and thus structural identifiability.
+
+\begin{theorem}[Structural identifiability/non-identifiability by ranking conditions]\label{thm structural identification via ranking conditions}
+    Assume Conditions \ref{Condition recurrence and irreducibility} and \ref{condition boundedness of the support} and mass-action kinetics hold.
+    For every $1 \leq \ell \leq R^*$, denote the vector $\widebar M_{x,\ell} = \left(g_{j_{\ell, 1}}(x), \dots, g_{j_{\ell, \left|\mathcal C_\ell\right|}}(x)\right)^{\top}$ 
+    and the space $\mathcal S_\ell$  (i.e., $\mathcal S_\ell = \text{span} \{ \widebar M_{x,\ell}| x\in \mathbb S\}$).
+    \begin{enumerate}   
+        \item[(1)] Consider the index $\ell$ satisfying $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,x) > 0$ for at least one state $x\in \mathbb S$; in other words, the state change $\xi_\ell$ almost surely occurs in the infinitely long trajectory $X(t)$.
+        If $\text{dim}(\mathcal S_\ell) = |\mathcal C_\ell|$, then the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally identifiable. 
+        \\[-1pt]
+        
+        \item[(2)] Consider the index $\ell$ satisfying $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,x) > 0$ for at least one state $x\in \mathbb S$. 
+        If $\text{dim}(\mathcal S_\ell) < |\mathcal C_\ell|$ and the orthogonal space of $\mathcal S_\ell$ contains a non-zero vector $v$ such that $\overrightarrow {\theta^*_\ell} + v \in \mathbb R^{|\mathcal C_\ell|}_{\geq 0}$, then the actual parameters $\overrightarrow {\theta^*_\ell}$ is not structurally identifiable. 
+        \\[-1pt]
+        
+        \item[(3)] Consider the index $\ell$ satisfying $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,x) = 0$ for any state $x\in \mathbb S$; in other words, the state change $\xi_\ell$ almost surely never occurs. 
+        Then, the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally identifiable, if and only if $\sum_{x\in A} \widebar M_{x,\ell}$ is a positive vector for a subset $A\subset \mathbb S$.
+        Moreover, when this necessary and sufficient condition holds, such $\overrightarrow {\theta^*_\ell} $ are zeros.  
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+   The proof is presented in the appendix.
+\end{proof}
+
+These structural identifiability criteria are the asymptotic counterparts of the practical identifiability conditions discussed in the previous section. 
+In particular, the full-rank condition in part (1) is the infinite-data analog of the full-rank criterion in \eqref{eq. local cancavity check} for practical identifiability.
+Moreover, the third part of \Cref{thm structural identification via ranking conditions} corresponds to the practical case of absent jump directions, where the data support only the zero parameter value through the existence a elementwise-positive vector. 
+
+The ranking conditions in the first and third results of \Cref{thm structural identification via ranking conditions} require one to visit all the states in the space $\mathbb S$, making it intractable in practical applications. 
+
+Next, we further provide topological conditions for checking structural identifiability, when the state change $\xi_\ell$ almost surely occurs. 
+In the following, we further restrict ourselves to the situation where the substrate complexes are at most biomolecular, and each product complex has no more than $N'$ molecules, respectively.
+
+\begin{condition}\label{conditions number of molecules in each complex}
+
+The reaction pairs $(\nu_1, \nu'_1), \dots, (\nu_r, \nu'_r)$ lie in the following set  
+\[\left\{ (x, y) \in \mathbb Z^d_{\geq 0} \times \mathbb Z^d_{\geq 0} ~\big|~ \|x\|_1 \leq 2 \text{ and } \|y\|_1 \leq N' \right\} \ \big/ \ \big\{(x, y)\in\mathbb Z^{d}_{\geq 0} \times \mathbb Z^{d}_{\geq 0} ~\big|~ x = y \big\}.
+\]
+with $N'$ a positive constant. 
+\end{condition}
+
+\begin{corollary}[Structural identifiability by topological conditions] \label{corollary structural identifiability by topological conditions}
+
+    Assume Conditions \ref{Condition recurrence and irreducibility}-\ref{conditions number of molecules in each complex} and mass-action kinetics hold. 
+    Consider the index $\ell$ such that the state change $\xi_\ell$ almost surely occurs in the infinitely long trajectory $X(t)$, i.e., $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,x) > 0$ for at least one state $x\in \mathbb S$. 
+    Then, the actual parameters  $\overrightarrow {\theta^*_\ell}$ are structurally identifiable if either of the following conditions holds.
+    \begin{enumerate}
+        \item[(1)] $\mathbb S$ contains the set $\{x\in \mathbb Z^d_{\geq 0} ~\big|~ \|x\|_1 \leq 2 \}$.
+        
+        \item[(2)] Either the sum of the negative components in $\xi_\ell$ equals $-2$, or the sum of the positive components in $\xi_\ell$ equals $N'$.
+        %\item The sum of the negative components in $\xi_\ell$ equals to $-1$, and $\|\xi_\ell\|_1 \geq N'+1$.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    The proof is presented in the appendix.
+\end{proof}
+
+\begin{corollary}[Structural non-identifiability by topological conditions] \label{corollary structural non-identifiability by topological conditions}
+
+    Consider the same setting as in \Cref{corollary structural identifiability by topological conditions}.
+    Further, assume that
+    \begin{itemize}[label=$-$]
+        \item  there exists a non-negative vector $c\in\mathbb R^{d}_{\geq0}$ such that $c^{\top} X(t) = c^{\top} X(0)$ for any $t>0$ (i.e., a non-negative conservation law), and
+        \item the sum of the negative components in $\xi_\ell$ is greater than -2, and the sum of the positive components in $\xi_\ell$ is less than $N'$
+        %\item any $(\theta^*)_j < \bar\theta_j$ for $j=1,\dots,R$ with $\bar\theta_j$ given in \Cref{condition boundedness of the support}.
+    \end{itemize}
+    Then, the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally non-identifiable if either of the following conditions holds.
+    \begin{enumerate}
+        \item[(1)] In $\mathcal C_\ell$, there is a zero-order reaction (i.e., $\|\nu_j\|_1=0$) having a positive reaction constant.
+        
+        \item[(2)] In $\mathcal C_\ell$, there is a unimolecular reaction (i.e., $\|\nu_j\|_1=1$) having a positive reaction constant, and $\sum_{j} (\xi_\ell)_j \leq N'-2$. 
+    \end{enumerate}
+    % and assume that any $(\theta^*)_j < \bar\theta_j$ for $j=1,\dots,R$ with $\bar\theta_j$ given in \Cref{condition boundedness of the support}.
+    % Moreover, we also assume that 
+    % \begin{itemize}
+    %     \item there exists a non-zero vector $c\in\mathbb R^{d}_{\geq0}$ such that $c^{\top} X(t) = c^{\top} X(0)$ for any $t>0$ (i.e., a non-negative conservation law),
+    %     \item the sum of the positive components in $\xi_\ell$ is less than $N'$, and
+    %     \item in $\mathcal C_\ell$, there is a zero-order reaction (i.e., $\|\nu_j\|_1=0$) or a unimolecular reactions (i.e., $\|\nu_j\|_1=1$) having a positive reaction constant.
+    %     %the only unimolecular reaction in $\mathcal C_\ell$ has a positive reaction constant.
+    % \end{itemize}
+    % Then, the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally non-identifiable.
+\end{corollary}
+
+\begin{proof}
+    {The proof is presented in the appendix}.
+\end{proof}
+
+
+\Cref{corollary structural non-identifiability by topological conditions} shows that non-identifiability of certain parameters is likely when the system has a non-negative conservation law.
+See also the example presented in a later numerical section.
+This is a somewhat disappointing result, since such conservation laws are common in practical applications.
+Improving identifiability in these cases may require additional biological information to rule out certain possibilities.
+
+
+Notably, while the results presented here share some similarities with the existing literature, they also differ in several significant respects. The first result in \Cref{corollary structural identifiability by topological conditions} was also presented in \cite{enciso2021identifiability}, where identifiability is analyzed in terms of the unique determination of propensity functions. In contrast, our paper formulates identifiability from the perspective of a single trajectory, which is a more challenging setting. The connection between these two formulations is established by \Cref{corollary necessary and sufficient conditons for identifiability}, which shows that unique determination of the propensity functions is equivalent to identifiability from a single infinitely long trajectory.
+On the other hand, \cite{zhang2019learning} establishes the convergence of maximum likelihood estimators under similar conditions. However, that work does not address posterior convergence, which is particularly important in Bayesian analysis. Our paper enables such an analysis through a novel uniform convergence result for the scaled likelihood, which justifies the interchange of expectation and limit operations.
+
+
+
+
+
+\newpage
+
+\section{Visited states decomposition of local likelihood function}
+ 
+
+
+In this section, we introduce a novel \emph{visited states} representation of the likelihood function to accelerate its evaluation in parameter inference. 
+
+Recall that the local density form in \eqref{eq:local_likelihood_with_times} represents one given trajectory $\{X_{0:T}\}$ of species states at each jump time during $[0,T]$. We now write that likelihood explicitly in terms of the unknown constants ($\theta_{j}$) and the intensity function that is by the kinetic of mass action in \eqref{def:propensity-mass-action-kinetic} depending on  observed data $(g_{j}(\cdot))$  
+
+\begin{equation}
+\begin{aligned}
+L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) 
+    &=\left[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+    \left( \sum_{j \in C_\ell} \theta_{j} g_{j}\left( X(t_n)\right) \right)\right] \\
+    & \quad\quad\quad\quad 
+    \exp\left\{
+        -\sum_{j \in C_\ell} \theta_{j} \int_0^T   g_{j}\left( X(s)\right) \dd s
+    \right\} .
+\end{aligned}
+\label{eq:local_likelihood_with_jump_times_g}
+\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) &= \left[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+%    \left( \sum_{j\in\mathcal C_\ell} \lambda_j\left(\theta_j, X(t_n)\right) \right)\right]
+%    \exp\left\{
+%        - \int_0^T \sum_{j\in\mathcal C_\ell} \lambda_j(\theta_j, X(s)) \dd s
+%    \right\} \\
+%    &=\left[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+%    \left( \sum_{h=1}^{\left|\mathcal C_\ell\right|} \theta_{\ell,h} g_{\ell,h}\left( X(t_n)\right) \right)\right] \\
+%    & \quad\quad\quad\quad 
+%    \exp\left\{
+%        -\sum_{h=1}^{\left|\mathcal C_\ell\right|} \theta_{\ell,h} \int_0^T   g_{\ell,h}\left( X(s)\right) \dd s
+%\right\} 
+%\end{aligned}
+%\label{eq:local_likelihood_with_jump_times_g}
+%\end{equation}
+%where the second line represents the intensity function that is by the kinetic of mass action in \eqref{def:propensity-mass-action-kinetic}. 
+
+Given a fully observed trajectory, parameter inference is typically approached using either frequentist MLE or Bayesian methods. These approaches all involve the calculation of the likelihood function. The frequentist estimation of the MLE from the likelihood function form in \eqref{eq:local_likelihood_with_jump_times_g} requires evaluating the first line involving the product over $\xi_\ell$-jump times, as well as the second line representing the summation over $N$ within the exponential terms. For the Bayesian Markov Chain Monte Carlo (MCMC) simulation, each update of the parameter $\theta_{j}$, for $j\in \mathcal{C}_\ell$, also requires the calculation of the likelihood function. Our goal here is to simplify the calculation of the likelihood term, given a full observed trajectory.  
+
+
+The first product of the $\xi_{\ell}$-jump times term in \eqref{eq:local_likelihood_with_jump_times_g}, as 
+\[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+    \left( \sum_{j \in \mathcal C_\ell} \theta_{j} g_{j}\left( X(t_n)\right) \right), \]
+cannot be directly separated by each of the parameters $\theta_{j}$ with the species state terms $g_{j}(\cdot)$, for $j\in \mathcal{C}_\ell$.
+
+    
+While the second integral in the exponential term of  \eqref{eq:local_likelihood_with_jump_times_g} 
+\begin{align}
+    \int_0^T g_{j}(X(s))\dd s = \sum_{n=1}^{N+1} (t_n-t_{n-1})  g_{j}(X(t_{n-1})) ,
+\end{align}
+for $j\in \mathcal{C}_\ell$, is expressed as the sum, across $N+1$ of jump time intervals $ 0=t_0 < t_1<t_2\cdots< t_N< t_{N+1}=T$, of states function $(g(\cdot))$ multiplied by waiting time. It
+can be pre-calculated for the given trajectory. 
+
+ We intend to accelerate the calculation of the local likelihood function \eqref{eq:local_likelihood_with_jump_times_g}.
+The long-term monitoring of species is computationally expensive when estimating the local density. The trajectory tends to revisit certain states repeatedly over time. Instead of representing the dataset $X_{0:T}$ at each jump time, we cluster the total jump events during $[0,T]$ as the distinct jump types and their pre-jump states.
+
+
+Given one trajectory of species $X_{0:T}$, the $\xi_{\ell}$-type jump events during the total observation time $0=t_0 < t_1<t_2\cdots< t_N< t_{N+1}=T$ can be grouped by their distinct pre-jump states, defining the sets
+\begin{align}
+    \mathbb{S}_{\ell} = \left\{ X(t_n) \mid X(t_{n+1})-X(t_{n})=\xi_{\ell}, \; \text{for}\; n=1,2,\cdots, N \right\}. 
+\end{align}
+ Let us denote the number of jumps that start the $\xi_{\ell}$-jumps as species state $x$ as 
+\begin{align}
+     n_{x,\ell} &= \sum_{n=0}^{N-1} \mathbf{1}_{(X(t_n) = x)} \cdot \mathbf{1}_{(X(t_{n+1}) - X(t_n) = \xi_\ell)}=\left|\mathbb{S}_{\ell}\right|.
+\end{align}
+
+Therefore, the first product term of $\xi_{\ell}$ jump events in local likelihood function \eqref{eq:local_likelihood_with_jump_times_g} becomes 
+\begin{align*}
+   \prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+    \left( \sum_{j \in \mathcal C_\ell} \theta_{j} g_{j}\left( X(t_n)\right) \right) =   \prod_{x \in \mathbb{S}_{\ell} } \left( \sum_{j \in \mathcal C_\ell} \theta_{j} g_{j}\left( X(t_n)\right) \right)^{n_{x,\ell}} ,
+ \end{align*}
+which reduces the number of multiplications from the count of $\xi_{\ell}$-type jump times to the number of $\xi_{\ell}$-type distinct pre-jump states $\left|\mathbb{S}_{\ell}\right|$.   
+
+
+
+For the exponential term in \eqref{eq:local_likelihood_with_jump_times_g}, the integral of the intensity function over $[0, T]$ can also be decomposed by the visited states. Let us denote all the visited states of the given data $X_{0:T}$ as 
+\[\mathbb{S} = \{ X(t_n): n = 0, 1, \cdots, N-1 \},\] 
+and the total time spent at $x \in \mathbb{S}$ as 
+\[
+\tau_{x} = \sum_{n=0}^{N-1} \mathbf{1}_{(X(t_n) = x)} \cdot (t_{n+1} - t_n).
+\]
+The integral of the intensity function in the exponential term of the local likelihood function \eqref{eq:local_likelihood_with_jump_times_g} can then be rewritten as
+\begin{align}
+    \int_0^T g_{j}(X(s))\dd s = \sum_{x \in \mathbb{S} } \tau_x  g_{j}(x) ,\quad \text{for each}\; j \in \mathcal{C}_{\ell},
+\end{align} 
+which also changes the number of summation from total $N+1$ jump times to $\left|\mathbb{S}\right|$ of total distinct visited states. 
+
+Therefore, the visited state representation of the local likelihood function is 
+\begin{equation}
+    \begin{aligned}
+    L_{\ell}\left(X_{0:T} \big| \overrightarrow{\theta_\ell}\right) = \left[\prod_{x \in \mathbb{S}_\ell}  \left(  \sum_{j \in \mathcal{C}_\ell } \theta_{j} g_{j} \left( x\right) \right)^{n_{x, \ell}} \right] 
+\exp\left\{ -  \sum_{j \in \mathcal{C}_\ell } \theta_{j} \left(   \sum_{x \in \mathbb{S}} \tau_{x}  g_{j}(x)    \right) \right\} ,
+\label{eq:local_likelihood_with_states}
+\end{aligned}
+\end{equation}
+which is the equivalent representation of the density function in terms of jump times as in \eqref{eq:local_likelihood_with_times}, but rewritten as a visited states decomposition.
+
+
+Especially, if the visited states $\sum_x n_{x,l}=0$, and $\sum_{j \in \mathcal{C}_\ell } \theta_{j}=0$ then the first factor in formula \ref{eq:local_likelihood_with_states} reduce to $0^0$ that should be evaluated as 1. 
+
+
+
+\section{Bayesian posterior learning of chemical reaction networks with spike and slab prior}
+
+%Given a fully observed dataset, the reactions with the unique stoichiometric reaction vectors have identifiable parameters and are discussed in \cite[Chapter 10]{Wilkinson2018}. For reactions with shared stoichiometric reaction vectors, the underlying chemical reaction network and its parameters $\theta$ are both unknown. Our interest lies in inferring the structure of the chemical reaction network that plausibly explains the data, and its corresponding reaction rates. 
+
+
+%\textcolor{blue}{Yajie next step:}
+%\begin{enumerate}
+%    \item Check the Algorithm $\theta^*$ vectorization and notation
+%    \item recall the likelihood function with $g()$ form
+%    \item Introduce the likelihood function with species states
+%    \item Could the parameter be updated as a whole vector, or term by term? Does it matter?(Guess: Are the parameters independent or not. The correlated parameter might mix better with the whole vector update. Check the acceptance rate might work) 
+%\end{enumerate}
+
+
+%Given one decomposed full-observed dataset associated with the stoichiometric reaction vector $\xi_\ell$ (for $\ell=1,2,\dots,R^*$), that can produce the same stoichiometric change. We consider all the potential chemical reactions in our model and infer all the corresponding reaction rates.  
+%Each reaction rate of the candidate reaction is a nonnegative real value $\theta_{\ell,h} \in \mathbb{R}_{\geq 0}$, $h=1,2, \cdots, \left|\mathcal{C}_\ell \right|$, where $\left|\mathcal{C}_\ell \right|=(d+1)$. 
+%Since the ``true" reaction structure that generated the dataset is a subset of the combination of these $(d+1)$ candidate reactions.    
+
+We take a Bayesian approach to our inference task. We assume that biological reaction networks are sparse and employ a spike-and-slab prior distribution. For those reactions with a unique stoichiometric reaction vector, there is a conjugate spike and slab posterior distribution, see example \Cref{sec:posterior_unique_stoichiometric}. For those reactions with non-unique stoichiometric reaction vectors, the posterior distribution does not admit a closed-form expression analytically.
+
+
+
+We employ Markov-Chain Monte-Carlo (MCMC) over all candidate reaction rates and aim to obtain posterior samples of reaction networks and rates. We employ the Metropolis-Hastings sampler, taking advantage of our visited space representation of the likelihood, and precomputing relevant quantities from our data. Some suitable tricks are employed to efficiently explore the parameter state and to ensure a rapid convergence. 
+
+
+
+%Here, we believe that each of the candidate reactions in $\mathcal{C}_\ell$ may be turned on or off for the given $\xi_\ell$ type of jumps in the dataset. 
+ 
+
+\subsection{Sparsity Promoting Spike-and-Slab Prior}
+
+We assume that biological reaction networks are relatively sparse, and so we consider the prior distribution of all reaction rates, $\overrightarrow{\theta_{j}}\in \mathbb{R}_{\geq 0}^{\left|\mathcal{C}_{\ell} \right|}$, for $j \in \mathcal{C}_{\ell}$, to be a spike-and-slab prior, a mixture of a Dirac measure at zero (the spike) and a positive Gamma distribution (the slab).  Specifically, for each $j \in \mathcal{C}_{\ell}$, we use 
+\begin{align}
+\pi\left(\theta_{j}\right)= p\mathrm{1}_{\theta_{j}=0} + (1-p) \Gamma(\theta_{j} \mid \alpha_{j}, \beta_{j})\mathrm{1}_{\theta_{j}> 0},\label{SpSl}
+\end{align}
+where $p$ is the weight of the spike, $ \alpha_{j}$ and $\beta_{j}$ are specified parameters of Gamma slab.
+
+%Things we do for algorithmic benefit.
+%\begin{itemize}
+ %   \item We introduce $\theta^*$ to make the proposal symmetric. (Easier acceptance probability)
+%\end{itemize}
+
+%Things we do for numerical efficiency
+%\begin{itemize}
+%    \item We precompute the $n_{x,\ell}$ and $\tau_x$ (Define both and then put the final likelihood - We need to we-write equation (3). I think we should put final likelihood expression) ---rewrite it by g() term
+%    \begin{equation}
+%\begin{aligned}
+%L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) = \left[\prod_{n: X(t_{n+1})-X(t_n) = \xi_\ell}
+%    \left( \sum_{j\in\mathcal C_\ell} \lambda_j\left(\theta_j, X(t_n)\right) \right)\right]
+%    \exp\left\{
+ %       - \int_0^T \sum_{j\in\mathcal C_\ell} \lambda_j(\theta_j, X(s)) \dd s
+%    \right\}.
+%\end{aligned}
+%\end{equation}
+ %   \item  To make the calculations easier, we pre-compute the propensities for each state: $g_i(x)$. The data isn't changing - so we do not have to evaluate each time.
+ %   \item Notation should match; we are learning a vector of $\theta$ values. So how did we do that.
+%\end{itemize}
+Since the parameter domain is restricted to the non-negative real line, to enhance the speed of convergence of the Metropolis-Hastings sampler, it turns out to be helpful to introduce a suitably designed proposal.
+
+Indeed, a symmetric random walk proposal, would propose negative values that should be rejected directly, with an unnecessary computational overload.  While it is possible to consider an asymmetric proposal distribution, for simplicity in calculating the acceptance probabilities, we introduce a transformation over the parameter space whose support extends over the entire real line. In particular we introduce 
+
+
+
+
+
+
+% a but  tends over the entire real line. By extending the support to the entire real line, the prior distribution requires a lower tail in the negative region. This alleviates the problem of the posterior samples generated by the Metropolis-Hastings accumulating in the negative region.
+ 
+
+
+\noindent More specifically, for each vector of non-negative rate constants $\overrightarrow{\theta_{j}} \in \mathbb{R}_{\geq0}^{\left| \mathcal{C}_{\ell} \right|}$ we introduce a \emph{working parameter} $\overrightarrow{\theta_{j}^*}\in \mathbb{R}^{\left| \mathcal{C}_{\ell} \right|}$ which is not restricted to the positive orthant. Then we introduce the map $m: \mathbb{R}^{\left| \mathcal{C}_{\ell} \right| } \rightarrow \mathbb{R}_{\geq0}^{\left| \mathcal{C}_{\ell} \right|}$ that associates to any $\overrightarrow{\theta_{j}^*}=\theta_{j}^*$ its projection to the non negative orthant, defined as 
+\begin{equation}
+    \begin{aligned}
+        m\left(\theta_{j1}^*, \dots, \theta_{j,\left|\mathcal{C}_{\ell} \right|}^*\right)= \left( \max\left(\theta_{j1}^*,0\right), \dots, \max\left(\theta_{j,\left|\mathcal{C}_{\ell} \right|}^*,0\right)\right) .
+\label{def:transfer_theta_m_fn}
+    \end{aligned}
+\end{equation}
+
+
+
+%The vector of rate constants is then recovered from the working parameters as $\overrightarrow{\theta_{j}}=m(\overrightarrow{\theta_{j}^ *})$.
+
+Let us remark that the working parameters $\theta_{ji}^*$ do not enter directly into the expression of the likelihood and of the prior, since only the positive rate constants $\theta_{ji}$ do. Therefore, they become non-identifiable when they are negative, since any negative value of $\theta_{ji}^*$ is mapped to the same $\theta_{ji}=0$. This implies that an MCMC algorithm that targets $\theta_{ji}^ *$ may travel arbitrarily far in the non-positive region unless we prevent this behaviour in some way.
+
+The solution we suggest is to define a prior distribution $\nu$ over the $
+\theta_{ji}^ *$ such that its push-forward through the map $m$ coincides with the spike and slab prior in equation \eqref{SpSl}, and such that its restriction to the negative axes is concentrated close to zero, to make largely negative values improbable a priori.
+We then define
+$\nu(\theta_{ji}^ *)=\pi(\theta_{ji})$ whenever $\theta_{ji}^ *>0$,
+whereas we are free to set $\nu(\theta_{ji}^ *)$ as we wish when $\theta_{ji}^ *$ is negative as long as $\int_{-\infty}^0 \nu (x) dx= p.$
+A possible choice is
+ \begin{align*}
+    \nu(\theta_{ji}^*)=  f(\theta_{ji}^*)\mathrm{1}_{\theta_{ji}^*\leq 0} + (1-p) \Gamma(\theta_{ji}^* \mid \alpha_{j}, \beta_{ji})\mathrm{1}_{\theta_{ji}^*> 0} ,
+\end{align*}
+where, for instance, we can set $p=0.5$ and $f(\theta_{j}^*)\equiv N(0,1)$.
+In the working parameter space, we are then allowed to use a normal random walk proposal, e.g. the multivariate one proposed in Algorithm 4 of reference \cite{Andrieu2008_adapt_algo}, with an adaptive variance-covariance matrix.
+
+%Therefore, the prior distribution is formulated in terms of the transformed variables $\theta_{j}^*$ defined in the whole space of $\mathbb{R}$. To avoid large samples in the negative region, we replace the point mass at the zero point with a continuous distribution that possesses a lower tail in the negative region,
+
+%where the negative part of density $f(\theta_{j}^*)$ satisfies $\int_{-\infty}^{0}f(x) \mathsf{d}x=p$. For instance, we can set $p=0.5$ and $f(\theta_{j}^*)\equiv N(0,1)$ as standard normal distribution. The joint prior distribution of $\overrightarrow{\theta_j^*}$ is
+%\begin{align*}
+%    \pi \left(\overrightarrow{\theta_j^*}  \right)= \prod_{j \in C_\ell }\pi(\theta_{j}^*) . 
+%\end{align*}
+
+
+For a given trajectory, we aim to derive the posterior distribution of the working parameters vector 
+$\overrightarrow{\theta_j^*}\in \mathbb{R}^{\left| \mathcal{C}_j \right|}$,
+\begin{align*}
+\pi\left(\overrightarrow{\theta_j^*} \, \Big|\,   X_{0:T} \right) ~\propto~  L_{l}\left(X_{0:T} \, \Big| \, m\left(\overrightarrow{\theta_j^*}\right)\right) \, \nu \left(\overrightarrow{\theta_j^*}  \right),
+\end{align*}
+where $L_{l}\left(X_{0:T} \, \Big| \, m\left(\overrightarrow{\theta_j^*}\right)\right) \equiv L_{l}\left(X_{0:T} \, \Big| \, \overrightarrow{\theta_j}\right)  $ is the local density for the dataset of the stochimetric vector $\xi_{\ell}$  as in \eqref{eq:local_likelihood_with_times}. 
+
+
+As a summary, we report here a pseudocode for our implementation of the Metropolis-Hastings algorithm tuned to the estimation of the rate constants. 
+
+
+
+
+\begin{algorithm}[H]
+\caption{Metropolis-Hastings MCMC with working parameters $\overrightarrow{\theta^*}$}
+\label{alg:mcmc_theta_star_explicit}
+\begin{algorithmic}[1]
+\State{Data preprocessing and pre-computing.}
+From the dataset $\{(t_i, X(t_i)),~ i\in{0,\cdots,N}\}$, list the set of unique stochiometric changes $\{\xi_{\ell}\}_\ell$ for $\ell \in\{1,\cdots,L,L\leq R^\star\}$, that are actually observed in the data, meaning that there exist (at least) an $i\in{0,\cdots,N}$ such that $X(t_i +1)-X(t_i)=\xi_{\ell}$. Please note that there might be more reaction vectors in the network than those that are really observed from the data. For those unobserved jumps, we set all corresponding rate constants to $0$ with probability 1.
+
+\State \text{Input :} 
+
+
+
+
+
+
+
+Initial working parameter $\overrightarrow{\theta}^*_0$, number of iterations \textit{iter}, likelihood $L(\cdot)$, prior $\pi(\cdot)$, symmetric proposal $q(\cdot \mid \cdot)$. Data, including the number of observed stoichiometric changes 
+
+
+
+
+
+\State Initialize $\overrightarrow{\theta_{0}^*} = m\left(\overrightarrow{\theta}_{0}^*\right)$ cf. \eqref{def:transfer_theta_m_fn}
+
+\For{$i = 0$ \textbf{to} $(\textit{iter}-1)$}
+    \State Sample proposal: $\overrightarrow{\theta}^*_{\text{prop}} \sim q(\overrightarrow{\theta}^*_{\text{prop}}  \mid \overrightarrow{ \theta}^*_i  )$ 
+    %$( \overrightarrow{\theta}^*_{\text{prop}} = \overrightarrow{\theta}^*+ Z  )$, where $Z \sim N(0,\mathcal{I})$;
+    %\State Transform: $\theta_{\text{prop}} = g(\theta^*_{\text{prop}})$
+    \State Compute acceptance probability $\alpha$:
+    \[
+        \alpha = 
+        \min\Bigg(
+            1, 
+            \frac{L(m(\overrightarrow{\theta}_{\text{prop}}^*)) \, \pi(\overrightarrow{\theta}_{\text{prop}}^*) \, q(\overrightarrow{\theta}_i^* \mid \overrightarrow{\theta}_{\text{prop}}^*)}
+                 {L(m(\overrightarrow{\theta}_i^*)) \, \pi(\overrightarrow{\theta}_i^*) \, q(\overrightarrow{\theta}_{\text{prop}}^* \mid \overrightarrow{\theta}_i^*)}
+        \Bigg)
+        =
+        \min\Bigg(
+            1, 
+            \frac{L(m(\overrightarrow{\theta}_{\text{prop}}^*)) \, \pi(\overrightarrow{\theta}_{\text{prop}}^*)}
+                 {L(m(\overrightarrow{\theta}_i^*)) \, \pi(\overrightarrow{\theta}_i^*)}
+        \Bigg)
+    \]
+    \State Draw $u \sim \text{Uniform}(0,1)$
+    \If{$u < \alpha$}
+        \State Accept proposal: $\overrightarrow{\theta}^*_{i+1}  = \overrightarrow{\theta}^*_{\text{prop}}, \overrightarrow{\theta}_{i+1} = \overrightarrow{\theta}_{\text{prop}}$
+    \Else
+        \State Reject proposal: $\overrightarrow{\theta}^*_{i+1}  = \overrightarrow{\theta}^*_i,\overrightarrow{ \theta}_{i+1}  = \overrightarrow{\theta_i}$
+    \EndIf
+\EndFor
+\State \textbf{Output:} Chain of transformed parameters $\{\overrightarrow{\theta}^*_i\}_{i=1}^\textit{iter}$
+\end{algorithmic}
+\label{alg:MCMC}
+\end{algorithm}
+
+%\textcolor{blue}{
+%Enrico: please check this part, why we extend the parameter space $\theta$ to $\theta^*$. }
+
+
+\input{numericalResults}
+\section{Discussion}
+
+\subsection*{What is Different}
+\begin{itemize}
+    \item Previous method handles sparsity with Lasso; requires tuning. (This method has a prior - less tuning).
+    \item We explicitly get an estimate if a reaction is on or off.
+    \item Is there a difference with noise? (What else should we do?)
+\end{itemize}
+
+
+\newpage
+
+\bmhead{Acknowledgements}
+
+Acknowledgements are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\section*{Declarations \textcolor{red}{The section needs to fix}}
+
+Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
+
+\begin{itemize}
+\item Funding
+\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+\item Ethics approval and consent to participate
+\item Consent for publication
+\item Data availability 
+\item Materials availability
+\item Code availability 
+\item Author contribution
+\end{itemize}
+
+\noindent
+If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. Please ignore this.             %%
+%%===================================================%%
+\bigskip
+\begin{flushleft}%
+Editorial Policies for:
+
+\bigskip\noindent
+Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+
+\bigskip\noindent
+Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+\bigskip\noindent
+\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+\bigskip\noindent
+BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
+\end{flushleft}
+
+\begin{appendices}
+
+\renewcommand{\theHequation}{\thesection.\arabic{equation}}
+
+\section{Proofs of the structural identifiability results}\label{Appendix section proofs of structural identifiability.}
+
+We prove the results in \Cref{section identifiability analysis}.
+We first derive an expression for the log-likelihood.
+By \eqref{eq:local_likelihood_with_times} and mass-action kinetics, the local log-likelihood can be expressed as 
+\begin{align}\label{eq. express log-likelihood using Y} 
+        &\frac{1}{T} \log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) 
+        \\
+        &= \frac{1}{T}\int_{0}^T \log\left(\sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t))\right) \sum_{j\in\mathcal C_\ell} \dd Y_j\left(\int_0^t \theta^*_j g_j(X(s)) \dd s\right)
+        - 
+        \frac{1}{T}\int_{0}^T \sum_{j\in\mathcal C_\ell} \theta_j g_j(X(t)) \dd t. \notag
+\end{align}
+
+
+Together with ergodicity (\Cref{Condition recurrence and irreducibility}), this expression shows that the log-likelihood is finite for any $T>0$ if and only if $\sum_{j\in\mathcal C_\ell} \theta_j g_j(x)=0$ implies $\sum_{j\in\mathcal C_\ell} \theta^*_j g_j(x)=0$ for each $x\in \mathbb S$.
+To further simplify this condition, we introduce a set of $0$-$1$ vectors $\Psi_\ell$ by 
+\begin{align*}
+    \Psi_\ell \triangleq \left\{ \left(\mathbbold 1\left(g_{j_{\ell,1}}(x) > 0\right), \dots, \mathbbold 1\left(g_{j_{\ell,|\mathcal C_\ell|}}(x) > 0\right)\right) ~\Big|~ x\in\mathbb S,\ \sum_{j\in\mathcal C_\ell}\theta^*_j g_j(x)>0\right\}.
+\end{align*}
+It follows that %when $\Psi_\ell =\emptyset$  or  $\psi \, \overrightarrow{\theta_\ell} > 0$ for any $\psi \in \Psi_\ell$, the above condition for finite log-likelihood holds; therefore,
+\begin{align}\label{eq condition for finite log likelihood}
+    \text{$\Psi_\ell =\emptyset$ or $\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right) > 0$} && \Longleftrightarrow &&
+    \frac{1}{T} \log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)> -\infty \quad \forall T>0 \text{~a.s}.
+\end{align}
+Moreover, when $\Psi_\ell \neq \emptyset$ and $\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right) > 0$, any nonzero $\sum_{j\in\mathcal C_\ell} \theta_j g_j(x)$ is bounded below by $\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right)$ because each $g_j(x)$ takes only non-negative integer values. 
+Therefore, when $\Psi_\ell \neq \emptyset$ and $\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right) > 0$,
+we have 
+\begin{align}\label{eq the finite expectation for the lambda x log lambda}
+        &\mathbb E_{X^* \sim \mathbb P_\text{st}}\left[
+        \left(\sum_{j\in\mathcal C_\ell}\theta^*_j g_j(X^*)\right)
+        \left|\log\left(\sum_{j\in\mathcal C_\ell} \theta_j g_j(X^*)\right) \right|^u
+        \right]\\
+        &\leq
+        \mathbb E_{X^* \sim \mathbb P_\text{st}}\left[
+        \left(\sum_{j\in\mathcal C_\ell}\theta^*_j g_j(X^*)\right)
+        \left(
+        \left(\sum_{j\in\mathcal C_\ell} \theta_j g_j(X^*)\right)^u
+        + \left|\log \left(\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right)\right)\right|^u
+        \right)
+        \right]
+        \notag\\
+        & < \infty && \forall u >0
+        \notag
+\end{align}
+where the last inequality follows from \eqref{eq. finiteness of the moments}.
+
+
+\begin{proposition}[Convergence of the log-likelihood]\label{Proposition convergence of the log-likelihood}
+    Under \Cref{Condition recurrence and irreducibility} and mass-action kinetics, the local log-likelihood $\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ (see \eqref{eq:local_likelihood_with_times}) satisfies the convergence relation \eqref{eq. convergence of the log likelihood}.
+\end{proposition}
+
+\begin{proof}
+    By \eqref{eq. express log-likelihood using Y}, the local log-likelihood can be decomposed as 
+    \begin{align}
+        &\frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right) \notag\\
+        % &= \frac{1}{T}\int_{0}^T \sum_{j\in\mathcal C_\ell}\log\left(\lambda^{\mathcal C_\ell}(\theta,X(t))\right) \dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)
+        % - 
+        % \frac{1}{T}\int_{0}^T \sum_{j\in\mathcal C_\ell}\lambda^{\mathcal C_\ell}(\theta,X(t)) \dd t \notag\\
+        &= \sum_{j\in\mathcal C_\ell} \frac{1}{T}\int_{0}^T \log\left(\sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t))\right) 
+        \left[
+        \dd Y_j\left(\int_0^t \theta^*_j g_j(X(s)) \dd s\right)
+        - \theta^*_j g_j(X(t)) \, \dd t
+        \right] \notag\\
+        & \quad + 
+        \sum_{j\in\mathcal C_\ell} \frac{1}{T}\int_{0}^T 
+        \left[
+        \theta^*_j g_j(X(t)) \log\left(\sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t))\right) 
+        -
+        \theta_j g_j(X(t))
+        \right] \, \dd t 
+        \label{eq. proof of the log likelihood convergence}
+        % \\
+        % &= \frac{1}{T}\int_{0}^T \sum_{j\in\mathcal C_\ell}\log\left(\lambda^{\mathcal C_\ell}(\theta,X(t))\right) \left[\dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)
+        % - \lambda_j(\theta^*_j, X(s)) \dd t
+        % \right] \notag\\
+        % &\quad + \frac{1}{T}\int_{0}^T 
+        % \lambda^{\mathcal C_\ell}(\theta^*,X(t)) \log\left(\lambda^{\mathcal C_\ell}(\theta,X(t))\right) 
+        % +
+        % \lambda^{\mathcal C_\ell}(\theta,X(t)) \dd t 
+    \end{align}
+    For $\Psi_\ell \neq \emptyset$ and $\min_{\psi\in\Psi_\ell} \left(\psi \, \overrightarrow{\theta_\ell}\right) > 0$ (i.e., the log-likelihood is finite; see \eqref{eq condition for finite log likelihood}),
+    the last line in \eqref{eq. proof of the log likelihood convergence} converges to $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ due to the ergodicity of the system (\Cref{Condition recurrence and irreducibility}), \eqref{eq the finite expectation for the lambda x log lambda}, and \eqref{eq. finiteness of the moments};
+    moreover, the second last line converges to 0 almost surely by applying \cite[Theorem 9 in Chapter 2.6]{liptser1989theory} together with \eqref{eq the finite expectation for the lambda x log lambda}.
+    This proves the result in this case.
+    When $\Psi_\ell = \emptyset$, there are almost surely no jumps in the $\xi_\ell$ direction, and the convergence follows from \eqref{eq. finiteness of the moments} and the ergodicity of the system (\Cref{Condition recurrence and irreducibility}).
+    Finally, suppose there exists $x\in \mathbb S$ such that $\sum_{j\in\mathcal C_\ell}\theta^*_j g_j(x)>0$ but $\sum_{j\in\mathcal C_\ell}\theta_j g_j(x)=0$.
+    Then the log-likelihood becomes $-\infty$ once a jump in the $\xi_\ell$ direction occurs from state $x$.
+    In this case, $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ is also $-\infty$, and the convergence result \eqref{eq. convergence of the log likelihood} still holds. 
+    This proves the proposition. 
+\end{proof}
+
+
+Next, we prove uniform convergence of the log-likelihood in a neighborhood of the true parameter. 
+To this end, we first define a projection matrix $\mathcal P$ that indicates which $g_j(x)$ are nonzero on $\mathbb S$:
+\begin{align}\label{eq. projection to effective space}
+    \mathcal P   = \text{diag}\left(
+         \mathbbold 1_{\left\{\exists x \in\mathbb S \text{ such that } g_{j_{\ell,1}}(x)>0 \right\}}, ~ \dots, ~
+        \mathbbold 1_{\left\{\exists x \in\mathbb S \text{ such that } g_{j_{\ell,|\mathcal C_\ell|}}(x)>0 \right\}}
+    \right).
+\end{align}
+We then define the region
+\begin{align}
+    \mathcal N_{\ell}^\epsilon
+    = \left\{
+    \begin{array}{ccr}
+         \left\{\overrightarrow{\theta_\ell}
+         ~\Big|~
+    \psi \,\overrightarrow{\theta_\ell} \geq \epsilon~~\forall \psi \in \Psi_\ell
+    \right\} ~\bigcap ~
+    \left\{ \overrightarrow{\theta_\ell} \in \mathbb R^{|\mathcal C_\ell|}_{\geq 0}~\Big|~  \left\|\mathcal P\overrightarrow{\theta_\ell}  \right\|_{\infty} \leq \frac{1}{\epsilon} \right\}
+    & & \text{if $\Psi_\ell\neq \emptyset$}\\
+      \left\{ \overrightarrow{\theta_\ell} \in \mathbb R^{|\mathcal C_\ell|}_{\geq 0} ~\Big|~  \left\|\mathcal P\overrightarrow{\theta_\ell}  \right\|_{\infty} \leq \frac{1}{\epsilon} \right\}   & & \text{if $\Psi_\ell = \emptyset$}
+    \end{array}
+    \right.
+\end{align}
+To ensure that this region is a neighborhood of the true parameter $\overrightarrow{\theta^*_\ell}$, we choose $\epsilon$ sufficiently small so that $\epsilon < \frac{1}{ \left\|\mathcal P\overrightarrow{\theta^*_\ell}  \right\|_{\infty}}$ in both cases, with the additional condition $\epsilon < \min_{\psi\in\Psi_\ell} \left(\psi \,\overrightarrow{\theta^*_\ell}\right)$ when $\Psi_\ell\neq \emptyset$. 
+A graphical illustration of this neighborhood is given in \Cref{fig:neighborhood-region}.
+
+\begin{figure}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[x=1cm,y=1cm,line cap=round,line join=round,>=stealth]
+        \definecolor{regionfill}{RGB}{180,196,216}
+        \definecolor{lowerline}{RGB}{200,40,40}
+        \definecolor{upperline}{RGB}{90,90,90}
+
+        % Left panel
+        \begin{scope}[shift={(0,0)}]
+            \def\W{6.2}
+            \def\H{5.8}
+            \def\epsy{0.28}
+            \def\uppery{4.5}
+
+            \draw[->,line width=0.9pt] (0,0) -- (\W,0);
+            \draw[->,line width=0.9pt] (0,0) -- (0,\H);
+            \fill[regionfill,opacity=0.9] (0,\epsy) rectangle (\W,\uppery);
+            \draw[lowerline,dashed,line width=0.9pt] (0,\epsy) -- (\W,\epsy);
+            \draw[upperline,densely dotted,line width=0.9pt] (0,\uppery) -- (\W,\uppery);
+
+            \node[anchor=south] at (\W/2,\H+0.1) {$\Psi_\ell=\{(0,1)\},\ \mathcal P=\mathrm{diag}(0,1)$};
+            \node[anchor=north] at (\W/2,-0.12) {$\theta_{j_{\ell,1}}$};
+            \node[anchor=south,rotate=90] at (-0.45,\H/2) {$\theta_{j_{\ell,2}}$};
+            \node[anchor=east,text=lowerline] at (-0.02,\epsy+0.03) {$\epsilon$};
+            \node[anchor=east,text=upperline] at (-0.02,\uppery+0.03) {$1/\epsilon$};
+            \node[draw=gray!60,rounded corners=3pt,fill=white,align=center,inner sep=4pt] at (3.4,4.87) {$\epsilon\leq\theta_2<1/\epsilon$\\$\theta_1$ is unbounded};
+        \end{scope}
+
+        % Right panel
+        \begin{scope}[shift={(9.4,0)}]
+            \def\W{6.2}
+            \def\H{5.8}
+            \def\epsx{0.28}
+            \def\epsy{0.28}
+            \def\upperx{4.75}
+            \def\uppery{4.5}
+
+            \draw[->,line width=0.9pt] (0,0) -- (\W,0);
+            \draw[->,line width=0.9pt] (0,0) -- (0,\H);
+            \fill[regionfill,opacity=0.9] (\epsx,\epsy) rectangle (\upperx,\uppery);
+            \draw[lowerline,dashed,line width=0.9pt] (0,\epsy) -- (\W,\epsy);
+            \draw[lowerline,dashed,line width=0.9pt] (\epsx,0) -- (\epsx,\H);
+            \draw[upperline,densely dotted,line width=0.9pt] (0,\uppery) -- (\W,\uppery);
+            \draw[upperline,densely dotted,line width=0.9pt] (\upperx,0) -- (\upperx,\H);
+
+            \node[anchor=south] at (\W/2,\H+0.1) {$\Psi_\ell=\{(0,1),(1,0)\},\ \mathcal P=I_2$};
+            \node[anchor=north] at (\W/2,-0.12) {$\theta_{j_{\ell,1}}$};
+            \node[anchor=south,rotate=90] at (-0.45,\H/2) {$\theta_{j_{\ell,2}}$};
+            \node[anchor=west,text=lowerline] at (\epsx+0.04,0.07) {$\epsilon$};
+            \node[anchor=south,text=lowerline] at (0.08,\epsy+0.03) {$\epsilon$};
+            \node[anchor=east,text=upperline] at (-0.02,\uppery+0.03) {$1/\epsilon$};
+            \node[anchor=west,text=upperline] at (\upperx+0.05,0.1) {$1/\epsilon$};
+            \node[draw=gray!60,rounded corners=3pt,fill=white,align=center,inner sep=4pt] at (3.2,4.87) {$\epsilon\leq\theta_1,\theta_2<1/\epsilon$};
+        \end{scope}
+    \end{tikzpicture}%
+    }
+    \caption{Illustration of the neighborhood $\mathcal N_\ell^\epsilon$ in two dimensions, with $\overrightarrow{\theta_\ell}=(\theta_{j_{\ell,1}},\theta_{j_{\ell,2}})$. Left: when $\Psi_\ell=\{(0,1)\}$ and $\mathcal P=\mathrm{diag}(0,1)$, the region only requires $\epsilon\leq\theta_{j_{\ell,2}}\leq1/\epsilon$, while $\theta_{j_{\ell,1}}$ is not constrained by either the lower-bound condition or the projection-based upper truncation. Right: when $\Psi_\ell=\{(0,1),(1,0)\}$ and $\mathcal P=I_2$, both coordinates satisfy $\epsilon\leq\theta_{j_{\ell,1}},\theta_{j_{\ell,2}}\leq1/\epsilon$. The dotted lines indicate the active upper truncation $\left\|\mathcal P\overrightarrow{\theta_\ell}\right\|_\infty\leq1/\epsilon$.}
+    \label{fig:neighborhood-region}
+\end{figure}
+
+\begin{proposition}[Uniform convergence of the log-likelihood]\label{proposition uniform convergence of the log-likelihood}
+    Under \Cref{Condition recurrence and irreducibility} and mass-action kinetics, there almost surely holds the result that for any $\epsilon>0$, the scaled log-likelihood $\frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ converges uniformly to $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)$ 
+    on $\mathcal N_\ell^\epsilon$.
+\end{proposition}
+
+\begin{proof}
+
+    Let $F_T\left(\overrightarrow{\theta_\ell}\right)\triangleq \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ and $I_\ell\left(\overrightarrow{\theta_\ell}\right)$.
+    The region $\mathcal N_\ell^\epsilon$ need not be compact, because some coordinates may be inactive on $\mathbb S$.
+    We therefore first project onto the effective coordinates and define
+    \begin{align*}
+        \mathcal K_\ell^\epsilon
+        \triangleq
+        \left\{\mathcal P\overrightarrow{\theta_\ell}~\Big|~
+        \overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\right\},
+    \end{align*}
+    where $\mathcal P$ acts as the diagonal projection onto the effective coordinates.
+    If the $k$-th diagonal entry of $\mathcal P$ is zero, then $g_{j_{\ell,k}}(x)=0$ for all $x\in\mathbb S$, so both $F_T$ and $I_\ell$ depend on $\overrightarrow{\theta_\ell}$ only through $\mathcal P\overrightarrow{\theta_\ell}$.
+    Moreover, the upper truncation $\left\|\mathcal P\overrightarrow{\theta_\ell}\right\|_\infty\leq1/\epsilon$ makes the projected set $\mathcal K_\ell^\epsilon$ compact in the effective coordinate subspace.
+    We first prove uniform convergence on this compact projected region and then lift the result back to $\mathcal N_\ell^\epsilon$.
+
+    We begin by showing the almost sure equicontinuity of the functions $\{F_T\}_{T>0}$ on $\mathcal K_\ell^\epsilon$.
+    For the second term in \eqref{eq. express log-likelihood using Y}, we have 
+    \begin{align*}
+        \left\|\nabla_{\overrightarrow{\theta_\ell}}\frac{1}{T}\int_{0}^T \sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t)) \dd t\right\|_{1}
+        ~=~ \frac{1}{T}\int_{0}^T \sum_{k\in\mathcal C_\ell} g_k(X(t)) \dd t
+        ~ \xrightarrow{\text{a.s.}}~
+        \mathbb E_{X^*\sim \mathbb P_\text{st}}\left[
+         \sum_{k\in\mathcal C_\ell} g_k(X^*) 
+        \right]
+    \end{align*}
+    where the convergence follows from ergodicity (\Cref{Condition recurrence and irreducibility}).
+    Hence, almost surely, this gradient is eventually uniformly bounded in $T$, and the corresponding linear functional sequence is equicontinuous on $\mathcal K_\ell^\epsilon$.
+    When $\Psi_\ell=\emptyset$, there are almost surely no jumps in the $\xi_\ell$ direction, and the logarithmic term in \eqref{eq. express log-likelihood using Y} is zero.
+    Thus, in this case, the equicontinuity of $\{F_T\}_{T>0}$ follows from the preceding bound.
+    When $\Psi_\ell \neq \emptyset$, the logarithmic term in \eqref{eq. express log-likelihood using Y} satisfies
+    \begin{align*}
+        &\left\|\nabla_{\overrightarrow{\theta_\ell}}\, \frac{1}{T}\int_{0}^T \log\left(\sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t))\right) \sum_{j\in\mathcal C_\ell} \dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)\right\|_1 \\
+        & =  \frac{1}{T}\int_{0}^T 
+        \frac{\sum_{k\in\mathcal C_\ell} g_k(X(t))}
+        {\sum_{k\in\mathcal C_\ell} \theta_k g_k(X(t))} \sum_{j\in\mathcal C_\ell} \dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)\\
+        & \leq \frac{1}{T}\int_{0}^T
+        \frac{\sum_{k\in\mathcal C_\ell} g_k(X(t))}
+        {\sum_{k\in\mathcal C_\ell} \theta_k \, \mathbbold 1 \left(g_k(X(t))>0\right)} 
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)\\
+        &\leq \frac{1}{\epsilon}\frac{1}{T}\int_{0}^T 
+        \left(\sum_{k\in\mathcal C_\ell}
+        g_k(X(t))\right)
+         \sum_{j\in\mathcal C_\ell} \dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right)\\
+        & \leq \frac{1}{\epsilon}\frac{\int_{0}^T \left(\sum_{k\in\mathcal C_\ell}
+        g_k(X(t))\right)
+        \sum_{j\in\mathcal C_\ell}
+         \left[\dd Y_j\left(\int_0^t \lambda_j(\theta^*_j, X(s)) \dd s\right) - \lambda_j(\theta^*_j, X(t)) \dd t\right]}{T}\\
+         &\quad + \frac{1}{\epsilon}\int_{0}^T 
+         \frac{\left(\sum_{k\in\mathcal C_\ell}
+        g_k(X(t))\right)
+         \sum_{j\in\mathcal C_\ell} \lambda_j(\theta^*_j, X(t)) \dd t}{T}
+    \end{align*}
+    for any $\overrightarrow{\theta_\ell}$ in $\mathcal N^\epsilon_{\ell}$.
+    The third inequality uses $\min_{\psi\in\Psi_\ell}\left(\psi\,\overrightarrow{\theta_\ell}\right)\geq\epsilon$.
+    The martingale term in the second last line converges to zero almost surely by \cite[Theorem 9 in Chapter 6]{liptser1989theory}, while the last line is almost surely convergent by ergodicity and \eqref{eq. finiteness of the moments}.
+    Hence the gradient of the logarithmic term is eventually uniformly bounded on $\mathcal K_\ell^\epsilon$, and this term is almost surely equicontinuous there.
+
+    Combining the two terms, $\{F_T\}_{T>0}$ is almost surely equicontinuous on the compact set $\mathcal K_\ell^\epsilon$.
+    By \Cref{Proposition convergence of the log-likelihood}, $F_T$ converges pointwise almost surely to $I_\ell$. 
+    Equicontinuity, pointwise convergence, and compactness imply uniform convergence on $\mathcal K_\ell^\epsilon$.
+    Since both $F_T$ and $F$ depend only on the projected parameter $\mathcal P\overrightarrow{\theta_\ell}$, this uniform convergence lifts from the compact projected region to the full region $\mathcal N_\ell^\epsilon$.
+    
+\end{proof}
+
+
+Next, we prove the structural identifiability of the parameters, given that the rate function $I(\theta)$ has a unique maximum. 
+First, we introduce some notations and show that the scaled log-likelihood for parameters outside $\mathcal N_\ell^\epsilon$ is uniformly upper bounded. 
+
+\begin{proposition}[Uniform upper bound outside the projected bounded region]\label{proposition uniform upper bound outside bounded region}
+    Suppose \Cref{Condition recurrence and irreducibility} and mass-action kinetics hold, and $\mathcal P$ is not a zero matrix.
+    We define the unbounded region by
+    \begin{align*}
+        \mathcal U_\ell^\epsilon
+        &\triangleq
+        \left\{\overrightarrow{\theta_\ell}
+        \in\mathbb R_{\geq0}^{|\mathcal C_\ell|}~\Big|~
+        \left\|\mathcal P\overrightarrow{\theta_\ell}\right\|_\infty
+        >\frac{1}{\epsilon}
+        \right\}.
+    \end{align*}
+    Then, for every sufficiently small $\epsilon>0$, there holds
+    \begin{align}\label{eq upper bound outside bounded region}
+        \lim_{T\to\infty}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal U_\ell^\epsilon}
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        \leq
+        h_\ell
+        + r_\ell\log\left(\frac{1}{\epsilon}\right)
+        -\frac{a_\ell}{\epsilon}
+        \qquad \text{a.s.},
+    \end{align}
+    where
+    \begin{align*}
+        a_\ell
+        &\triangleq
+        \min_{j\in\mathcal A_\ell}
+        \mathbb E_{X^*\sim\mathbb P_\text{st}}\left[g_j(X^*)\right] >0,
+        \qquad \text{with $\mathcal A_\ell
+        \triangleq
+        \left\{j\in\mathcal C_\ell~\Big|~
+        \exists x\in\mathbb S \text{ such that } g_j(x)>0
+        \right\}$} \\
+        \\
+        r_\ell
+        &\triangleq
+        \mathbb E_{X^*\sim\mathbb P_\text{st}}\left[
+        \sum_{j\in\mathcal C_\ell}\theta_j^*g_j(X^*)
+        \right],\\
+        h_\ell
+        &\triangleq
+        \mathbb E_{X^*\sim\mathbb P_\text{st}}\left[
+        \left(\sum_{j\in\mathcal C_\ell}\theta_j^*g_j(X^*)\right)
+        \log\left(\left(\sum_{j\in\mathcal A_\ell}g_j(X^*)\right)\right)
+        \right].
+    \end{align*}
+    In particular, the right-hand side tends to $-\infty$ as $\epsilon\to 0$.
+\end{proposition}
+
+\begin{proof}
+    For any $\overrightarrow{\theta_\ell}\in\mathcal U_\ell^\epsilon$, let
+    $s_\theta=\left\|\mathcal P\overrightarrow{\theta_\ell}\right\|_\infty$.
+    Then $s_\theta>1/\epsilon$, and there exists $j_\theta\in\mathcal A_\ell$ such that $\theta_{j_\theta}=s_\theta$.
+    Since inactive coordinates have $g_j(x)=0$ on $\mathbb S$, for all $x\in\mathbb S$,
+    \begin{align*}
+        \sum_{j\in\mathcal C_\ell}\theta_jg_j(x)
+        \leq s_\theta\sum_{j\in\mathcal A_\ell}g_j(x),
+        \qquad
+        \sum_{j\in\mathcal C_\ell}\theta_jg_j(x)
+        \geq s_\theta g_{j_\theta}(x).
+    \end{align*}
+    Therefore, \eqref{eq. express log-likelihood using Y} gives
+    \begin{align*}
+        &\frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)\\
+        &\leq
+        \frac{1}{T}\int_0^T
+        \log\left(\left(\sum_{k\in\mathcal A_\ell}g_k(X(t))\right)\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)\\
+        &\quad + \frac{1}{T}\int_0^T
+        \log\left(s_\theta\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)
+        -s_\theta\frac{1}{T}\int_0^T g_{j_\theta}(X(t))\dd t\\
+        &\leq
+        H_T
+        + R_T\log s_\theta
+        -s_\theta A_T,
+    \end{align*}
+    where
+    \begin{align*}
+        H_T&\triangleq
+        \frac{1}{T}\int_0^T
+        \log\left(\left(\sum_{k\in\mathcal A_\ell}g_k(X(t))\right)\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right),\\
+        R_T&\triangleq
+        \frac{1}{T}\int_0^T
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right),\\
+        A_T&\triangleq
+        \min_{j\in\mathcal A_\ell}\frac{1}{T}\int_0^T g_j(X(t))\dd t.
+    \end{align*}
+    Taking the supremum over $\mathcal U_\ell^\epsilon$ yields
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal U_\ell^\epsilon}
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        \leq
+        H_T+\sup_{s>1/\epsilon}\left\{R_T\log s-A_Ts\right\}.
+    \end{align*}
+    By ergodicity and the same martingale argument used in \Cref{Proposition convergence of the log-likelihood}, $H_T\to h_\ell$, $R_T\to r_\ell$, and $A_T\to a_\ell$ almost surely.
+    Since $a_\ell>0$, for sufficiently small $\epsilon$ we have $1/\epsilon>r_\ell/a_\ell$.
+    Hence, almost surely for all sufficiently large $T$, the function $s\mapsto R_T\log s-A_Ts$ is nonincreasing on $s>1/\epsilon$.
+    Therefore, almost surely for all sufficiently large $T$,
+    \begin{align*}
+        \sup_{s>1/\epsilon}\left\{R_T\log s-A_Ts\right\}
+        = R_T\log\left(\frac{1}{\epsilon}\right)-\frac{A_T}{\epsilon}.
+    \end{align*}
+    Taking the limit proves \eqref{eq upper bound outside bounded region}.
+\end{proof}
+
+We next control the parameters that violate the lower-bound condition in the definition of $\mathcal N_\ell^\epsilon$.
+When $\Psi_\ell \neq \emptyset$, for each $\psi\in\Psi_\ell$, we pick a state $x_\psi\in\mathbb S$ such that
+\begin{align*}
+    \left(
+    \mathbbold 1\left(g_{j_{\ell,1}}(x_\psi)>0\right),\dots,
+    \mathbbold 1\left(g_{j_{\ell,|\mathcal C_\ell|}}(x_\psi)>0\right)
+    \right)=\psi
+\end{align*}
+and $\sum_{j\in\mathcal C_\ell}\theta_j^*g_j(x_\psi)>0$.
+For $\epsilon>0$, we define the lower-bound violation region inside the projected bounded region by
+\begin{align*}
+    \mathcal V_\ell^\epsilon
+    \triangleq
+    \left\{\overrightarrow{\theta_\ell}\in\mathbb R_{\geq0}^{|\mathcal C_\ell|}~\Big|~
+    \min_{\psi\in\Psi_\ell}\psi\,\overrightarrow{\theta_\ell}\leq\epsilon,
+    \left\|\mathcal P\overrightarrow{\theta_\ell}\right\|_\infty\leq\frac{1}{\epsilon}
+    \right\}.
+\end{align*}
+For each $\overrightarrow{\theta_\ell}\in\mathcal V_\ell^\epsilon$, choose $\psi_{\theta,\ell}\in\Psi_\ell$ such that $\psi_{\theta,\ell}\,\overrightarrow{\theta_\ell}\leq\epsilon$.
+Then
+\begin{align}\label{eq. upper bound of the propensity outside the neighborhood of the actual parameter1}
+    \sum_{j\in\mathcal C_\ell}\theta_j g_j(x_{\psi_{\theta,\ell}})
+    \leq
+    \epsilon\,
+    \max_{j\in\mathcal C_\ell}g_j(x_{\psi_{\theta,\ell}}).
+\end{align}
+
+
+
+\begin{proposition}[Uniform upper bound near the lower boundary]\label{proposition uniform upper bounds for the likelihood outside a region}
+    Under \Cref{Condition recurrence and irreducibility} and mass-action kinetics, suppose $\Psi_\ell\neq\emptyset$.
+    Let $a_\ell$, $r_\ell$, and $h_\ell$ be the quantities from \Cref{proposition uniform upper bound outside bounded region}.
+    Then, for every sufficiently small $\epsilon>0$, there holds
+    \begin{align*}
+        \lim_{T\to\infty}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal V_\ell^\epsilon}
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        \leq \tilde I_\ell^\epsilon
+        \,\qquad \text{a.s.},
+    \end{align*}
+    where
+    \begin{align*}
+        \tilde I_\ell^\epsilon
+        \triangleq
+        &\max_{\psi\in\Psi_\ell}
+        \left[
+        \mathbb P_\text{st}\left(X^*=x_\psi\right)
+        \log\left(\epsilon\max_{k\in\mathcal C_\ell}g_k(x_\psi)\right)
+        \sum_{j\in\mathcal C_\ell}\theta_j^*g_j(x_\psi)
+        \right]\\
+        &+h_\ell
+        +\max\left\{0,
+        r_\ell\log\left(\frac{r_\ell}{a_\ell}\right)-r_\ell
+        \right\}.
+    \end{align*}
+    In particular, $\tilde I_\ell^\epsilon\to -\infty$ as $\epsilon\to0$.
+    %If $\mathcal V_\ell^\epsilon=\emptyset$, the bound is understood to hold trivially.
+\end{proposition}
+
+\begin{proof}
+    Fix $\overrightarrow{\theta_\ell}\in\mathcal V_\ell^\epsilon$ with $s_\theta\triangleq\left\|\mathcal P\overrightarrow{\theta_\ell}\right\|$.
+    If the log-likelihood is $-\infty$, the upper bound below is immediate.
+    Otherwise choose $\psi_{\theta,\ell}\in\Psi_\ell$ such that $\psi_{\theta,\ell}\overrightarrow{\theta_\ell}\leq\epsilon$.
+    By \eqref{eq. express log-likelihood using Y}, split the logarithmic term according to whether $X(t)=x_{\psi_{\theta,\ell}}$:
+    \begin{align*}
+        &\frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)\\
+        &=\frac{1}{T}\int_0^T
+        \mathbbold 1\left(X(t)=x_{\psi_{\theta,\ell}}\right)
+        \log\left(\sum_{k\in\mathcal C_\ell}\theta_k g_k(x_{\psi_{\theta,\ell}})\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)\\
+        &\quad+
+        \frac{1}{T}\int_0^T
+        \left(1-\mathbbold 1\left(X(t)=x_{\psi_{\theta,\ell}}\right)\right)
+        \log\left(\sum_{k\in\mathcal C_\ell}\theta_k g_k(X(t))\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)\\
+        &\quad-
+        \frac{1}{T}\int_0^T\sum_{j\in\mathcal C_\ell}\theta_jg_j(X(t))\dd t.
+    \end{align*}
+    The first term is bounded above by \eqref{eq. upper bound of the propensity outside the neighborhood of the actual parameter1} and monotonicity of the logarithm:
+    \begin{align*}
+        &\frac{1}{T}\int_0^T
+        \mathbbold 1\left(X(t)=x_{\psi_{\theta,\ell}}\right)
+        \log\left(\sum_{k\in\mathcal C_\ell}\theta_k g_k(x_{\psi_{\theta,\ell}})\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)\\
+        &\leq
+        \frac{1}{T}\int_0^T
+        \mathbbold 1\left(X(t)=x_{\psi_{\theta,\ell}}\right)
+        \log\left(\epsilon\max_{k\in\mathcal C_\ell}g_k(x_{\psi_{\theta,\ell}})\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right).
+    \end{align*}
+    For the remaining two terms, choose $j_\theta\in\mathcal A_\ell$ such that $\theta_{j_\theta}=s_\theta$.
+    Since inactive coordinates have $g_j(x)=0$ on $\mathbb S$, for all $x\in\mathbb S$,
+    \begin{align*}
+        \sum_{j\in\mathcal C_\ell}\theta_jg_j(x)
+        \leq s_\theta\sum_{j\in\mathcal A_\ell}g_j(x),
+        \qquad
+        \sum_{j\in\mathcal C_\ell}\theta_jg_j(x)
+        \geq s_\theta g_{j_\theta}(x).
+    \end{align*}
+    Therefore, using the quantities $H_T$, $R_T$, and $A_T$ defined in the proof of \Cref{proposition uniform upper bound outside bounded region},
+    \begin{align*}
+        &\frac{1}{T}\int_0^T
+        \left(1-\mathbbold 1\left(X(t)=x_{\psi_{\theta,\ell}}\right)\right)
+        \log\left(\sum_{k\in\mathcal C_\ell}\theta_k g_k(X(t))\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)
+        -\frac{1}{T}\int_0^T\sum_{j\in\mathcal C_\ell}\theta_jg_j(X(t))\dd t\\
+        &\leq H_T+R_T\max\left\{\log s_\theta,0\right\}-s_\theta A_T\\
+        &\leq H_T+\max_{s>0} \left\{R_T\max\left\{\log s, 0\right\}-s A_T\right\}\\
+        &\leq H_T+\max\left\{0,
+        R_T\log\left(\frac{R_T}{A_T}\right)-R_T
+        \right\}.
+    \end{align*}
+    The last inequality follows by splitting the supremum over $s>0$ into $0<s\leq1$ and $s\geq1$: the first part is bounded above by $0$, while the second part is bounded above by the unconstrained maximum of $R_T\log s-A_Ts$.
+    Taking the maximum over the possible $\psi_{\theta,\ell}$ and then the supremum over $\mathcal V_\ell^\epsilon$ gives, almost surely for all sufficiently large $T$,
+    \begin{align}\label{eq. upper bound in the finit time interval}
+        &\sup_{\overrightarrow{\theta_\ell}\in\mathcal V_\ell^\epsilon}
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)\\
+        &\leq
+        \max_{\psi\in\Psi_\ell}
+        \frac{1}{T}\int_0^T
+        \mathbbold 1\left(X(t)=x_\psi\right)
+        \log\left(\epsilon\max_{k\in\mathcal C_\ell}g_k(x_\psi)\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right) \notag\\
+        &\quad+H_T+\max\left\{0,
+        R_T\log\left(\frac{R_T}{A_T}\right)-R_T
+        \right\}. \notag
+    \end{align}
+    For each fixed $\psi\in\Psi_\ell$, ergodicity and the same martingale argument used in \Cref{Proposition convergence of the log-likelihood} imply
+    \begin{align*}
+        \lim_{T\to\infty}\frac{1}{T}\int_0^T
+        \mathbbold 1\left(X(t)=x_\psi\right)
+        \sum_{j\in\mathcal C_\ell}
+        \dd Y_j\left(\int_0^t\theta_j^*g_j(X(s))\dd s\right)
+        ~ = ~
+        \mathbb P_\text{st}\left(X^*=x_\psi\right)
+        \sum_{j\in\mathcal C_\ell}\theta_j^*g_j(x_\psi),
+        ~~ \text{a.s.}
+    \end{align*}
+    Since $\Psi_\ell$ is finite, the maximum over $\psi\in\Psi_\ell$ converges to the maximum of these limits.
+    Also, $H_T\to h_\ell$, $R_T\to r_\ell$, and $A_T\to a_\ell>0$ almost surely by the proof of \Cref{proposition uniform upper bound outside bounded region}.
+    Hence
+    \begin{align*}
+        \max\left\{0,
+        R_T\log\left(\frac{R_T}{A_T}\right)-R_T
+        \right\}
+        \to
+        \max\left\{0,
+        r_\ell\log\left(\frac{r_\ell}{a_\ell}\right)-r_\ell
+        \right\}
+        \qquad \text{a.s.}
+    \end{align*}
+    Applying them to \eqref{eq. upper bound in the finit time interval} proves the stated upper bound.
+
+    Finally, for every $\psi\in\Psi_\ell$, the choice of $x_\psi$ gives $\sum_{j\in\mathcal C_\ell}\theta_j^*g_j(x_\psi)>0$, and irreducibility gives $\mathbb P_\text{st}(X^*=x_\psi)>0$.
+    Hence each coefficient multiplying $\log\epsilon$ in the finite maximum defining $\tilde I_\ell^\epsilon$ is strictly positive.
+    Therefore $\tilde I_\ell^\epsilon\to-\infty$ as $\epsilon\to0$.
+\end{proof}
+
+
+We now combine the preceding propositions to obtain a uniform upper bound outside the neighborhood. 
+
+\begin{corollary}[Uniform upper bound outside the neighborhood]\label{corollary uniform upper bound outside neighborhood}
+    Under \Cref{Condition recurrence and irreducibility} and mass-action kinetics, suppose that $\mathcal P$ is not the zero matrix.
+    Then, for every sufficiently small $\epsilon>0$, there exists an almost surely finite random variable $\hat I^{\epsilon}_\ell$ such that
+    \begin{align}\label{eq uniform upper bound outside neighborhood}
+        \limsup_{T\to\infty}
+        \sup_{\overrightarrow{\theta_\ell}\notin\mathcal N_\ell^\epsilon}
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        \leq
+        \hat I^{\epsilon}_\ell
+        \qquad \text{a.s.}
+    \end{align}
+    Moreover, $\hat I^{\epsilon}_\ell$ can be chosen so that $\hat I^{\epsilon}_\ell\to -\infty$ almost surely as $\epsilon\to0$.
+\end{corollary}
+
+\begin{proof}
+    If $\Psi_\ell=\emptyset$, then the complement of $\mathcal N_\ell^\epsilon$ is exactly $\mathcal U_\ell^\epsilon$.
+    In this case, \Cref{proposition uniform upper bound outside bounded region} gives the result with
+    \begin{align*}
+        \hat I^{\epsilon}_\ell
+        =h_\ell+r_\ell\log\left(\frac{1}{\epsilon}\right)-\frac{a_\ell}{\epsilon}.
+    \end{align*}
+    If $\Psi_\ell\neq\emptyset$, then every parameter outside $\mathcal N_\ell^\epsilon$ either violates the projected upper bound or violates at least one lower-bound constraint. Hence
+    \begin{align*}
+        \left\{\overrightarrow{\theta_\ell}\notin\mathcal N_\ell^\epsilon\right\}
+        \subseteq
+        \mathcal U_\ell^\epsilon\cup\mathcal V_\ell^\epsilon.
+    \end{align*}
+    Applying \Cref{proposition uniform upper bound outside bounded region,proposition uniform upper bounds for the likelihood outside a region} yields the result with
+    \begin{align*}
+        \hat I^{\epsilon}_\ell
+        =\max\left\{
+        h_\ell+r_\ell\log\left(\frac{1}{\epsilon}\right)-\frac{a_\ell}{\epsilon},~
+        \tilde I_\ell^\epsilon
+        \right\}.
+    \end{align*}
+    In both cases, the displayed choice of $\hat I^{\epsilon}_\ell$ tends to $-\infty$ as $\epsilon\to0$.
+\end{proof}
+
+
+Now, we show the convergence of the posterior to the delta function given some mild conditions.
+
+
+\begin{theorem}[Posterior consistency by the unimodality of $I_\ell(\cdot)$]\label{thm structural identifiability based on I}
+     Under Conditions \ref{Condition recurrence and irreducibility} and \ref{condition boundedness of the support} and mass-action kinetics,
+    if the continuous function $I_\ell\left(\overrightarrow{\theta_\ell}\right)$ (defined in \eqref{eq I(theta)}) has a unique maximum at the corresponding actual parameter $\overrightarrow{\theta^*_\ell}$,  then the posterior $p\left(\overrightarrow{\theta_\ell} \big|X_{0:T}\right) $ converges to the delta distribution $\delta_{\overrightarrow{\theta^*_\ell}}(\cdot)$ centered at $\overrightarrow{\theta^*_\ell}$ almost surely, indicating the actual parameters $\overrightarrow{\theta^*_\ell}$ is structurally identifiable. 
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        \triangleq
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right),
+        \qquad
+        I^*
+        \triangleq
+        I_\ell\left(\overrightarrow{\theta^*_\ell}\right).
+    \]
+    It is enough to show that, for every relative open neighborhood $\mathcal O$ of $\overrightarrow{\theta^*_\ell}$ in $\mathbb R_{\geq0}^{|\mathcal C_\ell|}$,
+    \begin{align}\label{eq posterior mass outside neighborhood converges to zero}
+        \int_{\mathbb R_{\geq0}^{|\mathcal C_\ell|}\setminus\mathcal O}
+        p\left(\overrightarrow{\theta_\ell}\big|X_{0:T}\right)
+        \dd\overrightarrow{\theta_\ell}
+        ~\xrightarrow[T\to\infty]{\text{a.s.}}~0 .
+    \end{align}
+    Indeed, \eqref{eq posterior mass outside neighborhood converges to zero} implies weak convergence of the posterior to $\delta_{\overrightarrow{\theta^*_\ell}}$ by the usual neighborhood argument for bounded continuous test functions.
+
+    The unique-maximizer assumption rules out inactive coordinates on $\mathbb S$: if the corresponding diagonal component of $\mathcal P$ were zero, then both $I_\ell$ and the likelihood would be independent of that coordinate, contradicting uniqueness because the prior support is all of $\mathbb R_{\geq0}^{|\mathcal C_\ell|}$.
+    Hence $\mathcal N_\ell^\epsilon$ is compact for every fixed $\epsilon>0$ satisfying the constraints stated before \Cref{proposition uniform convergence of the log-likelihood}.
+
+    Fix a relative open neighborhood $\mathcal O$ of $\overrightarrow{\theta^*_\ell}$.
+    By \Cref{corollary uniform upper bound outside neighborhood}, choose $\epsilon>0$ sufficiently small so that $\overrightarrow{\theta^*_\ell}\in\mathcal N_\ell^\epsilon$ and
+    \[
+        \hat I_\ell^\epsilon < I^* .
+    \]
+    Since $I_\ell$ is continuous and has a unique maximum at $\overrightarrow{\theta^*_\ell}$, it is uniformly separated from $I^*$ on the compact set $\mathcal N_\ell^\epsilon\setminus\mathcal O$.
+    Therefore, there is a constant $\gamma>0$ such that
+    \begin{align}\label{eq deterministic likelihood gap}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\setminus\mathcal O}
+        I_\ell\left(\overrightarrow{\theta_\ell}\right)
+        \leq I^*-4\gamma,
+        \qquad
+        \hat I_\ell^\epsilon \leq I^*-4\gamma .
+    \end{align}
+    Choose a relative open ball $B$ around $\overrightarrow{\theta^*_\ell}$ such that $B\subset\mathcal O\cap\mathcal N_\ell^\epsilon$ and
+    \begin{align}\label{eq local lower gap for I}
+        \inf_{\overrightarrow{\theta_\ell}\in B}
+        I_\ell\left(\overrightarrow{\theta_\ell}\right)
+        \geq I^*-\gamma .
+    \end{align}
+    By Condition \ref{condition boundedness of the support}, the marginal prior mass $q_\ell(B)$ is strictly positive.
+
+    By \Cref{proposition uniform convergence of the log-likelihood}, almost surely for all sufficiently large $T$,
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon}
+        \left|F_T\left(\overrightarrow{\theta_\ell}\right)-I_\ell\left(\overrightarrow{\theta_\ell}\right)\right|
+        \leq \gamma .
+    \end{align*}
+    Combining this uniform convergence with \eqref{eq deterministic likelihood gap} and \eqref{eq local lower gap for I} gives
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\setminus\mathcal O}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        \leq I^*-3\gamma,
+        \qquad
+        \inf_{\overrightarrow{\theta_\ell}\in B}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        \geq I^*-2\gamma .
+    \end{align*}
+    Also, by \Cref{corollary uniform upper bound outside neighborhood} and \eqref{eq deterministic likelihood gap}, almost surely for all sufficiently large $T$,
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\notin\mathcal N_\ell^\epsilon}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        ~\leq~ \hat I_\ell^\epsilon + \gamma ~\leq~ I^*-3\gamma .
+    \end{align*}
+    Therefore, using that $q_\ell$ is a probability density,
+    \begin{align*}
+        &\int_{\mathbb R_{\geq0}^{|\mathcal C_\ell|}\setminus\mathcal O}
+        L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        q_\ell\left(\overrightarrow{\theta_\ell}\right)
+        \dd\overrightarrow{\theta_\ell}
+        \leq 2\exp\{T(I^*-3\gamma)\},\\
+        &\int_{\mathbb R_{\geq0}^{|\mathcal C_\ell|}}
+        L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        q_\ell\left(\overrightarrow{\theta_\ell}\right)
+        \dd\overrightarrow{\theta_\ell}
+        \geq q_\ell(B)\exp\{T(I^*-2\gamma)\}.
+    \end{align*}
+    Dividing the first bound by the second yields
+    \begin{align*}
+        \int_{\mathbb R_{\geq0}^{|\mathcal C_\ell|}\setminus\mathcal O}
+        p\left(\overrightarrow{\theta_\ell}\big|X_{0:T}\right)
+        \dd\overrightarrow{\theta_\ell}
+        ~\leq~
+        \frac{2}{q_\ell(B)}e^{-\gamma T}
+        ~\xrightarrow[]{T\to\infty}~0,
+    \end{align*}
+    proving \eqref{eq posterior mass outside neighborhood converges to zero}.
+\end{proof}
+
+We then record the corresponding convergence result for the local maximum likelihood estimator.
+
+\begin{theorem}[Consistency of the local maximum likelihood estimator]\label{thm convergence of local MLE}
+    Under \Cref{Condition recurrence and irreducibility} and mass-action kinetics, suppose that the function $I_\ell\left(\overrightarrow{\theta_\ell}\right)$ defined in \eqref{eq I(theta)} has a unique maximum at the corresponding actual parameter $\overrightarrow{\theta^*_\ell}$.
+    Let
+    \begin{align*}
+        \widehat{\overrightarrow{\theta_\ell}}_T
+        \in
+        \operatorname*{arg\,max}_{\overrightarrow{\theta_\ell}\in\mathbb R_{\geq0}^{|\mathcal C_\ell|}}
+        L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+    \end{align*}
+    be any local maximum likelihood estimator whenever the maximizer exists.
+    Then every such sequence satisfies
+    \begin{align*}
+        \widehat{\overrightarrow{\theta_\ell}}_T
+        ~\xrightarrow[T\to\infty]{\mathrm{a.s.}}~
+        \overrightarrow{\theta^*_\ell}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        \triangleq
+        \frac{1}{T}\log L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right),
+        \qquad
+        I^*
+        \triangleq
+        I_\ell\left(\overrightarrow{\theta^*_\ell}\right).
+    \]
+    It is enough to show that, for every relative open neighborhood $\mathcal O$ of $\overrightarrow{\theta^*_\ell}$ in $\mathbb R_{\geq0}^{|\mathcal C_\ell|}$, the estimator $\widehat{\overrightarrow{\theta_\ell}}_T$ eventually belongs to $\mathcal O$ almost surely.
+
+    As in the proof of posterior convergence above, the unique-maximizer assumption rules out inactive coordinates on $\mathbb S$; otherwise both $I_\ell$ and the likelihood would be independent of an inactive coordinate, contradicting uniqueness on the full non-negative orthant.
+    Hence $\mathcal N_\ell^\epsilon$ is compact for every fixed $\epsilon>0$ satisfying the constraints stated before \Cref{proposition uniform convergence of the log-likelihood}.
+
+    Fix $\mathcal O$.
+    By \Cref{corollary uniform upper bound outside neighborhood}, choose $\epsilon>0$ sufficiently small so that $\overrightarrow{\theta^*_\ell}\in\mathcal N_\ell^\epsilon$ and $\hat I_\ell^\epsilon<I^*$.
+    Since $I_\ell$ is continuous and has a unique maximum at $\overrightarrow{\theta^*_\ell}$, it is uniformly separated from $I^*$ on the compact set $\mathcal N_\ell^\epsilon\setminus\mathcal O$.
+    Therefore, there exists $\gamma>0$ such that
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\setminus\mathcal O}
+        I_\ell\left(\overrightarrow{\theta_\ell}\right)
+        \leq I^*-3\gamma,
+        \qquad
+        \hat I_\ell^\epsilon\leq I^*-3\gamma.
+    \end{align*}
+    By \Cref{proposition uniform convergence of the log-likelihood} and \Cref{corollary uniform upper bound outside neighborhood}, almost surely for all sufficiently large $T$,
+    \begin{align*}
+         \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\setminus\mathcal O}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        &~\leq~ \sup_{\overrightarrow{\theta_\ell}\in\mathcal N_\ell^\epsilon\setminus\mathcal O}
+        I_\ell\left(\overrightarrow{\theta_\ell}\right) + \gamma
+        ~\leq~ I^*-2\gamma,\\
+        \sup_{\overrightarrow{\theta_\ell}\notin\mathcal N_\ell^\epsilon}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        &~\leq~ I^* + \gamma
+        ~\leq~ I^*-2\gamma.
+    \end{align*}
+    Also, by \Cref{Proposition convergence of the log-likelihood}, $F_T\left(\overrightarrow{\theta^*_\ell}\right)\to I^*$ almost surely, and hence almost surely for all sufficiently large $T$,
+    \begin{align*}
+        F_T\left(\overrightarrow{\theta^*_\ell}\right)
+        \geq I^*-\gamma.
+    \end{align*}
+    Thus, eventually,
+    \begin{align*}
+        \sup_{\overrightarrow{\theta_\ell}\notin\mathcal O}
+        F_T\left(\overrightarrow{\theta_\ell}\right)
+        <
+        F_T\left(\overrightarrow{\theta^*_\ell}\right),
+    \end{align*}
+    which implies that any maximizer of $L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)$ must lie in $\mathcal O$.
+    Since $\mathcal O$ is arbitrary, the local maximum likelihood estimator converges almost surely to $\overrightarrow{\theta^*_\ell}$.
+\end{proof}
+
+In what follows, we turn our attention to the function $I_\ell\left(\overrightarrow{\theta_\ell}\right)$ to provide ranking and topological conditions for structural identifiability.
+
+\begin{proposition}[Maximality of $I_\ell\left(\overrightarrow{\theta^*_\ell}\right)$ ]\label{proposition maximality of I}
+    Under \Cref{Condition recurrence and irreducibility}, the function $I_\ell\left(\overrightarrow{\theta^*_\ell}\right)$ satisfies $I_\ell\left(\overrightarrow{\theta_\ell}\right)\leq I_\ell\left(\overrightarrow{\theta^*_\ell}\right)$ for any non-negative $\overrightarrow{\theta_\ell}$, and the equality holds if and only if $\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x)$ for all $x\in\mathbb S$
+\end{proposition}
+
+\begin{proof}
+    Let us denote a function $h(a,b) \triangleq  a \log b - b$ for non-negative $a$ and $b$; also, we define $0\log0=0$. 
+    When $a=0$, it is apparent that $h(a,b) = -b \leq 0 =h(a,a)$, with equality holding if and only if  $b=a$.
+    When $a\neq b$, we can conclude by the concavity of the logarithmic function that
+    \begin{align*}
+        h(a,b) ~=~ a \log(a +(b-a)) - b 
+        ~\leq~ a \log a  + \frac{a}{a} (b-a) - b
+        ~=~ h(a,a)
+    \end{align*}
+    where equality holds if and only if $a=b$.
+    Consequently, we can conclude that for non-negative $a$ and $b$, there holds
+    \begin{align*}
+        h(a,b) \leq h(a,a)
+        && \text{with equality holding if and only if $a=b$.}
+    \end{align*}
+    Notice that $I_{\ell}\left(\overrightarrow{\theta_\ell}\right)
+        = 
+        \mathbb E_{X^*\sim \mathbb P_\text{st}}\left[
+            h\left(\sum_{j\in\mathcal C_\ell}
+            \lambda_{j}(\theta^*_j,X^*),~ 
+            \sum_{j\in\mathcal C_\ell}
+            \lambda_{j}(\theta_j,X^*)
+            \right)
+        \right]$.
+    Therefore, $I_\ell\left(\overrightarrow{\theta_\ell}\right)\leq I_\ell\left(\overrightarrow{\theta^*_\ell}\right)$ with equality holding if and only if $\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x)$ for all $x$ having positive measure under $\mathbb P_\text{st}$.
+    Furthermore, by ergodicity (\Cref{Condition recurrence and irreducibility}), such $x$ with positive measure under $\mathbb P_\text{st}$ form the entire state space $\mathbb S$.
+\end{proof}
+
+
+
+\begin{corollary}\label{corollary necessary and sufficient conditons for identifiability}
+    Under \Cref{Condition recurrence and irreducibility}--\ref{condition boundedness of the support} and mass-action kinetics, the true parameters $\overrightarrow{\theta^*_\ell}$ are structurally identifiable if and only if no $\overrightarrow{\theta_\ell}$ in the non-negative orthant, distinct from $\overrightarrow{\theta^*_\ell}$, satisfies
+    $\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x)$ for all $x\in\mathbb S$.
+\end{corollary}
+
+\begin{proof}
+    We first show the sufficient condition. When the condition holds, we can conclude by \Cref{proposition maximality of I} that $\overrightarrow{\theta^*_\ell}$ is the unique maximum of $I_\ell\left(\overrightarrow{\theta_\ell}\right)$, which in turn implies structural identifiability of these parameters by \Cref{thm structural identifiability based on I} and \Cref{thm convergence of local MLE}.
+
+    Then, we prove the necessity by showing the contrapositive claim that if there exists a $\overrightarrow{\theta^{\dagger}_\ell}$, distinct from $\overrightarrow{\theta^*_\ell}$, satisfying
+    $\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^{\dagger}_j,x) = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x)$ for all $x\in\mathbb S$, then the true parameters are not structurally identifiable.
+    Let
+    \[
+        \eta = \frac{\overrightarrow{\theta^{\dagger}_\ell} - \overrightarrow{\theta^{*}_\ell}}{\left\|\overrightarrow{\theta^{\dagger}_\ell} - \overrightarrow{\theta^{*}_\ell}\right\|_{\infty}}.
+    \]
+    By the linear dependence of the propensities on the parameters under mass-action kinetics, there holds
+    \begin{align}\label{eq. equivalent propensities in regions}
+        \sum_{j\in\mathcal C_\ell} \lambda_{j}(\eta_j,x) = 0
+        && \forall x\in\mathbb S.
+    \end{align}
+    Consequently,
+    \begin{align}\label{eq. equivalent propensities in shifted regions}
+        \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j + s\eta_j,x)
+        = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x)
+    \end{align}
+    for every $x\in\mathbb S$, every $s\in\mathbb R$, and every parameter vector $\overrightarrow{\theta_\ell}$ such that both $\overrightarrow{\theta_\ell}$ and $\overrightarrow{\theta_\ell} + s\eta$ belong to the non-negative orthant.
+
+    We now choose $t>0$ sufficiently small so that
+    \[
+        t < \min_{i:\eta_i<0} \frac{(\theta^*_\ell)_i}{|\eta_i| + 1/3},
+    \]
+    where the minimum over the empty set is understood as $+\infty$.
+    Then define the relative open neighborhood
+    \[
+        \mathcal N = \left\{\overrightarrow{\theta_\ell} \in \mathbb R^{|\mathcal C_\ell|}_{\geq 0} ~\Big|~
+        \left\|\overrightarrow{\theta_\ell}-\overrightarrow{\theta^*_\ell}\right\|_{\infty} < \frac{t}{3}
+        \right\}
+    \]
+    and its translate
+    \[
+        \mathcal N_\text{shift} = \left\{ \overrightarrow{\theta_\ell} + t\eta ~\Big|~ \overrightarrow{\theta_\ell} \in \mathcal N \right\}.
+    \]
+    By the choice of $t$, both $\mathcal N$ and $\mathcal N_\text{shift}$ are contained in the non-negative orthant.
+    Moreover, since $\|\eta\|_\infty = 1$, the centers of these two sets are at sup-norm distance $t$, while both have radius $t/3$; hence $\mathcal N$ and $\mathcal N_\text{shift}$ are disjoint.
+
+    Next, by the change of variables $\overrightarrow{\vartheta_\ell} = \overrightarrow{\theta_\ell} + t\eta$, \eqref{eq. equivalent propensities in shifted regions}, and the expression of the posterior density, we obtain
+    \begin{align*}
+        \int_{\mathcal N_\text{shift}} p\left(\overrightarrow{\vartheta_\ell} \big| X_{0:T}\right) \dd \overrightarrow{\vartheta_\ell}
+        &= \frac{1}{Z_T}
+        \int_{\mathcal N_\text{shift}} L_\ell\left(X_{0:T}\big|\overrightarrow{\vartheta_\ell}\right)
+        q_\ell\left(\overrightarrow{\vartheta_\ell}\right) \dd \overrightarrow{\vartheta_\ell} \\
+        &= \frac{1}{Z_T}
+        \int_{\mathcal N} L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}+t\eta\right)
+        q_\ell\left(\overrightarrow{\theta_\ell}+t\eta\right) \dd \overrightarrow{\theta_\ell} \\
+        &= \frac{1}{Z_T}
+        \int_{\mathcal N} L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        q_\ell\left(\overrightarrow{\theta_\ell}+t\eta\right) \dd \overrightarrow{\theta_\ell}.
+    \end{align*}
+    Since $q_\ell$ is continuous and strictly positive on the non-negative orthant, and $\overline{\mathcal N}$ is compact, there exists a constant
+    \[
+        c = \min_{\overrightarrow{\theta_\ell}\in\overline{\mathcal N}}
+        \frac{q_\ell\left(\overrightarrow{\theta_\ell}+t\eta\right)}{q_\ell\left(\overrightarrow{\theta_\ell}\right)} > 0.
+    \]
+    Therefore,
+    \begin{align*}
+        \int_{\mathcal N_\text{shift}} p\left(\overrightarrow{\vartheta_\ell} \big| X_{0:T}\right) \dd \overrightarrow{\vartheta_\ell}
+        &\geq c \frac{1}{Z_T}
+        \int_{\mathcal N} L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)
+        q_\ell\left(\overrightarrow{\theta_\ell}\right) \dd \overrightarrow{\theta_\ell} \\
+        &= c \int_{\mathcal N} p\left(\overrightarrow{\theta_\ell} \big| X_{0:T}\right) \dd \overrightarrow{\theta_\ell}.
+    \end{align*}
+    If the posterior were to converge to the delta distribution centered at $\overrightarrow{\theta^*_\ell}$, then the posterior mass of $\mathcal N$ would converge to $1$, while the posterior mass of the disjoint set $\mathcal N_\text{shift}$ would converge to $0$.
+    This contradicts the previous inequality.
+    Hence the posterior cannot converge to a delta function at $\overrightarrow{\theta^*_\ell}$, so the true parameters are not structurally identifiable.
+    \end{proof}
+
+\begin{proof}[\textbf{Proof of \Cref{thm structural identification via ranking conditions}}]
+
+Following the mass-action kinetics, the propensity can be written as 
+\[
+\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = \left(\widebar M_{x,\ell}\right)^{\top}\,\overrightarrow{\theta_\ell}.
+\]
+    
+    We first prove part $(1)$. 
+    Select states $x_1,\dots,x_\ell$ in $\mathbb S$ such that the matrix 
+    \[
+    \widebar M_{\ell} \triangleq \left(\widebar M_{x_1,\ell}, \dots,  \widebar M_{x_\ell,\ell}\right) \in \mathbb{R}_{\left|\mathcal C_\ell\right| \times \ell}
+    \ \text{ is of full rank}.
+    \]
+    Then, the linear equation $\left(\widebar M_{\ell}\right)^{\top}\,\left(\overrightarrow{\theta_\ell}-\overrightarrow{\theta^*_\ell}\right) = \mathbbold 0$ has a unique solution $\overrightarrow{\theta_\ell} = \overrightarrow{\theta^*_\ell}$. 
+    This suggests that for any $\overrightarrow{\theta_\ell} \neq \overrightarrow{\theta^*_\ell}$, there exists one state $x$ such that $$\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) ~=~ \left(\widebar M_{x,\ell}\right)^{\top}\,\overrightarrow{\theta_\ell} 
+    ~\neq~
+    \left(\widebar M_{x,\ell}\right)^{\top}\,\overrightarrow{\theta^*_\ell}
+    = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x).
+    $$
+    Applying this to \Cref{corollary necessary and sufficient conditons for identifiability}, we conclude that $\overrightarrow{\theta^*_\ell}$ is structurally identifiable. 
+    %Applying this to \Cref{proposition maximality of I}, we can conclude that $\overrightarrow{\theta^*_\ell}$ is the unique maximum of $I_\ell\left(\overrightarrow{\theta_\ell}\right)$, which in turn implies structural identifiability of these parameters by \Cref{thm structural identifiability based on I}.
+
+    Next, we prove part $(2)$. 
+    Denote $\overrightarrow{\theta^\dagger_\ell} = \overrightarrow{\theta^*_\ell} +v$. 
+    Then, the setting of the second result implies that
+    \begin{align*}
+        \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^{\dagger}_j,x) ~=~ \left(\widebar M_{x,\ell}\right)^{\top}\,
+        \left(\overrightarrow{\theta^*_\ell} + v \right)
+        =
+        \left(\widebar M_{x,\ell}\right)^{\top}\,\overrightarrow{\theta^*_\ell}
+        = \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x)
+        && \forall x\in\mathbb S.
+    \end{align*}
+    Applying this to \Cref{corollary necessary and sufficient conditons for identifiability}, we conclude that $\overrightarrow{\theta^*_\ell}$ is non-identifiable. 
+    %Applying this to the local likelihood expression \eqref{eq:local_likelihood_with_times}, we have $L_\ell\left(X_{0:T}\big|\overrightarrow{\theta^{\dagger}_\ell}\right) = L_\ell\left(X_{0:T}\big|\overrightarrow{\theta^*_\ell}\right)$, suggesting that the posterior cannot converge to a delta distribution, and, therefore, structural identifiability fails. 
+
+    Finally, we prove part $(3)$.
+    When $\sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta^*_j,x) = 0$ for all state $x\in\mathbb S$, then $\mathbbold 0$ is obviously a maximum of $I_\ell\left(\overrightarrow{\theta_\ell}\right)$. 
+    By \Cref{corollary necessary and sufficient conditons for identifiability}, the necessary and sufficient condition for structural identifiability is that $\mathbbold 0$ is the unique solution of the equations
+    \begin{align*}
+        \sum_{j\in\mathcal C_\ell} \lambda_{j}(\theta_j,x) = 0
+        && \forall x\in\mathbb S.
+    \end{align*}
+    By the non-negativity of the functions $g_j(x)$ and the parameters, the necessary and sufficient condition is equivalent to that $\mathbbold 0$ is the only solution of the equations
+    \begin{align*}
+        \left(\sum_{x\in \mathbb S} \widebar M_{x,\ell}\right)^{\top}\, \overrightarrow{\theta_\ell} = 0.
+    \end{align*}
+    This condition is further equivalent to that $\sum_{x\in \mathbb S} \widebar M_{x,\ell}$ is element-wise positive, which proves the results.
+\end{proof}
+
+
+
+ ~\\~\\~\\~\\~
+
+\begin{proof}[Proof of \Cref{corollary structural identifiability by topological conditions}]
+    First, we prove the sufficient condition $(1)$.
+    Here, we arrange the reaction indices such that $\left\{v_{j_{\ell, 1}}, \dots, v_{j_{\ell, |\mathcal C_\ell|}}\right\}$
+    is an increasing sequence in terms of lexicographic ordering. 
+    A vector $x$ is less than another $y$ in lexicographic ordering, means that there exists a index $k$ such that $x_k< y_k$ and $x_i = y_i$ for $i<k$.
+    From this ordering, we can conclude that $g_{j_{\ell, i_1}} (\nu_{j_{\ell, i_2}}) = 0$ if $i_1>i_2$. 
+    Therefore, for any $i$, we have
+    \begin{align*}
+            \widebar M_{\nu_{j_{\ell, i}},\ell} 
+            &= \left(g_{j_{\ell, 1}} (\nu_{j_{\ell, i}}), \dots, g_{j_{\ell, i}} (\nu_{j_{\ell, i}}), g_{j_{\ell, i+1}} (\nu_{j_{\ell, i}}),  \dots,
+            g_{j_{\ell, |\mathcal C_j|}} (\nu_{j_{\ell, i}}
+            \right)^{\top} \\
+            &= \left(g_{j_{\ell, 1}} (\nu_{j_{\ell, i}}), \dots, g_{j_{\ell, i}} (\nu_{j_{\ell, i}}), 0, \dots, 
+            0
+            \right)^{\top}.
+    \end{align*}
+    Also, notice that $g_{j_{\ell, i}} (\nu_{j_{\ell, i}}) > 0$ for any $i\in\{1,\dots, | \mathcal C_\ell|\}$.
+    Then, the matrix $\left(M^{\nu_{j_{\ell, 1}}}_{\ell}, \dots, M^{\nu_{j_{\ell, | \mathcal C_\ell|}}}_{\ell}
+    \right)$
+    is an upper triangular matrix, and all its diagonal components are positive.
+    This further suggests that this matrix is full rank. 
+    Since $\nu_{j_{\ell, 1}} \dots,\nu_{j_{\ell, | \mathcal C_\ell|}} $ are in $\mathbb S$ (according to the condition), this full rank matrix also implies $\text{dim}(\mathcal S_\ell) = | \mathcal C_\ell| $, which together with the first result of \Cref{thm structural identification via ranking conditions} proves the identifiability of 
+    $\overrightarrow {\theta^*_\ell}$.
+
+    Second, we prove the sufficient condition $(2)$. In this case, we can easily check that only one reaction is compatible with $\xi_\ell$, i.e., $|\mathcal C_\ell| =1$.
+    Since $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,x) > 0$ for at least one state $x\in \mathbb S$, we can select such a state $x$ and have that $\widebar M_{x,\ell} $ is non-zero; in other words, $\text{dim}(\mathcal S_\ell) = 1$.
+    Finally, by the first result of \Cref{thm structural identification via ranking conditions}, we prove this sufficient condition. 
+\end{proof}
+
+\begin{proof}[Proof of \Cref{corollary structural non-identifiability by topological conditions}]
+    First, we consider the case when $\mathcal C_\ell$ contains a zero-order reaction.  
+    Obviously, in this case, all the element in $\xi_\ell$ are positive, and $\mathcal C_\ell$ contains the indices corresponding to the reactions 
+    \begin{align*}
+        \emptyset \to \sum_{i=2}^d (\xi_\ell)_i S_i, &&
+        S_1 \to S_1 + \sum_{i=2}^d (\xi_\ell)_i S_i &&
+        S_2 \to S_2 + \sum_{i=2}^d (\xi_\ell)_i S_i &&
+        \dots
+        &&
+        S_d \to S_d + \sum_{i=2}^d (\xi_\ell)_i S_i. 
+    \end{align*}
+    We let their index be $j_{\ell,1}\dots, j_{\ell,d+1}$. 
+    Then, we have that 
+    \begin{align*}
+        \widebar M_{x,\ell} 
+        = \left(1, x_1, x_2,\dots, x_d, \dots\right)^{\top}.
+    \end{align*}
+    By the conservation law, the vector $\bar c = (-c^{\top} X(0), c_1,c_2,\dots, c_d, 0,\dots, 0)^{\top}$ is orthogonal to any $\widebar M_{x,\ell} $ and, therefore, the space $\mathcal S_\ell$. 
+    Moreover, since $\left(\overrightarrow {\theta^*_\ell}\right)_1>0$, we can always find a small $\epsilon$ such that $\overrightarrow {\theta^*_\ell}+\epsilon \bar c $ is element-wise non-negative.
+    By applying them to \Cref{thm structural identification via ranking conditions}, the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally non-identifiable. 
+
+    Second, we consider the unimolecular reaction case. 
+    For simplicity, we assume that the substrate in this reaction is $S_1$. 
+    The following proof naturally extends to the case of other substrates. 
+    In this case, $C_\ell$ contains the indices corresponding to the reactions 
+    \begin{align*}
+        S_1 \to S_1 + \sum_{i=1}^d (\xi_\ell)_i S_i, &&
+        S_1+S_1 &\to S_1 + S_1+ \sum_{i=1}^d (\xi_\ell)_i S_i, &&
+        S_1 + S_2 \to S_1 + S_2 + \sum_{i=1}^d (\xi_\ell)_i S_i, \\
+         \dots \qquad\qquad
+         &&
+        S_1 + S_d &\to  S_1 + S_d + \sum_{i=1}^d (\xi_\ell)_i S_i.
+    \end{align*}
+    We let their index be $j_{\ell,1}\dots, j_{\ell,d+1}$. 
+    Then, we have that 
+    \begin{align*}
+        \widebar M_{x,\ell} 
+        = \left(x_1, x_1(x_1-1), x_1 x_2,\dots, x_1x_d, \dots\right)^{\top}.
+    \end{align*}
+    We select a state $X^\dagger\in\mathbb S$ such that  $\sum_{j\in\mathcal C_\ell}\lambda_{j}(\theta^*_j,X^\dagger) > 0$;
+    obviously, its first element is no less than 1, and $-c^{\top} X^{\dagger} + c_1\leq 0$.
+    Then by the conservation law, we can show that $\bar c = (-c^{\top} X^{\dagger} + c_1, c_1,c_2,\dots, c_d, 0,\dots, 0)^{\top}$ is orthogonal to any $\widebar M_{x,\ell} $ and, therefore, the space $\mathcal S_\ell$. 
+    Moreover, since $\left(\overrightarrow {\theta^*_\ell}\right)_1>0$, we can always find a small $\epsilon$ such that $\overrightarrow {\theta^*_\ell}+\epsilon \bar c$ is still element-wise non-negative.
+    By applying them to \Cref{thm structural identification via ranking conditions}, the actual parameters $\overrightarrow {\theta^*_\ell}$ are structurally non-identifiable. 
+\end{proof}
+\section{Posterior for non observed jumps}
+The likelihood for the non-observed jump rates is 
+\begin{equation}
+\begin{aligned}
+L_\ell\left(X_{0:T}\big|\overrightarrow{\theta_\ell}\right)&  = 
+    \exp\!\left(
+ - \int_0^T \sum_{j\in\mathcal C_\ell} \lambda_j(\theta_j, X(s)) \, \mathrm{d}s
+\right) 
+    \\
+        &= \prod_{j\in\mathcal C_\ell} \exp\left(
+ - \theta_j \int_0^T   g_j\left( X(s) \right)  \dd s \right)
+\end{aligned}
+%\label{eq:local_likelihood_with_times}
+\end{equation}
+The posterior is
+\begin{equation}
+    \begin{aligned}
+       & \prod_{j\in\mathcal C_\ell}\exp\left(
+        - \theta_j  \int_0^T g_j\left( X(s) \right) \dd s\right) \pi( \theta_j ) 
+        \\ 
+        &=  \prod_{j \in \mathcal C_\ell} 
+      \exp\!\left(
+        - \theta_j \int_0^T g_j\!\left( X(s) \right) \, \mathrm{d}s
+      \right) \\
+      & \quad\quad 
+      \left(
+        p\,\mathbf{1}_{\{\theta_{j}=0\}} 
+        + (1-p)\,
+          \frac{\beta_j^{\alpha_j}}{\Gamma(\alpha_j)}\,
+          \theta_j^{\alpha_j-1} 
+          \exp\!\left( -\theta_j \beta_j \right)
+          \mathbf{1}_{\{\theta_{j}>0\}}
+      \right)\times \frac{1}{C},
+        \\
+        &= \prod_{j\in \mathcal C_\ell}
+\left(
+  p'\,\mathbf{1}_{\{\theta_j=0\}}
+  + (1-p')\,\mathbf{1}_{\{\theta_j>0\}}\,
+       \Gamma_{\theta_j} \left( {\alpha_j}, \, 
+        \left( \int_0^T g_j(X(s))\,\mathrm{d}s\big)+  \beta_j \right) 
+\right) \right), 
+    \end{aligned}
+\end{equation}
+where the $C$ is the normalising constant that 
+$C=p + (1-p)\left(\frac{\beta_j}{\beta_j+I_{j,T}}\right)^{\alpha_j}$, with $I_{j,T}= \int_0^T g_j(X(s))\,\mathrm{d}s$, and the renormalised weight is 
+\begin{align}
+ p'_j&= \frac{p}{ p+ (1-p)\left(\frac{\beta_j}{\beta_j+I_{j,T}}\right)^{\alpha_j}} \geq p, \\
+1-p'_j &= \frac{(1-p)\left(\frac{\beta_j}{\beta_j+I_{j,T}}\right)^{\alpha_j}}{p+ (1-p)\left(\frac{\beta_j}{\beta_j+I_{j,T}}\right)^{\alpha_j}} \leq 1- p .
+\end{align}
+
+Given the absence of observed jumps up to time $T$, the posterior distribution assigns larger mass($\geq p$) to spike at zero, while correspondingly less weight on the slab part compared with the prior. The larger is $T$ the larger the mass in the spike.
+
+Please note that in the case when no jumps are observed, the posterior distribution can be derived analytically without requiring MCMC.
+
+
+\section{Posterior distribution for the unique stoichiometric reaction vector}
+\label{sec:posterior_unique_stoichiometric}
+
+
+Assume that in the network $G$ there is only one reaction, say the $j$-th that corresponds to the reaction vector $\xi_\ell$, or in other words that $\mathcal C_\ell=\{j\}$, then the posterior distribution can be calculated analytically.
+
+In case no jump is observed, the reader is referred to the previous paragraph, in case we observe jumps of size $\xi_j$, we have that the posterior does not have a spike anymore, since the likelihood evaluated at $\theta_j=0$ is 0, which is natural since if the jump is observed, it is impossible that the reaction rate is zero. We then have the same posterior distribution that corresponds to the case where the spike is not there
+\begin{equation}
+\begin{aligned}
+\pi(\theta_j| X_{0:T}) 
+    &=\left[   \prod_{x \in \mathbb{S}_\ell}\left(\theta_{j}
+   g_{j}\left( X(t_n)\right) \right)^{n_{x, \ell} } \right] 
+    \exp\left\{- \theta_{j} \left(   \sum_{x \in \mathbb{S}} \tau_{x}  g_{j}(x)  \right)
+    \right\} \pi(\theta_j) .\\
+    &\propto  \theta_{j}^{n_\ell+\alpha_j-1} 
+    \exp\left\{- \theta_{j} \left(   \sum_{x \in \mathbb{S}} \tau_{x}  g_{j}(x) +\beta_j \right)
+    \right\} 
+\end{aligned}
+\end{equation}
+this would again be gamma $\alpha + n_\ell, \beta + I_T$
+cf. Wilkinson's book \cite{Wilkinson2018}
+
+\section{A non identifiable e case}
+Consider the following family of reaction networks
+\[\begin{gathered}\ce{A <=>[1][2] B}\label{non-id}\\
+	\ce{2A <=>[3][4] A + B <=>[5][6] 2B}
+\end{gathered}\] with rate constants \[\begin{aligned}\kappa_1=\alpha \quad\text{ and }\quad \kappa_3=\kappa_5=1-\alpha\\
+\kappa_2=\beta \quad\text{ and }\quad \kappa_4=\kappa_6=1-\beta\end{aligned}
+\]
+for any $\alpha, \beta\in [0,1]$ and assume that $X_A(0)+X_B(0)=2$.
+The state space of the reaction will then be
+\[\mathbb{S}=\{(2,0), (1,1), (0,2)\}.\]
+There are two distinct reaction vectors
+\[\xi_1=(-1,1)\quad\text{ and }\quad\xi_2=(1,-1)\]
+to which the following set of reactions are related
+\[\begin{aligned}\mathcal{C}_1= \{1,3,5\}\\
+\mathcal{C}_2= \{2,4,6\}
+\end{aligned}.\]
+The stochastic mass-action  rates are given by 
+\begin{align}
+\lambda_{1}(X_A, X_B)&=\alpha X_A\\
+\lambda_{2}(X_A, X_B)&=\alpha X_B\\
+\lambda_{3}(X_A, X_B) &= (1-\alpha) X_A (X_A-1) \\%\mathbb{1}_{\{X_A \geq 1\}}\\
+\lambda_{4}(X_A, X_B)&=(1-\alpha) X_A X_B\\
+\lambda_{5}(X_A, X_B)&=(1-\alpha) X_A X_B\\
+\lambda_{6}(X_A, X_B)&=(1-\alpha) X_B (X_B-1) \\%\mathbb{1}_{\{X_B\geq 1\}}
+\end{align}
+Whatever the value of the parameters $\alpha, \beta\in [0,1]$ the sum of the rates in the reactions of two sets $\mathcal{C}_1$ and $\mathcal{C}_2$ are the same, indeed
+\[\begin{aligned}\lambda_{1}(2, 0)+\lambda_{3}(2, 0)+\lambda_{5}(2, 0)=2 && \lambda_{2}(2, 0)+\lambda_{4}(2, 0)+\lambda_{6}(2, 0)=0 \\
+ \lambda_{1}(1, 1)+\lambda_{3}(1, 1)+\lambda_{5}(1, 1)=1 &\qquad \text{ and }\quad &\lambda_{2}(1, 1)+\lambda_{4}(1, 1)+\lambda_{6}(1, 1)=1
+ \\
+ \lambda_{1}(0, 2) +\lambda_{3}(0,2) +\lambda_{5}(0, 2)=0 & &\lambda_{2}(0, 2) +\lambda_{4}(0,2) +\lambda_{6}(0, 2)=2
+\end{aligned}\]
+and therefore the local likelihood of both reaction vector would be identical at any $\vec \kappa$ such that $002\kappa_1-\kappa3-\kappa_2= 0$, $\beta\in [0,1]$, making both parameters unidentifiable, and the determination of the structure impossible.
+
+If you are generating th
+
+\section{Sparse Recovery Supplementary Tables}
+
+%\input{sparse_poly_coeff_table}   % needs pdflscape in preamble
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}

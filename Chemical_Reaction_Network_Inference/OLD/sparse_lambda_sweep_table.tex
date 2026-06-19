@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{T=200 lambda sweep: L$^2$ error between recovered and true propensity polynomial
+for each stoichiometric channel. \textbf{Obs} = number of observed jumps in the trajectory.
+True polynomial uses the exact stochastic form: $k\,A(A-1)/2 = \tfrac{k}{2}A^2 - \tfrac{k}{2}A$.
+Lower error = better recovery; error increasing with $\lambda$ indicates shrinkage bias.}
+\label{tab:sparse_lambda_sweep}
+\begin{tabular}{c r l r r r r r r }
+\toprule
+Ch & Obs & True polynomial & $\lambda=0.001$ & $\lambda=0.005$ & $\lambda=0.01$ & $\lambda=0.05$ & $\lambda=0.1$ & $\lambda=0.5$ \\
+\midrule
+0 & 115 & $-0.226\,A$ $+0.226\,A\,A$ & 1.087 & 0.431 & 0.374 & 0.294 & 0.251 & \textbf{0.245} \\
+1 & 263 & $-0.510\,A$ $+0.510\,A\,A$ & 1.477 & 0.919 & 0.851 & 0.632 & 0.570 & \textbf{0.556} \\
+2 & 452 & $-0.786\,A$ $+0.786\,A\,A$ & 0.919 & 0.881 & 0.879 & 0.866 & \textbf{0.832} & 0.833 \\
+3 & 1185 & $-0.989\,B$ $+0.989\,B\,B$ & 1.215 & 1.044 & 1.005 & \textbf{0.693} & 0.953 & 1.032 \\
+4 & 252 & $+0.489\,X\,Y$ & 1.867 & 0.763 & 0.292 & 0.083 & \textbf{0.029} & 0.073 \\
+5 & 626 & $+0.590\,A\,Y$ $+0.768\,X\,Y$ & 0.750 & 0.575 & 0.411 & 0.078 & \textbf{0.057} & 0.201 \\
+6 & 398 & $+0.280\,A$ $+1.067\,Y$ & 0.540 & \textbf{0.378} & 0.451 & 0.481 & 0.648 & 1.124 \\
+7 & 264 & $+0.646\,A\,Y$ & 0.388 & 0.234 & 0.188 & 0.078 & \textbf{0.038} & 0.120 \\
+8 & 860 & $-0.630\,X$ $+0.417\,A\,X$ $+0.630\,X\,X$ & 1.153 & 0.993 & 0.816 & 0.695 & \textbf{0.668} & 0.690 \\
+9 & 603 & $+1.278\,X$ & 0.594 & 0.465 & 0.308 & \textbf{0.155} & 0.322 & 1.315 \\
+10 & 629 & $+0.422\,A\,Y$ $+0.906\,X\,Y$ & 0.176 & 0.170 & 0.160 & \textbf{0.083} & 0.084 & 0.202 \\
+11 & 713 & $+1.046\,A$ $+0.717\,X$ & 0.452 & 0.393 & \textbf{0.342} & 0.493 & 0.568 & 1.309 \\
+12 & 127 & $+0.678\,1$ & 0.456 & 0.219 & \textbf{0.163} & 0.310 & 0.361 & 0.687 \\
+13 & 1143 & $+2.203\,B$ & 0.375 & \textbf{0.236} & 0.411 & 0.294 & 0.637 & 2.249 \\
+14 & 512 & $+1.517\,A$ & 0.492 & 0.302 & \textbf{0.262} & 0.542 & 0.786 & 1.547 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,98 @@
+% Based on examples by Dirk Eddelbuettel, Fran and others from 
+% https://tex.stackexchange.com/questions/2317/latex-style-or-macro-for-detailed-response-to-referee-report
+% 
+% Licensed under cc by-sa 3.0 with attribution required.
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{enumitem}
+% \usepackage{lipsum} % to generate some filler text
+\usepackage{fullpage} % This package sets all 4 margins to be either 1 inch or 1.5 cm, and specifies the page style. % [in] (default) sets the margins to one inch
+%\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[normalem]{ulem}
+
+\usepackage{subfigure}
+\usepackage[font=small]{caption}
+% import Eq and Section references from the main manuscript where needed
+% \usepackage{xr}
+% \externaldocument{manuscript}
+
+% package needed for optional arguments
+\usepackage{xifthen}
+% define counters for reviewers and their points
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+% This refines the format of how the reviewer/point reference will appear.
+\renewcommand{\thepoint}{\thereviewer.\arabic{point}} 
+
+
+
+% command declarations for reviewer points and our responses
+\newcommand{\reviewersection}{\stepcounter{reviewer} \bigskip \hrule
+                  \section*{Reviewer \thereviewer}}
+
+% \newenvironment{point}
+%   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} } ---\ }
+%   {\par }
+
+\newenvironment{point}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint}}:\ \itshape}
+   {\par }
+
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
+	{\textbf{Reviewer~Point~\thepoint} } ---~#1\par }
+   
+% \newenvironment{reply}
+%   {\medskip \noindent \begin{sf}\textbf{Reply}:\  }
+%   {\medskip \end{sf}}
+
+\usepackage{color}
+\newenvironment{reply}
+   {\medskip \noindent \begin{sf}\textbf{Reply}:\  \color{blue}}
+   {\medskip \end{sf} \ignorespacesafterend}
+   
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
+	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+	\medskip \end{sf}}
+
+%%%% additional packages needed 
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\LZ}[1]{\textcolor{Lavender}{#1$|_{LZ}$}}
+
+\newcommand{\SSS}[1]{\textcolor{Purple}{#1$|_{SSS}$}}
+
+\usepackage{amsfonts}
+\usepackage[capitalise]{cleveref}
+
+\begin{document}
+
+\section*{To Do List}
+\begin{enumerate}
+\item Suzanne:
+\begin{enumerate}
+    \item A larger system $N = 10$
+    \item A simple way to show some results. (Check Example 2 Suzanne which looks incorrect.)
+\end{enumerate}
+\item Enrico:
+\begin{itemize}
+\item Write about this other paper Greg Rampala - in submission; logistic regression.
+https://arxiv.org/abs/2507.19979
+Do they use the full likelihood? 
+\item What should happen in our non-identiable example? 
+\end{itemize}
+\end{enumerate}
+
+
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+
+
+\end{document}
