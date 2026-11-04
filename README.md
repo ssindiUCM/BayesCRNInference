@@ -2,7 +2,7 @@
 
 Bayesian inference framework for **stochastic chemical reaction networks (CRNs)** using **exact trajectory data** under **mass-action kinetics**.
 
-This repository accompanies a research manuscript and is intended to support **methodological transparency and reproducibility**, rather than to function as a general-purpose inference library.
+This repository accompanies the manuscript *Bayesian identification of stochastic reaction networks from single trajectories* (Bibbona, Fang, Fernandes-Sindi, Guo, Jin) and is intended to support **methodological transparency and reproducibility**, rather than to function as a general-purpose inference library.
 
 ---
 
@@ -16,7 +16,9 @@ The central scientific goal is to infer:
 
 from **exact discrete-state trajectories**, without diffusion or moment approximations.
 
-Inference is performed using MCMC, leveraging a decomposition of the likelihood into contributions from **local stoichiometric changes**.
+Inference is performed using MCMC with a spike-and-slab prior on the rates, leveraging a decomposition of the likelihood into contributions from **local stoichiometric changes** (one independent inference problem per stoichiometric change, or "channel").
+
+For comparison, the repository also runs the $\ell_1$-penalised (LASSO) method of Zhang, Klus, Conrad & Schütte (2019), [sparse-learning-CRN](https://github.com/zwpku/sparse-learning-CRN), on the same data (see "Comparison with sparse-learning-CRN" below).
 
 ---
 
@@ -44,30 +46,26 @@ Users are expected to be familiar with stochastic CRNs and Bayesian inference.
 ```text
 BayesCRNInference/
 │
-├── CRN_Simulation/          # External CRN simulation code (prior work)
-│   ├── CRN.py
-│   ├── MatrixExponentialKrylov.py
-│   ├── DistributionOfSystems.py
-│   ├── MarginalDistribution.py
-│   └── __init__.py
+├── CRN_Simulation/              # External CRN simulation code (prior work)
 │
-├── src/                     # Inference and likelihood construction
-│   ├── parsing.py           # Trajectory parsing and sufficient statistics
-│   ├── mcmc.py              # MCMC algorithms
-│   └── inference.py         # High-level inference utilities
+├── src/                         # Inference and likelihood construction
+│   ├── parsing.py               # Reaction libraries, simulation helpers, trajectory parsing, file I/O
+│   ├── inference.py             # Local likelihoods, L1 paths
+│   ├── mcmc.py                  # Adaptive spike-and-slab MCMC, summaries and plots
+│   └── sparse_learning_compare.py  # Running/checking the sparse-learning-CRN LASSO (comparison only)
 │
-├── examples/                # Jupyter notebooks reproducing manuscript analyses
-│   ├── example1.ipynb
-│   ├── example2.ipynb
-│   └── example3.ipynb
+├── examples/                    # Jupyter notebooks reproducing the manuscript's examples
+│   └── README.md                # What each notebook does, what it reads and writes, run times
 │
-├── data/                    # Example stochastic trajectories (tracked)
-│   ├── example1_crn1_trajectory.json
-│   ├── example2_crn2_trajectory.json
-│   └── example3_trajectory.json
+├── sparse_runs/                 # Input/output folders of the sparse-learning-CRN LASSO runs
+├── writing/                     # Notebooks and LaTeX tables/figures for the manuscript
+├── Chemical_Reaction_Network_Inference/   # Manuscript source
 │
-├── check_requirements.ipynb # Environment and dependency check
+├── data/                        # Trajectories and networks   (NOT tracked by git, see below)
+├── results/                     # MCMC summaries and plots    (NOT tracked by git, see below)
 │
+├── check_requirements.ipynb     # Environment and dependency check
+├── requirements.txt
 ├── README.md
 ├── LICENSE
 └── .gitignore
@@ -75,11 +73,47 @@ BayesCRNInference/
 
 ---
 
+## 📓 Examples
+
+The notebooks are described in detail in [`examples/README.md`](examples/README.md). In short:
+
+| Notebook | System | Role in the manuscript |
+|---|---|---|
+| `example1.ipynb` | Two 2-species networks with identical dynamics ($X_1+X_2=2$) | Section 5.1, first non-identifiable case (conservation law) |
+| `example2.ipynb` | $\varnothing\to X_1$, $X_1\to 2X_1$, $X_1+X_2\to X_2$ ($X_2$ constant) | Section 5.1, second non-identifiable case (catalyst species) |
+| `example3.ipynb` | Random sparse network, 3 species, $T=100,200,400$ | Additional test (not in the manuscript) |
+| `example4.ipynb` | Predator–prey (Lotka–Volterra), $T=40$ | Section 5.2, Bayesian results |
+| `example4_sparse_massaction.ipynb` | Predator–prey | Section 5.2, LASSO comparison (black-box and mass-action) and the predator–prey table |
+| `example5.ipynb` | Random sparse network, 4 species, $T=100,200,400$ | Section 5.3, Bayesian results |
+| `example_sparse.ipynb` | Random 4-species network | Section 5.3, LASSO runs (export for sparse-learning-CRN) |
+| `example6_aic.ipynb` | Antithetic integral controller, $T=5000$ | Ergodic example: simulation, stationary checks, Bayesian results |
+| `example6_aic_Tsweep.ipynb` | Antithetic integral controller, $T=100$ to $5000$ | Ergodic example: posterior concentration as $T$ grows |
+| `example6_aic_lasso.ipynb` | Antithetic integral controller, $T=100$ to $5000$ | Ergodic example: LASSO comparison |
+
+The tables for Section 5.3 are produced by `writing/comparison_tables.ipynb`.
+
+---
+
+## 📊 Data and results are not tracked by git
+
+`.gitignore` excludes `data/` and `results/`, so a fresh clone contains the notebooks but not the trajectories or MCMC
+summaries that the manuscript's tables are built from. They are regenerated by running the notebooks:
+
+* trajectories and networks (`data/*.json`) are simulated or sampled with fixed random seeds and are reproduced exactly
+  by the notebook that creates them (for example, `example5.ipynb` creates `data/example5_network.json`, which
+  `writing/comparison_tables.ipynb` reads);
+* MCMC summaries (`results/*/mcmc_summary.xlsx`) and chains (`results/*/*_chain.npz`) are reproduced exactly by
+  re-running the MCMC: every channel's chain is seeded (see `examples/README.md`), and each example takes minutes.
+
+The LASSO inputs and outputs in `sparse_runs/` **are** tracked (except the `log/` folders, which match `*.log`).
+
+---
+
 ## 🧩 External CRN Simulation Code
 
 The directory `CRN_Simulation/` contains **supporting simulation code adapted from prior work** and is included to enable trajectory generation and visualization.
 
-This code is **not the focus of the repository**.  
+This code is **not the focus of the repository**.
 All inference logic, likelihood construction, and MCMC algorithms are implemented in `src/`.
 
 ---
@@ -88,19 +122,21 @@ All inference logic, likelihood construction, and MCMC algorithms are implemente
 
 ### Requirements
 
-
-- Python 3.9+
+- Python 3.9+ (the notebooks have been run with Python 3.10 and 3.13)
 - Jupyter Notebook
 
 Core dependencies (versions are pinned in `requirements.txt`):
 
-- numpy ≥ 1.23, < 2.0  
-- scipy ≥ 1.10, < 2.0  
-- matplotlib ≥ 3.7, < 3.8  
-- seaborn ≥ 0.12, < 0.13  
-- scikit-learn ≥ 1.3, < 1.5  
-- torch ≥ 2.0, < 2.2  
-- joblib ≥ 1.3, < 1.5  
+- numpy ≥ 1.23, < 2.0
+- scipy ≥ 1.10, < 2.0
+- pandas
+- matplotlib ≥ 3.7, < 3.8
+- seaborn ≥ 0.12, < 0.13
+- scikit-learn ≥ 1.3, < 1.5
+- torch ≥ 2.0, < 2.2
+- joblib ≥ 1.3, < 1.5
+- statsmodels ≥ 0.14, < 0.15
+- openpyxl ≥ 3.1 (reading and writing the `.xlsx` MCMC summaries)
 
 Install dependencies via:
 
@@ -116,32 +152,42 @@ check_requirements.ipynb
 
 ---
 
-## 📊 Example Trajectories
+## 🔀 Comparison with sparse-learning-CRN (LASSO)
 
-The `data/` directory contains **example stochastic trajectories** used in the accompanying notebooks.
+The comparison method is the C++ code of Zhang et al. (2019), https://github.com/zwpku/sparse-learning-CRN
+(we used commit `9bb829c`). **Its optimisation code is not modified.** It is run in two configurations, using only
+options and input files the code provides:
 
-These trajectories:
-- Are generated from known CRNs
-- Serve as illustrative inputs for inference
-- Are included to support transparency and ease of use
+* **Black box** (the method as published): each channel's propensity is fitted as a polynomial of order ≤ 2 in the
+  species counts.
+* **Mass action**: configuration option `xx_basis_flag = 0` (quadratic basis $x(x-1)$ instead of $x^2$), and each
+  channel's basis file (`output/basis_of_channel_<i>.txt`, which their instructions allow to be edited between
+  `prepare` and `sparse_learning`) is cut down to the propensities of that channel's candidate reactions — the same
+  candidates as in the Bayesian analysis. Each coefficient is then a rate constant.
 
-They should **not** be interpreted as canonical datasets.
+Both are run with a longer stopping rule than their defaults (`tot_step = 300000`,
+`max_step_since_prev_min_cost = 100000`, `cost_stop_tol = 1e-12`), because the defaults can stop before convergence.
+Every fit is checked independently: `src/sparse_learning_compare.py` re-implements their objective (it reproduces the
+costs in their logs), minimises it with a different optimiser, and reports the gap.
 
----
+### Building their code
 
-## 📓 Reproducing Analyses
+```bash
+git clone https://github.com/zwpku/sparse-learning-CRN.git
+cd sparse-learning-CRN/src
+# edit makefile: USE_MPI = 0, and point LOCAL_DIR to libconfig (e.g. /opt/homebrew/opt/libconfig on macOS)
+make prepare sparse_learning
+```
 
-The notebooks in `examples/` demonstrate the inference pipeline used in the manuscript:
+The programs `prepare` and `sparse_learning` need only `libconfig` (`brew install libconfig`, or `libconfig++-dev`
+on Linux). Their simulator `ssa` additionally needs the RANLIB.C library; on macOS we removed that dependency
+(`-lranlib` in the makefile, `#include "ranlib.h"` in `sparse_learning.h`, and its calls in `initialize.cpp` and
+`utils.cpp` replaced by `srand`/`rand`). These build changes affect only random-number generation for `ssa`,
+which this repository does not use.
 
-1. Load or generate a stochastic trajectory
-2. Parse trajectory data into sufficient statistics
-3. Construct local likelihood components
-4. Run MCMC for rate and/or structure inference
-5. Visualize posterior distributions
-
-Because inference relies on stochastic simulation and MCMC:
-- Exact numerical results may vary between runs
-- Qualitative posterior behavior and conclusions should be consistent
+The notebooks look for the compiled programs in the folder given by the environment variable `SPARSE_LEARNING_SRC`
+(default: the authors' local path). The LASSO notebooks run in **post-processing mode by default** (they read the
+saved outputs in `sparse_runs/` and need no compiled programs); set `RUN_LASSO = True` to re-run the fits.
 
 ---
 
@@ -174,4 +220,5 @@ You are free to use, modify, and distribute this code, provided that any derivat
 
 - Code developed by **Suzanne Sindi** (ssindi(at)ucmerced.edu)
 - CRN simulation code adapted from **Zhou Fang** (zhfang(at)amss.ac.cn)
+- LASSO comparison uses sparse-learning-CRN by **Wei Zhang** et al. (https://github.com/zwpku/sparse-learning-CRN)
 - Developed to accompany a manuscript on Bayesian inference for stochastic biochemical reaction networks with full trajectory data
