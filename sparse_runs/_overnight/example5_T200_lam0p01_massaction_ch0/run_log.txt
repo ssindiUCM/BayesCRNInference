@@ -1,0 +1,3094 @@
+
+========================================================
+
+Number of processors = 1
+========================================================
+
+solver_id=1
+Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) will be used to solve the coefficients.
+
+
+========================================================
+Reading channel information from file : ./output/channel_info.txt
+
+In total:  15 reaction channels
+
+Channel 1: 	Change vector : (-2,0,0,0),		Occurrence : 115
+Channel 2: 	Change vector : (-2,0,1,1),		Occurrence : 263
+Channel 3: 	Change vector : (-2,1,0,0),		Occurrence : 452
+Channel 4: 	Change vector : (0,-2,1,0),		Occurrence : 1185
+Channel 5: 	Change vector : (0,0,-1,1),		Occurrence : 252
+Channel 6: 	Change vector : (0,0,0,-1),		Occurrence : 626
+Channel 7: 	Change vector : (0,0,0,1),		Occurrence : 398
+Channel 8: 	Change vector : (0,0,1,-1),		Occurrence : 264
+Channel 9: 	Change vector : (0,1,-1,0),		Occurrence : 860
+Channel 10: 	Change vector : (0,1,-1,1),		Occurrence : 603
+Channel 11: 	Change vector : (0,1,0,-1),		Occurrence : 629
+Channel 12: 	Change vector : (0,1,0,0),		Occurrence : 713
+Channel 13: 	Change vector : (0,2,0,0),		Occurrence : 127
+Channel 14: 	Change vector : (1,-1,0,0),		Occurrence : 1143
+Channel 15: 	Change vector : (1,0,0,0),		Occurrence : 512
+
+Total length of time of 1 trajectories : 199.945540
+========================================================
+
+
+========================================================
+Reading basis info from the file: ./output/basis_funct_info.txt
+
+Loaded basis functions : 15
+Number of unknown parameters : 1
+In total, 1 channels to learn
+========================================================
+
+Solving coefficients for the reaction channel 0...
+
+Iteration step = 100
+	minus-likelihood = 4.55876821e-01	 penalty g_i(x) = 1.10849e-03	 Cost = 4.56985308e-01
+	Rel. residual of vec. = 8.680384e-03 
+	Rel. diff. of cost = 4.851557e-03
+	Rel. diff. of cost (w.r.t. optimal) = 0.000000e+00
+	Costs in the last 20 steps: [4.569853e-01, 5.093216e-01],	Rel-diff. = 1.1453e-01 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		1.1084874416296112e-01	
+	max_Lbar=1.00e+05	tk=52.0		range of ai =[2.22e-01, 4.66e+00]
+Iteration step = 200
+	minus-likelihood = 3.69769981e-01	 penalty g_i(x) = 1.82987e-03	 Cost = 3.71599849e-01
+	Rel. residual of vec. = 2.792492e-03 
+	Rel. diff. of cost = 5.037547e-04
+	Rel. diff. of cost (w.r.t. optimal) = 0.000000e+00
+	Costs in the last 20 steps: [3.715998e-01, 3.763032e-01],	Rel-diff. = 1.2657e-02 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		1.8298678427984766e-01	
+	max_Lbar=1.00e+05	tk=102.2		range of ai =[3.66e-01, 7.69e+00]
+Iteration step = 300
+	minus-likelihood = 3.65677825e-01	 penalty g_i(x) = 2.15856e-03	 Cost = 3.67836386e-01
+	Rel. residual of vec. = 7.899431e-04 
+	Rel. diff. of cost = 4.998514e-05
+	Rel. diff. of cost (w.r.t. optimal) = 1.286031e-03
+	Costs in the last 20 steps: [3.675162e-01, 3.678364e-01],	Rel-diff. = 8.7131e-04 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.1585607329471160e-01	
+	max_Lbar=1.00e+05	tk=152.3		range of ai =[4.32e-01, 9.07e+00]
+Iteration step = 400
+	minus-likelihood = 3.66352534e-01	 penalty g_i(x) = 2.21039e-03	 Cost = 3.68562926e-01
+	Rel. residual of vec. = 1.871428e-04 
+	Rel. diff. of cost = 1.921039e-05
+	Rel. diff. of cost (w.r.t. optimal) = 3.263741e-03
+	Costs in the last 20 steps: [3.685629e-01, 3.686552e-01],	Rel-diff. = 2.5033e-04 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.2103916137481752e-01	
+	max_Lbar=1.00e+05	tk=202.3		range of ai =[4.42e-01, 9.28e+00]
+Iteration step = 500
+	minus-likelihood = 3.65403383e-01	 penalty g_i(x) = 2.12286e-03	 Cost = 3.67526242e-01
+	Rel. residual of vec. = 5.145511e-04 
+	Rel. diff. of cost = 1.939042e-05
+	Rel. diff. of cost (w.r.t. optimal) = 4.417889e-04
+	Costs in the last 20 steps: [3.675262e-01, 3.676862e-01],	Rel-diff. = 4.3530e-04 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.1228594465790934e-01	
+	max_Lbar=1.00e+05	tk=252.4		range of ai =[4.25e-01, 8.92e+00]
+Iteration step = 600
+	minus-likelihood = 3.65443159e-01	 penalty g_i(x) = 2.03220e-03	 Cost = 3.67475355e-01
+	Rel. residual of vec. = 2.879375e-04 
+	Rel. diff. of cost = 8.696473e-06
+	Rel. diff. of cost (w.r.t. optimal) = 3.032705e-04
+	Costs in the last 20 steps: [3.674172e-01, 3.674754e-01],	Rel-diff. = 1.5830e-04 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0321965998654815e-01	
+	max_Lbar=1.00e+05	tk=302.4		range of ai =[4.06e-01, 8.54e+00]
+Iteration step = 700
+	minus-likelihood = 3.65555499e-01	 penalty g_i(x) = 2.01728e-03	 Cost = 3.67572781e-01
+	Rel. residual of vec. = 1.212121e-04 
+	Rel. diff. of cost = 5.045431e-06
+	Rel. diff. of cost (w.r.t. optimal) = 5.684731e-04
+	Costs in the last 20 steps: [3.675728e-01, 3.675999e-01],	Rel-diff. = 7.3685e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0172827080945785e-01	
+	max_Lbar=1.00e+05	tk=352.5		range of ai =[4.03e-01, 8.47e+00]
+Iteration step = 800
+	minus-likelihood = 3.65308003e-01	 penalty g_i(x) = 2.06280e-03	 Cost = 3.67370801e-01
+	Rel. residual of vec. = 2.617581e-04 
+	Rel. diff. of cost = 2.039203e-06
+	Rel. diff. of cost (w.r.t. optimal) = 1.866275e-05
+	Costs in the last 20 steps: [3.673708e-01, 3.673918e-01],	Rel-diff. = 5.7286e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0627981714820670e-01	
+	max_Lbar=1.00e+05	tk=402.5		range of ai =[4.13e-01, 8.66e+00]
+Iteration step = 900
+	minus-likelihood = 3.65322933e-01	 penalty g_i(x) = 2.10394e-03	 Cost = 3.67426875e-01
+	Rel. residual of vec. = 1.033850e-04 
+	Rel. diff. of cost = 2.384906e-06
+	Rel. diff. of cost (w.r.t. optimal) = 1.713017e-04
+	Costs in the last 20 steps: [3.674085e-01, 3.674269e-01],	Rel-diff. = 5.0050e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.1039416130358030e-01	
+	max_Lbar=1.00e+05	tk=452.5		range of ai =[4.21e-01, 8.84e+00]
+Iteration step = 1000
+	minus-likelihood = 3.65317771e-01	 penalty g_i(x) = 2.10218e-03	 Cost = 3.67419950e-01
+	Rel. residual of vec. = 1.046994e-04 
+	Rel. diff. of cost = 2.294475e-06
+	Rel. diff. of cost (w.r.t. optimal) = 1.524519e-04
+	Costs in the last 20 steps: [3.674200e-01, 3.674345e-01],	Rel-diff. = 3.9719e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.1021794053138443e-01	
+	max_Lbar=1.00e+05	tk=502.6		range of ai =[4.20e-01, 8.83e+00]
+Iteration step = 1100
+	minus-likelihood = 3.65292765e-01	 penalty g_i(x) = 2.07135e-03	 Cost = 3.67364116e-01
+	Rel. residual of vec. = 1.559048e-04 
+	Rel. diff. of cost = 1.685407e-07
+	Rel. diff. of cost (w.r.t. optimal) = 4.664986e-07
+	Costs in the last 20 steps: [3.673639e-01, 3.673654e-01],	Rel-diff. = 3.9328e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0713508977527581e-01	
+	max_Lbar=1.00e+05	tk=552.6		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 1200
+	minus-likelihood = 3.65349357e-01	 penalty g_i(x) = 2.04993e-03	 Cost = 3.67399292e-01
+	Rel. residual of vec. = 3.484959e-05 
+	Rel. diff. of cost = 5.982495e-07
+	Rel. diff. of cost (w.r.t. optimal) = 9.621991e-05
+	Costs in the last 20 steps: [3.673936e-01, 3.673993e-01],	Rel-diff. = 1.5373e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0499345668511243e-01	
+	max_Lbar=1.00e+05	tk=602.6		range of ai =[4.10e-01, 8.61e+00]
+Iteration step = 1300
+	minus-likelihood = 3.65321507e-01	 penalty g_i(x) = 2.05777e-03	 Cost = 3.67379281e-01
+	Rel. residual of vec. = 9.537431e-05 
+	Rel. diff. of cost = 1.088608e-06
+	Rel. diff. of cost (w.r.t. optimal) = 4.174894e-05
+	Costs in the last 20 steps: [3.673793e-01, 3.673870e-01],	Rel-diff. = 2.1061e-05 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0577741948176942e-01	
+	max_Lbar=1.00e+05	tk=652.6		range of ai =[4.12e-01, 8.64e+00]
+Iteration step = 1400
+	minus-likelihood = 3.65287214e-01	 penalty g_i(x) = 2.08006e-03	 Cost = 3.67367271e-01
+	Rel. residual of vec. = 9.585405e-05 
+	Rel. diff. of cost = 5.010666e-07
+	Rel. diff. of cost (w.r.t. optimal) = 9.055037e-06
+	Costs in the last 20 steps: [3.673646e-01, 3.673673e-01],	Rel-diff. = 7.3267e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0800564173828714e-01	
+	max_Lbar=1.00e+05	tk=702.6		range of ai =[4.16e-01, 8.74e+00]
+Iteration step = 1500
+	minus-likelihood = 3.65293457e-01	 penalty g_i(x) = 2.09031e-03	 Cost = 3.67383770e-01
+	Rel. residual of vec. = 3.404849e-06 
+	Rel. diff. of cost = 4.415618e-08
+	Rel. diff. of cost (w.r.t. optimal) = 5.396814e-05
+	Costs in the last 20 steps: [3.673832e-01, 3.673838e-01],	Rel-diff. = 1.6748e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0903127761076196e-01	
+	max_Lbar=1.00e+05	tk=752.7		range of ai =[4.18e-01, 8.78e+00]
+Iteration step = 1600
+	minus-likelihood = 3.65287209e-01	 penalty g_i(x) = 2.08016e-03	 Cost = 3.67367364e-01
+	Rel. residual of vec. = 8.001871e-05 
+	Rel. diff. of cost = 4.351298e-07
+	Rel. diff. of cost (w.r.t. optimal) = 9.308432e-06
+	Costs in the last 20 steps: [3.673674e-01, 3.673708e-01],	Rel-diff. = 9.4767e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0801551407209010e-01	
+	max_Lbar=1.00e+05	tk=802.7		range of ai =[4.16e-01, 8.74e+00]
+Iteration step = 1700
+	minus-likelihood = 3.65304963e-01	 penalty g_i(x) = 2.06414e-03	 Cost = 3.67369105e-01
+	Rel. residual of vec. = 5.808760e-05 
+	Rel. diff. of cost = 3.799628e-07
+	Rel. diff. of cost (w.r.t. optimal) = 1.404791e-05
+	Costs in the last 20 steps: [3.673666e-01, 3.673691e-01],	Rel-diff. = 6.8452e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0641421306546559e-01	
+	max_Lbar=1.00e+05	tk=852.7		range of ai =[4.13e-01, 8.67e+00]
+Iteration step = 1800
+	minus-likelihood = 3.65313830e-01	 penalty g_i(x) = 2.06047e-03	 Cost = 3.67374304e-01
+	Rel. residual of vec. = 2.327534e-05 
+	Rel. diff. of cost = 2.174709e-07
+	Rel. diff. of cost (w.r.t. optimal) = 2.820059e-05
+	Costs in the last 20 steps: [3.673743e-01, 3.673754e-01],	Rel-diff. = 2.9333e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0604737826546055e-01	
+	max_Lbar=1.00e+05	tk=902.7		range of ai =[4.12e-01, 8.65e+00]
+Iteration step = 1900
+	minus-likelihood = 3.65293150e-01	 penalty g_i(x) = 2.07104e-03	 Cost = 3.67364189e-01
+	Rel. residual of vec. = 6.566819e-05 
+	Rel. diff. of cost = 9.757479e-08
+	Rel. diff. of cost (w.r.t. optimal) = 6.653752e-07
+	Costs in the last 20 steps: [3.673642e-01, 3.673653e-01],	Rel-diff. = 2.9570e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0710384746468916e-01	
+	max_Lbar=1.00e+05	tk=952.7		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 2000
+	minus-likelihood = 3.65287349e-01	 penalty g_i(x) = 2.08205e-03	 Cost = 3.67369403e-01
+	Rel. residual of vec. = 3.000540e-05 
+	Rel. diff. of cost = 2.031625e-07
+	Rel. diff. of cost (w.r.t. optimal) = 1.485913e-05
+	Costs in the last 20 steps: [3.673679e-01, 3.673694e-01],	Rel-diff. = 4.2226e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0820534934243079e-01	
+	max_Lbar=1.00e+05	tk=1002.7		range of ai =[4.16e-01, 8.74e+00]
+Iteration step = 2100
+	minus-likelihood = 3.65287258e-01	 penalty g_i(x) = 2.08149e-03	 Cost = 3.67368751e-01
+	Rel. residual of vec. = 3.251524e-05 
+	Rel. diff. of cost = 2.080982e-07
+	Rel. diff. of cost (w.r.t. optimal) = 1.308346e-05
+	Costs in the last 20 steps: [3.673688e-01, 3.673701e-01],	Rel-diff. = 3.5859e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0814921049080015e-01	
+	max_Lbar=1.00e+05	tk=1052.7		range of ai =[4.16e-01, 8.74e+00]
+Iteration step = 2200
+	minus-likelihood = 3.65292381e-01	 penalty g_i(x) = 2.07167e-03	 Cost = 3.67364054e-01
+	Rel. residual of vec. = 5.087263e-05 
+	Rel. diff. of cost = 4.691334e-08
+	Rel. diff. of cost (w.r.t. optimal) = 2.986546e-07
+	Costs in the last 20 steps: [3.673639e-01, 3.673641e-01],	Rel-diff. = 2.9865e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0716724267215020e-01	
+	max_Lbar=2.00e+05	tk=1102.7		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 2300
+	minus-likelihood = 3.65303890e-01	 penalty g_i(x) = 2.06464e-03	 Cost = 3.67368534e-01
+	Rel. residual of vec. = 1.073674e-05 
+	Rel. diff. of cost = 6.660298e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.249331e-05
+	Costs in the last 20 steps: [3.673679e-01, 3.673685e-01],	Rel-diff. = 1.7771e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0646436806059698e-01	
+	max_Lbar=1.00e+05	tk=1152.8		range of ai =[4.13e-01, 8.67e+00]
+Iteration step = 2400
+	minus-likelihood = 3.65297956e-01	 penalty g_i(x) = 2.06777e-03	 Cost = 3.67365728e-01
+	Rel. residual of vec. = 3.599187e-05 
+	Rel. diff. of cost = 1.404709e-07
+	Rel. diff. of cost (w.r.t. optimal) = 4.857067e-06
+	Costs in the last 20 steps: [3.673657e-01, 3.673667e-01],	Rel-diff. = 2.7470e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0677719394408831e-01	
+	max_Lbar=1.00e+05	tk=1202.8		range of ai =[4.14e-01, 8.68e+00]
+Iteration step = 2500
+	minus-likelihood = 3.65288406e-01	 penalty g_i(x) = 2.07626e-03	 Cost = 3.67364664e-01
+	Rel. residual of vec. = 3.667341e-05 
+	Rel. diff. of cost = 8.932435e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.958317e-06
+	Costs in the last 20 steps: [3.673642e-01, 3.673647e-01],	Rel-diff. = 1.3936e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0762579896999322e-01	
+	max_Lbar=1.00e+05	tk=1252.8		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 2600
+	minus-likelihood = 3.65287216e-01	 penalty g_i(x) = 2.08003e-03	 Cost = 3.67367249e-01
+	Rel. residual of vec. = 3.108795e-06 
+	Rel. diff. of cost = 1.643711e-08
+	Rel. diff. of cost (w.r.t. optimal) = 8.996379e-06
+	Costs in the last 20 steps: [3.673672e-01, 3.673673e-01],	Rel-diff. = 1.5944e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0800333505588026e-01	
+	max_Lbar=1.00e+05	tk=1302.8		range of ai =[4.16e-01, 8.74e+00]
+Iteration step = 2700
+	minus-likelihood = 3.65288869e-01	 penalty g_i(x) = 2.07550e-03	 Cost = 3.67364372e-01
+	Rel. residual of vec. = 3.467284e-05 
+	Rel. diff. of cost = 6.682512e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.165121e-06
+	Costs in the last 20 steps: [3.673644e-01, 3.673649e-01],	Rel-diff. = 1.5134e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0755034720028528e-01	
+	max_Lbar=1.00e+05	tk=1352.8		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 2800
+	minus-likelihood = 3.65296489e-01	 penalty g_i(x) = 2.06867e-03	 Cost = 3.67365162e-01
+	Rel. residual of vec. = 2.412956e-05 
+	Rel. diff. of cost = 7.680949e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.314978e-06
+	Costs in the last 20 steps: [3.673646e-01, 3.673652e-01],	Rel-diff. = 1.4244e-06 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0686732645560102e-01	
+	max_Lbar=1.00e+05	tk=1402.8		range of ai =[4.14e-01, 8.69e+00]
+Iteration step = 2900
+	minus-likelihood = 3.65298568e-01	 penalty g_i(x) = 2.06741e-03	 Cost = 3.67365983e-01
+	Rel. residual of vec. = 1.227312e-05 
+	Rel. diff. of cost = 5.094894e-08
+	Rel. diff. of cost (w.r.t. optimal) = 5.549272e-06
+	Costs in the last 20 steps: [3.673660e-01, 3.673663e-01],	Rel-diff. = 7.3820e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0674148981154025e-01	
+	max_Lbar=1.00e+05	tk=1452.8		range of ai =[4.13e-01, 8.68e+00]
+Iteration step = 3000
+	minus-likelihood = 3.65291445e-01	 penalty g_i(x) = 2.07251e-03	 Cost = 3.67363957e-01
+	Rel. residual of vec. = 3.085936e-05 
+	Rel. diff. of cost = 1.103825e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.597944e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673641e-01],	Rel-diff. = 4.5755e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725127533073254e-01	
+	max_Lbar=1.00e+05	tk=1502.8		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 3100
+	minus-likelihood = 3.65287779e-01	 penalty g_i(x) = 2.07757e-03	 Cost = 3.67365349e-01
+	Rel. residual of vec. = 1.293047e-05 
+	Rel. diff. of cost = 4.440068e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.823367e-06
+	Costs in the last 20 steps: [3.673650e-01, 3.673653e-01],	Rel-diff. = 9.5292e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0775692921551300e-01	
+	max_Lbar=1.00e+05	tk=1552.8		range of ai =[4.16e-01, 8.73e+00]
+Iteration step = 3200
+	minus-likelihood = 3.65288054e-01	 penalty g_i(x) = 2.07693e-03	 Cost = 3.67364989e-01
+	Rel. residual of vec. = 1.751574e-05 
+	Rel. diff. of cost = 5.225292e-08
+	Rel. diff. of cost (w.r.t. optimal) = 2.843502e-06
+	Costs in the last 20 steps: [3.673650e-01, 3.673653e-01],	Rel-diff. = 9.2623e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0769345596457353e-01	
+	max_Lbar=1.00e+05	tk=1602.8		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 3300
+	minus-likelihood = 3.65292115e-01	 penalty g_i(x) = 2.07190e-03	 Cost = 3.67364018e-01
+	Rel. residual of vec. = 2.533292e-05 
+	Rel. diff. of cost = 1.949111e-08
+	Rel. diff. of cost (w.r.t. optimal) = 2.010738e-07
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 2.0087e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0719034076603149e-01	
+	max_Lbar=1.00e+05	tk=1652.8		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 3400
+	minus-likelihood = 3.65296665e-01	 penalty g_i(x) = 2.06856e-03	 Cost = 3.67365227e-01
+	Rel. residual of vec. = 3.866610e-06 
+	Rel. diff. of cost = 1.269278e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.490834e-06
+	Costs in the last 20 steps: [3.673651e-01, 3.673652e-01],	Rel-diff. = 3.8912e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0685611202006612e-01	
+	max_Lbar=1.00e+05	tk=1702.9		range of ai =[4.14e-01, 8.69e+00]
+Iteration step = 3500
+	minus-likelihood = 3.65293836e-01	 penalty g_i(x) = 2.07051e-03	 Cost = 3.67364343e-01
+	Rel. residual of vec. = 1.990751e-05 
+	Rel. diff. of cost = 3.678103e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.084800e-06
+	Costs in the last 20 steps: [3.673643e-01, 3.673646e-01],	Rel-diff. = 7.4011e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0705068960941572e-01	
+	max_Lbar=1.00e+05	tk=1752.9		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 3600
+	minus-likelihood = 3.65289190e-01	 penalty g_i(x) = 2.07504e-03	 Cost = 3.67364231e-01
+	Rel. residual of vec. = 1.893774e-05 
+	Rel. diff. of cost = 2.916948e-08
+	Rel. diff. of cost (w.r.t. optimal) = 7.801395e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673642e-01],	Rel-diff. = 4.8178e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0750410388214310e-01	
+	max_Lbar=1.00e+05	tk=1802.9		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 3700
+	minus-likelihood = 3.65288114e-01	 penalty g_i(x) = 2.07681e-03	 Cost = 3.67364924e-01
+	Rel. residual of vec. = 3.237136e-06 
+	Rel. diff. of cost = 9.319269e-09
+	Rel. diff. of cost (w.r.t. optimal) = 2.667787e-06
+	Costs in the last 20 steps: [3.673649e-01, 3.673649e-01],	Rel-diff. = 6.6707e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0768097091144280e-01	
+	max_Lbar=1.00e+05	tk=1852.9		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 3800
+	minus-likelihood = 3.65289955e-01	 penalty g_i(x) = 2.07407e-03	 Cost = 3.67364026e-01
+	Rel. residual of vec. = 1.978073e-05 
+	Rel. diff. of cost = 1.673160e-08
+	Rel. diff. of cost (w.r.t. optimal) = 2.226311e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673642e-01],	Rel-diff. = 4.0462e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0740713432319496e-01	
+	max_Lbar=1.00e+05	tk=1902.9		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 3900
+	minus-likelihood = 3.65294089e-01	 penalty g_i(x) = 2.07032e-03	 Cost = 3.67364407e-01
+	Rel. residual of vec. = 1.253928e-05 
+	Rel. diff. of cost = 2.462984e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.259166e-06
+	Costs in the last 20 steps: [3.673642e-01, 3.673644e-01],	Rel-diff. = 4.7229e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0703171981629659e-01	
+	max_Lbar=1.00e+05	tk=1952.9		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 4000
+	minus-likelihood = 3.65294686e-01	 penalty g_i(x) = 2.06988e-03	 Cost = 3.67364571e-01
+	Rel. residual of vec. = 8.323666e-06 
+	Rel. diff. of cost = 1.917450e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.705610e-06
+	Costs in the last 20 steps: [3.673646e-01, 3.673647e-01],	Rel-diff. = 2.9773e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0698844391225968e-01	
+	max_Lbar=1.00e+05	tk=2002.9		range of ai =[4.14e-01, 8.69e+00]
+Iteration step = 4100
+	minus-likelihood = 3.65290964e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.795466e-05 
+	Rel. diff. of cost = 2.962941e-11
+	Rel. diff. of cost (w.r.t. optimal) = 7.809908e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 8.4938e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729804176670999e-01	
+	max_Lbar=1.00e+05	tk=2052.9		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 4200
+	minus-likelihood = 3.65288679e-01	 penalty g_i(x) = 2.07580e-03	 Cost = 3.67364477e-01
+	Rel. residual of vec. = 6.432567e-06 
+	Rel. diff. of cost = 1.360679e-08
+	Rel. diff. of cost (w.r.t. optimal) = 1.450124e-06
+	Costs in the last 20 steps: [3.673644e-01, 3.673645e-01],	Rel-diff. = 3.0656e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0757977247565293e-01	
+	max_Lbar=1.00e+05	tk=2102.9		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 4300
+	minus-likelihood = 3.65289101e-01	 penalty g_i(x) = 2.07517e-03	 Cost = 3.67364266e-01
+	Rel. residual of vec. = 1.142406e-05 
+	Rel. diff. of cost = 1.892678e-08
+	Rel. diff. of cost (w.r.t. optimal) = 8.761313e-07
+	Costs in the last 20 steps: [3.673643e-01, 3.673644e-01],	Rel-diff. = 3.4664e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0751654225052035e-01	
+	max_Lbar=1.00e+05	tk=2152.9		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 4400
+	minus-likelihood = 3.65291918e-01	 penalty g_i(x) = 2.07208e-03	 Cost = 3.67363996e-01
+	Rel. residual of vec. = 1.492342e-05 
+	Rel. diff. of cost = 9.659013e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.401716e-07
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 1.2657e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0720777247290578e-01	
+	max_Lbar=1.00e+05	tk=2202.9		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 4500
+	minus-likelihood = 3.65294200e-01	 penalty g_i(x) = 2.07024e-03	 Cost = 3.67364436e-01
+	Rel. residual of vec. = 1.162095e-06 
+	Rel. diff. of cost = 2.363343e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.337800e-06
+	Costs in the last 20 steps: [3.673644e-01, 3.673644e-01],	Rel-diff. = 1.0357e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0702359745642504e-01	
+	max_Lbar=1.00e+05	tk=2252.9		range of ai =[4.14e-01, 8.69e+00]
+Iteration step = 4600
+	minus-likelihood = 3.65292419e-01	 penalty g_i(x) = 2.07164e-03	 Cost = 3.67364059e-01
+	Rel. residual of vec. = 1.287009e-05 
+	Rel. diff. of cost = 1.281136e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.137082e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673642e-01],	Rel-diff. = 2.6744e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0716404011401374e-01	
+	max_Lbar=1.00e+05	tk=2302.9		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 4700
+	minus-likelihood = 3.65289646e-01	 penalty g_i(x) = 2.07444e-03	 Cost = 3.67364090e-01
+	Rel. residual of vec. = 1.116409e-05 
+	Rel. diff. of cost = 1.227976e-08
+	Rel. diff. of cost (w.r.t. optimal) = 3.966025e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673641e-01],	Rel-diff. = 2.1258e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0744435342043913e-01	
+	max_Lbar=1.00e+05	tk=2352.9		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 4800
+	minus-likelihood = 3.65288973e-01	 penalty g_i(x) = 2.07535e-03	 Cost = 3.67364321e-01
+	Rel. residual of vec. = 3.106667e-06 
+	Rel. diff. of cost = 5.550853e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.027164e-06
+	Costs in the last 20 steps: [3.673643e-01, 3.673643e-01],	Rel-diff. = 5.9546e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0753480614212141e-01	
+	max_Lbar=1.00e+05	tk=2402.9		range of ai =[4.15e-01, 8.72e+00]
+Iteration step = 4900
+	minus-likelihood = 3.65290497e-01	 penalty g_i(x) = 2.07346e-03	 Cost = 3.67363961e-01
+	Rel. residual of vec. = 1.280703e-05 
+	Rel. diff. of cost = 4.950065e-09
+	Rel. diff. of cost (w.r.t. optimal) = 4.578321e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.3313e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0734637074143419e-01	
+	max_Lbar=1.00e+05	tk=2452.9		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 5000
+	minus-likelihood = 3.65293024e-01	 penalty g_i(x) = 2.07114e-03	 Cost = 3.67364164e-01
+	Rel. residual of vec. = 7.211030e-06 
+	Rel. diff. of cost = 9.763865e-09
+	Rel. diff. of cost (w.r.t. optimal) = 5.972054e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673642e-01],	Rel-diff. = 1.9410e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0711395844308494e-01	
+	max_Lbar=1.00e+05	tk=2503.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 5100
+	minus-likelihood = 3.65293123e-01	 penalty g_i(x) = 2.07106e-03	 Cost = 3.67364183e-01
+	Rel. residual of vec. = 6.243312e-06 
+	Rel. diff. of cost = 8.887837e-09
+	Rel. diff. of cost (w.r.t. optimal) = 6.503176e-07
+	Costs in the last 20 steps: [3.673642e-01, 3.673642e-01],	Rel-diff. = 1.4592e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0710604003844035e-01	
+	max_Lbar=1.00e+05	tk=2553.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 5200
+	minus-likelihood = 3.65290787e-01	 penalty g_i(x) = 2.07316e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 1.161218e-05 
+	Rel. diff. of cost = 1.628464e-09
+	Rel. diff. of cost (w.r.t. optimal) = 7.189842e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2311e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731593596761475e-01	
+	max_Lbar=2.00e+05	tk=2603.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 5300
+	minus-likelihood = 3.65289303e-01	 penalty g_i(x) = 2.07489e-03	 Cost = 3.67364190e-01
+	Rel. residual of vec. = 3.346637e-06 
+	Rel. diff. of cost = 4.809395e-09
+	Rel. diff. of cost (w.r.t. optimal) = 6.687732e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673642e-01],	Rel-diff. = 1.1613e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0748867098943480e-01	
+	max_Lbar=1.00e+05	tk=2653.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 5400
+	minus-likelihood = 3.65289768e-01	 penalty g_i(x) = 2.07429e-03	 Cost = 3.67364062e-01
+	Rel. residual of vec. = 8.177526e-06 
+	Rel. diff. of cost = 8.203789e-09
+	Rel. diff. of cost (w.r.t. optimal) = 3.207154e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673641e-01],	Rel-diff. = 1.5539e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0742940019672151e-01	
+	max_Lbar=1.00e+05	tk=2703.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 5500
+	minus-likelihood = 3.65291767e-01	 penalty g_i(x) = 2.07221e-03	 Cost = 3.67363981e-01
+	Rel. residual of vec. = 9.597566e-06 
+	Rel. diff. of cost = 5.275156e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.002199e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 7.7939e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0722139010848339e-01	
+	max_Lbar=1.00e+05	tk=2753.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 5600
+	minus-likelihood = 3.65293042e-01	 penalty g_i(x) = 2.07112e-03	 Cost = 3.67364167e-01
+	Rel. residual of vec. = 7.389550e-08 
+	Rel. diff. of cost = 1.012876e-10
+	Rel. diff. of cost (w.r.t. optimal) = 6.069548e-07
+	Costs in the last 20 steps: [3.673642e-01, 3.673642e-01],	Rel-diff. = 2.5442e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0711247928461179e-01	
+	max_Lbar=1.00e+05	tk=2803.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 5700
+	minus-likelihood = 3.65291771e-01	 penalty g_i(x) = 2.07221e-03	 Cost = 3.67363981e-01
+	Rel. residual of vec. = 9.035659e-06 
+	Rel. diff. of cost = 5.121765e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.012238e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.1194e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0722101761507319e-01	
+	max_Lbar=1.00e+05	tk=2853.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 5800
+	minus-likelihood = 3.65289942e-01	 penalty g_i(x) = 2.07409e-03	 Cost = 3.67364028e-01
+	Rel. residual of vec. = 7.062265e-06 
+	Rel. diff. of cost = 5.904897e-09
+	Rel. diff. of cost (w.r.t. optimal) = 2.285972e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.0649e-07 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0740861436880895e-01	
+	max_Lbar=1.00e+05	tk=2903.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 5900
+	minus-likelihood = 3.65289559e-01	 penalty g_i(x) = 2.07455e-03	 Cost = 3.67364112e-01
+	Rel. residual of vec. = 2.869343e-06 
+	Rel. diff. of cost = 3.421367e-09
+	Rel. diff. of cost (w.r.t. optimal) = 4.571012e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673641e-01],	Rel-diff. = 4.5119e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0745527274631520e-01	
+	max_Lbar=1.00e+05	tk=2953.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 6000
+	minus-likelihood = 3.65290784e-01	 penalty g_i(x) = 2.07316e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 8.901436e-06 
+	Rel. diff. of cost = 1.416235e-09
+	Rel. diff. of cost (w.r.t. optimal) = 7.479708e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 4.6814e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731633467473670e-01	
+	max_Lbar=1.00e+05	tk=3003.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 6100
+	minus-likelihood = 3.65292437e-01	 penalty g_i(x) = 2.07163e-03	 Cost = 3.67364062e-01
+	Rel. residual of vec. = 4.353748e-06 
+	Rel. diff. of cost = 4.324461e-09
+	Rel. diff. of cost (w.r.t. optimal) = 3.208553e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673641e-01],	Rel-diff. = 8.9493e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0716254615318089e-01	
+	max_Lbar=2.00e+05	tk=3053.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 6200
+	minus-likelihood = 3.65292333e-01	 penalty g_i(x) = 2.07171e-03	 Cost = 3.67364047e-01
+	Rel. residual of vec. = 4.925790e-06 
+	Rel. diff. of cost = 4.603670e-09
+	Rel. diff. of cost (w.r.t. optimal) = 2.798497e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673641e-01],	Rel-diff. = 7.9141e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0717136095112335e-01	
+	max_Lbar=1.00e+05	tk=3103.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 6300
+	minus-likelihood = 3.65290720e-01	 penalty g_i(x) = 2.07323e-03	 Cost = 3.67363949e-01
+	Rel. residual of vec. = 7.984656e-06 
+	Rel. diff. of cost = 1.555967e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.305012e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3050e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732287290017112e-01	
+	max_Lbar=2.00e+05	tk=3153.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 6400
+	minus-likelihood = 3.65289726e-01	 penalty g_i(x) = 2.07435e-03	 Cost = 3.67364071e-01
+	Rel. residual of vec. = 1.694607e-06 
+	Rel. diff. of cost = 1.752125e-09
+	Rel. diff. of cost (w.r.t. optimal) = 3.458781e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673641e-01],	Rel-diff. = 4.7172e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0743453720097535e-01	
+	max_Lbar=1.00e+05	tk=3203.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 6500
+	minus-likelihood = 3.65290187e-01	 penalty g_i(x) = 2.07380e-03	 Cost = 3.67363991e-01
+	Rel. residual of vec. = 6.171975e-06 
+	Rel. diff. of cost = 3.925101e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.285907e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 7.6992e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0738044861582133e-01	
+	max_Lbar=1.00e+05	tk=3253.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 6600
+	minus-likelihood = 3.65291647e-01	 penalty g_i(x) = 2.07232e-03	 Cost = 3.67363971e-01
+	Rel. residual of vec. = 6.498372e-06 
+	Rel. diff. of cost = 3.055297e-09
+	Rel. diff. of cost (w.r.t. optimal) = 7.292370e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 4.8716e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0723234956912706e-01	
+	max_Lbar=3.20e+06	tk=3303.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 6700
+	minus-likelihood = 3.65292397e-01	 penalty g_i(x) = 2.07166e-03	 Cost = 3.67364056e-01
+	Rel. residual of vec. = 6.737334e-07 
+	Rel. diff. of cost = 6.549066e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.048875e-07
+	Costs in the last 20 steps: [3.673641e-01, 3.673641e-01],	Rel-diff. = 4.4027e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0716590758308842e-01	
+	max_Lbar=1.00e+05	tk=3353.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 6800
+	minus-likelihood = 3.65291427e-01	 penalty g_i(x) = 2.07253e-03	 Cost = 3.67363956e-01
+	Rel. residual of vec. = 6.665196e-06 
+	Rel. diff. of cost = 2.175507e-09
+	Rel. diff. of cost (w.r.t. optimal) = 3.332360e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 5.0506e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725295843608901e-01	
+	max_Lbar=1.00e+05	tk=3403.0		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 6900
+	minus-likelihood = 3.65290149e-01	 penalty g_i(x) = 2.07385e-03	 Cost = 3.67363996e-01
+	Rel. residual of vec. = 4.648099e-06 
+	Rel. diff. of cost = 3.064208e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.418142e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 5.7391e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0738468705907775e-01	
+	max_Lbar=2.00e+05	tk=3453.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7000
+	minus-likelihood = 3.65289956e-01	 penalty g_i(x) = 2.07407e-03	 Cost = 3.67364026e-01
+	Rel. residual of vec. = 2.601373e-06 
+	Rel. diff. of cost = 2.163505e-09
+	Rel. diff. of cost (w.r.t. optimal) = 2.221631e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 3.1906e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0740701739290823e-01	
+	max_Lbar=1.00e+05	tk=3503.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7100
+	minus-likelihood = 3.65290942e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.464803e-06 
+	Rel. diff. of cost = 2.396081e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.318230e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5435e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730025122114321e-01	
+	max_Lbar=1.00e+05	tk=3553.0		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7200
+	minus-likelihood = 3.65292069e-01	 penalty g_i(x) = 2.07194e-03	 Cost = 3.67364013e-01
+	Rel. residual of vec. = 2.673646e-06 
+	Rel. diff. of cost = 2.024614e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.862213e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 4.3940e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0719431578029729e-01	
+	max_Lbar=1.00e+05	tk=3603.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 7300
+	minus-likelihood = 3.65291879e-01	 penalty g_i(x) = 2.07211e-03	 Cost = 3.67363992e-01
+	Rel. residual of vec. = 4.000070e-06 
+	Rel. diff. of cost = 2.543876e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.293529e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 4.5517e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0721124358399032e-01	
+	max_Lbar=1.00e+05	tk=3653.0		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 7400
+	minus-likelihood = 3.65290700e-01	 penalty g_i(x) = 2.07325e-03	 Cost = 3.67363950e-01
+	Rel. residual of vec. = 5.705215e-06 
+	Rel. diff. of cost = 1.211919e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.518017e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4539e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732498639774477e-01	
+	max_Lbar=1.00e+05	tk=3703.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7500
+	minus-likelihood = 3.65290022e-01	 penalty g_i(x) = 2.07399e-03	 Cost = 3.67364015e-01
+	Rel. residual of vec. = 7.467850e-07 
+	Rel. diff. of cost = 5.761840e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.924237e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.9126e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0739931595343994e-01	
+	max_Lbar=1.00e+05	tk=3753.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7600
+	minus-likelihood = 3.65290458e-01	 penalty g_i(x) = 2.07351e-03	 Cost = 3.67363964e-01
+	Rel. residual of vec. = 4.814483e-06 
+	Rel. diff. of cost = 1.983601e-09
+	Rel. diff. of cost (w.r.t. optimal) = 5.381037e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 4.0416e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0735061197696000e-01	
+	max_Lbar=1.00e+05	tk=3803.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 7700
+	minus-likelihood = 3.65291550e-01	 penalty g_i(x) = 2.07241e-03	 Cost = 3.67363964e-01
+	Rel. residual of vec. = 4.541287e-06 
+	Rel. diff. of cost = 1.836084e-09
+	Rel. diff. of cost (w.r.t. optimal) = 5.371074e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 3.0958e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0724136777768098e-01	
+	max_Lbar=1.00e+05	tk=3853.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 7800
+	minus-likelihood = 3.65291997e-01	 penalty g_i(x) = 2.07201e-03	 Cost = 3.67364004e-01
+	Rel. residual of vec. = 9.617265e-07 
+	Rel. diff. of cost = 6.850651e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.635404e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 5.7796e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0720070563947696e-01	
+	max_Lbar=1.00e+05	tk=3903.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 7900
+	minus-likelihood = 3.65291227e-01	 penalty g_i(x) = 2.07272e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 5.076125e-06 
+	Rel. diff. of cost = 9.249115e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.026277e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 2.3444e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727209539073352e-01	
+	max_Lbar=1.00e+05	tk=3953.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8000
+	minus-likelihood = 3.65290303e-01	 penalty g_i(x) = 2.07367e-03	 Cost = 3.67363978e-01
+	Rel. residual of vec. = 3.123705e-06 
+	Rel. diff. of cost = 1.661645e-09
+	Rel. diff. of cost (w.r.t. optimal) = 9.217354e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 3.2306e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0736748990647039e-01	
+	max_Lbar=1.00e+05	tk=4003.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8100
+	minus-likelihood = 3.65290230e-01	 penalty g_i(x) = 2.07376e-03	 Cost = 3.67363986e-01
+	Rel. residual of vec. = 2.335019e-06 
+	Rel. diff. of cost = 1.393067e-09
+	Rel. diff. of cost (w.r.t. optimal) = 1.141926e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 2.2109e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0737557759782424e-01	
+	max_Lbar=1.00e+05	tk=4053.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8200
+	minus-likelihood = 3.65291031e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.832404e-06 
+	Rel. diff. of cost = 1.493583e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.876479e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.7512e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729132168858347e-01	
+	max_Lbar=4.00e+05	tk=4103.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8300
+	minus-likelihood = 3.65291821e-01	 penalty g_i(x) = 2.07217e-03	 Cost = 3.67363986e-01
+	Rel. residual of vec. = 1.626003e-06 
+	Rel. diff. of cost = 9.627805e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.137112e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 2.2210e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0721652996944220e-01	
+	max_Lbar=1.00e+05	tk=4153.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 8400
+	minus-likelihood = 3.65291595e-01	 penalty g_i(x) = 2.07237e-03	 Cost = 3.67363967e-01
+	Rel. residual of vec. = 3.306756e-06 
+	Rel. diff. of cost = 1.460760e-09
+	Rel. diff. of cost (w.r.t. optimal) = 6.229140e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 2.7120e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0723716893082605e-01	
+	max_Lbar=1.00e+05	tk=4203.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 8500
+	minus-likelihood = 3.65290702e-01	 penalty g_i(x) = 2.07325e-03	 Cost = 3.67363950e-01
+	Rel. residual of vec. = 4.179443e-06 
+	Rel. diff. of cost = 8.870185e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.498867e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2486e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732480272035123e-01	
+	max_Lbar=2.00e+05	tk=4253.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8600
+	minus-likelihood = 3.65290236e-01	 penalty g_i(x) = 2.07375e-03	 Cost = 3.67363985e-01
+	Rel. residual of vec. = 1.817688e-07 
+	Rel. diff. of cost = 1.072362e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.123999e-07
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 7.0019e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0737495007642787e-01	
+	max_Lbar=1.00e+05	tk=4303.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8700
+	minus-likelihood = 3.65290638e-01	 penalty g_i(x) = 2.07331e-03	 Cost = 3.67363952e-01
+	Rel. residual of vec. = 3.838027e-06 
+	Rel. diff. of cost = 1.028163e-09
+	Rel. diff. of cost (w.r.t. optimal) = 2.265710e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 2.1887e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0733142186422623e-01	
+	max_Lbar=1.00e+05	tk=4353.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 8800
+	minus-likelihood = 3.65291470e-01	 penalty g_i(x) = 2.07249e-03	 Cost = 3.67363959e-01
+	Rel. residual of vec. = 3.234868e-06 
+	Rel. diff. of cost = 1.128878e-09
+	Rel. diff. of cost (w.r.t. optimal) = 3.989252e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.9918e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0724891091841080e-01	
+	max_Lbar=6.40e+06	tk=4403.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 8900
+	minus-likelihood = 3.65291731e-01	 penalty g_i(x) = 2.07225e-03	 Cost = 3.67363978e-01
+	Rel. residual of vec. = 1.084635e-06 
+	Rel. diff. of cost = 5.786744e-10
+	Rel. diff. of cost (w.r.t. optimal) = 9.163646e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 6.9140e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0722465452958583e-01	
+	max_Lbar=1.00e+05	tk=4453.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 9000
+	minus-likelihood = 3.65291105e-01	 penalty g_i(x) = 2.07284e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.950074e-06 
+	Rel. diff. of cost = 3.638094e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.560141e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0721e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728404035456952e-01	
+	max_Lbar=1.00e+05	tk=4503.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9100
+	minus-likelihood = 3.65290422e-01	 penalty g_i(x) = 2.07355e-03	 Cost = 3.67363967e-01
+	Rel. residual of vec. = 2.113939e-06 
+	Rel. diff. of cost = 9.213545e-10
+	Rel. diff. of cost (w.r.t. optimal) = 6.178401e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.8632e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0735452169769286e-01	
+	max_Lbar=1.02e+08	tk=4553.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9200
+	minus-likelihood = 3.65290426e-01	 penalty g_i(x) = 2.07354e-03	 Cost = 3.67363966e-01
+	Rel. residual of vec. = 2.083317e-06 
+	Rel. diff. of cost = 9.074601e-10
+	Rel. diff. of cost (w.r.t. optimal) = 6.079476e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.5211e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0735405093331380e-01	
+	max_Lbar=1.00e+05	tk=4603.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9300
+	minus-likelihood = 3.65291081e-01	 penalty g_i(x) = 2.07286e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.683591e-06 
+	Rel. diff. of cost = 2.535849e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.659581e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6573e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728636306093218e-01	
+	max_Lbar=1.31e+10	tk=4653.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9400
+	minus-likelihood = 3.65291643e-01	 penalty g_i(x) = 2.07233e-03	 Cost = 3.67363971e-01
+	Rel. residual of vec. = 9.475632e-07 
+	Rel. diff. of cost = 4.464151e-10
+	Rel. diff. of cost (w.r.t. optimal) = 7.190208e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.1239e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0723279666877378e-01	
+	max_Lbar=1.00e+05	tk=4703.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 9500
+	minus-likelihood = 3.65291408e-01	 penalty g_i(x) = 2.07255e-03	 Cost = 3.67363955e-01
+	Rel. residual of vec. = 2.765826e-06 
+	Rel. diff. of cost = 8.571348e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.058584e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.6498e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725476260685216e-01	
+	max_Lbar=1.00e+05	tk=4753.1		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 9600
+	minus-likelihood = 3.65290714e-01	 penalty g_i(x) = 2.07323e-03	 Cost = 3.67363949e-01
+	Rel. residual of vec. = 3.111730e-06 
+	Rel. diff. of cost = 6.325984e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.366102e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.7655e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732349565622393e-01	
+	max_Lbar=1.28e+07	tk=4803.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9700
+	minus-likelihood = 3.65290396e-01	 penalty g_i(x) = 2.07357e-03	 Cost = 3.67363969e-01
+	Rel. residual of vec. = 1.601375e-07 
+	Rel. diff. of cost = 7.345657e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.788765e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.8576e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0735734650757542e-01	
+	max_Lbar=1.00e+05	tk=4853.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9800
+	minus-likelihood = 3.65290761e-01	 penalty g_i(x) = 2.07319e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 3.105327e-06 
+	Rel. diff. of cost = 5.332497e-10
+	Rel. diff. of cost (w.r.t. optimal) = 9.255455e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 1.1985e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731862464722345e-01	
+	max_Lbar=1.00e+05	tk=4903.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 9900
+	minus-likelihood = 3.65291402e-01	 penalty g_i(x) = 2.07255e-03	 Cost = 3.67363955e-01
+	Rel. residual of vec. = 2.327707e-06 
+	Rel. diff. of cost = 7.028298e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.979269e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.2907e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725530024214142e-01	
+	max_Lbar=4.00e+05	tk=4953.1		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 10000
+	minus-likelihood = 3.65291545e-01	 penalty g_i(x) = 2.07242e-03	 Cost = 3.67363964e-01
+	Rel. residual of vec. = 1.115979e-06 
+	Rel. diff. of cost = 4.524339e-10
+	Rel. diff. of cost (w.r.t. optimal) = 5.285204e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 6.3305e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0724180589673527e-01	
+	max_Lbar=1.00e+05	tk=5003.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 10100
+	minus-likelihood = 3.65291028e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.119575e-06 
+	Rel. diff. of cost = 1.074905e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.314931e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.5320e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729167079788693e-01	
+	max_Lbar=1.00e+05	tk=5053.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10200
+	minus-likelihood = 3.65290515e-01	 penalty g_i(x) = 2.07344e-03	 Cost = 3.67363960e-01
+	Rel. residual of vec. = 1.422816e-06 
+	Rel. diff. of cost = 5.135041e-10
+	Rel. diff. of cost (w.r.t. optimal) = 4.230602e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.0856e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0734441846939372e-01	
+	max_Lbar=8.00e+05	tk=5103.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10300
+	minus-likelihood = 3.65290568e-01	 penalty g_i(x) = 2.07339e-03	 Cost = 3.67363956e-01
+	Rel. residual of vec. = 1.851555e-06 
+	Rel. diff. of cost = 5.950318e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.304392e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.0428e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0733878629202218e-01	
+	max_Lbar=1.00e+05	tk=5153.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10400
+	minus-likelihood = 3.65291108e-01	 penalty g_i(x) = 2.07284e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.844626e-06 
+	Rel. diff. of cost = 2.535991e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.694603e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.6832e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728373134697839e-01	
+	max_Lbar=1.00e+05	tk=5203.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10500
+	minus-likelihood = 3.65291510e-01	 penalty g_i(x) = 2.07245e-03	 Cost = 3.67363961e-01
+	Rel. residual of vec. = 4.974511e-07 
+	Rel. diff. of cost = 1.886964e-10
+	Rel. diff. of cost (w.r.t. optimal) = 4.655944e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 5.5072e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0724513157091692e-01	
+	max_Lbar=1.00e+05	tk=5253.1		range of ai =[4.14e-01, 8.70e+00]
+Iteration step = 10600
+	minus-likelihood = 3.65291279e-01	 penalty g_i(x) = 2.07267e-03	 Cost = 3.67363950e-01
+	Rel. residual of vec. = 2.330987e-06 
+	Rel. diff. of cost = 5.070206e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.502517e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 1.0132e-08 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726708460260621e-01	
+	max_Lbar=1.00e+05	tk=5303.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10700
+	minus-likelihood = 3.65290732e-01	 penalty g_i(x) = 2.07322e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 2.339411e-06 
+	Rel. diff. of cost = 4.447347e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.189113e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.3171e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732164998952299e-01	
+	max_Lbar=1.00e+05	tk=5353.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10800
+	minus-likelihood = 3.65290517e-01	 penalty g_i(x) = 2.07344e-03	 Cost = 3.67363960e-01
+	Rel. residual of vec. = 3.654464e-07 
+	Rel. diff. of cost = 1.318166e-10
+	Rel. diff. of cost (w.r.t. optimal) = 4.193574e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 8.5056e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0734420592493572e-01	
+	max_Lbar=1.00e+05	tk=5403.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 10900
+	minus-likelihood = 3.65290847e-01	 penalty g_i(x) = 2.07310e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.537908e-06 
+	Rel. diff. of cost = 2.688716e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.490545e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.5084e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730987840782139e-01	
+	max_Lbar=1.00e+05	tk=5453.1		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11000
+	minus-likelihood = 3.65291345e-01	 penalty g_i(x) = 2.07261e-03	 Cost = 3.67363952e-01
+	Rel. residual of vec. = 1.679065e-06 
+	Rel. diff. of cost = 4.391694e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.231109e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 8.3774e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726077365661075e-01	
+	max_Lbar=4.00e+05	tk=5503.1		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 11100
+	minus-likelihood = 3.65291411e-01	 penalty g_i(x) = 2.07254e-03	 Cost = 3.67363956e-01
+	Rel. residual of vec. = 1.095127e-06 
+	Rel. diff. of cost = 3.403782e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.102544e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 5.2210e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725446762277072e-01	
+	max_Lbar=1.00e+05	tk=5553.2		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 11200
+	minus-likelihood = 3.65290978e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.487598e-06 
+	Rel. diff. of cost = 6.832090e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.052137e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5067e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729658550015623e-01	
+	max_Lbar=5.24e+10	tk=5603.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11300
+	minus-likelihood = 3.65290592e-01	 penalty g_i(x) = 2.07336e-03	 Cost = 3.67363955e-01
+	Rel. residual of vec. = 9.379815e-07 
+	Rel. diff. of cost = 2.821381e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.934939e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 6.2974e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0733632104967051e-01	
+	max_Lbar=1.00e+05	tk=5653.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11400
+	minus-likelihood = 3.65290674e-01	 penalty g_i(x) = 2.07328e-03	 Cost = 3.67363951e-01
+	Rel. residual of vec. = 1.639530e-06 
+	Rel. diff. of cost = 3.902108e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.809269e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 7.1121e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732764898326034e-01	
+	max_Lbar=1.00e+05	tk=5703.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11500
+	minus-likelihood = 3.65291120e-01	 penalty g_i(x) = 2.07283e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.214295e-06 
+	Rel. diff. of cost = 2.185536e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.255707e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.8980e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728251834801037e-01	
+	max_Lbar=1.00e+05	tk=5753.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11600
+	minus-likelihood = 3.65291408e-01	 penalty g_i(x) = 2.07255e-03	 Cost = 3.67363955e-01
+	Rel. residual of vec. = 1.950652e-07 
+	Rel. diff. of cost = 6.003265e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.061724e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 2.4693e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0725474146694547e-01	
+	max_Lbar=1.00e+05	tk=5803.2		range of ai =[4.15e-01, 8.70e+00]
+Iteration step = 11700
+	minus-likelihood = 3.65291188e-01	 penalty g_i(x) = 2.07276e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 1.973421e-06 
+	Rel. diff. of cost = 2.985387e-10
+	Rel. diff. of cost (w.r.t. optimal) = 7.241144e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.2187e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727591396706960e-01	
+	max_Lbar=1.00e+05	tk=5853.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11800
+	minus-likelihood = 3.65290752e-01	 penalty g_i(x) = 2.07320e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 1.766919e-06 
+	Rel. diff. of cost = 3.092977e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.004794e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.3471e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731957507282894e-01	
+	max_Lbar=8.39e+11	tk=5903.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 11900
+	minus-likelihood = 3.65290612e-01	 penalty g_i(x) = 2.07334e-03	 Cost = 3.67363954e-01
+	Rel. residual of vec. = 4.840328e-07 
+	Rel. diff. of cost = 1.382907e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.628202e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.4433e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0733415361412055e-01	
+	max_Lbar=1.00e+05	tk=5953.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12000
+	minus-likelihood = 3.65290906e-01	 penalty g_i(x) = 2.07304e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.088080e-06 
+	Rel. diff. of cost = 1.258407e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.110654e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.4222e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730381100891493e-01	
+	max_Lbar=1.00e+05	tk=6003.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12100
+	minus-likelihood = 3.65291295e-01	 penalty g_i(x) = 2.07265e-03	 Cost = 3.67363950e-01
+	Rel. residual of vec. = 1.206186e-06 
+	Rel. diff. of cost = 2.734797e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.673642e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673640e-01],	Rel-diff. = 5.4219e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726548467527253e-01	
+	max_Lbar=2.00e+05	tk=6053.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12200
+	minus-likelihood = 3.65291311e-01	 penalty g_i(x) = 2.07264e-03	 Cost = 3.67363951e-01
+	Rel. residual of vec. = 1.045032e-06 
+	Rel. diff. of cost = 2.502778e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.839631e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 4.0908e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726400922420479e-01	
+	max_Lbar=1.00e+05	tk=6103.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12300
+	minus-likelihood = 3.65290947e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.998175e-06 
+	Rel. diff. of cost = 5.317746e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.560290e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.1017e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729972939779287e-01	
+	max_Lbar=4.00e+05	tk=6153.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12400
+	minus-likelihood = 3.65290654e-01	 penalty g_i(x) = 2.07330e-03	 Cost = 3.67363952e-01
+	Rel. residual of vec. = 5.936887e-07 
+	Rel. diff. of cost = 1.496316e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.058100e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 3.5933e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732975803698175e-01	
+	max_Lbar=1.00e+05	tk=6203.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12500
+	minus-likelihood = 3.65290754e-01	 penalty g_i(x) = 2.07319e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 1.448933e-06 
+	Rel. diff. of cost = 2.553282e-10
+	Rel. diff. of cost (w.r.t. optimal) = 9.898427e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.8288e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731939871276958e-01	
+	max_Lbar=1.00e+05	tk=6253.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12600
+	minus-likelihood = 3.65291124e-01	 penalty g_i(x) = 2.07282e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.732982e-06 
+	Rel. diff. of cost = 1.761693e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.425394e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.6208e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728217251144290e-01	
+	max_Lbar=4.00e+05	tk=6303.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12700
+	minus-likelihood = 3.65291328e-01	 penalty g_i(x) = 2.07262e-03	 Cost = 3.67363952e-01
+	Rel. residual of vec. = 8.264571e-09 
+	Rel. diff. of cost = 2.076561e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.037508e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 8.7479e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726233482509154e-01	
+	max_Lbar=1.00e+05	tk=6353.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12800
+	minus-likelihood = 3.65291122e-01	 penalty g_i(x) = 2.07282e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.676888e-06 
+	Rel. diff. of cost = 1.730540e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.352646e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.7873e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728231970152625e-01	
+	max_Lbar=1.00e+05	tk=6403.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 12900
+	minus-likelihood = 3.65290773e-01	 penalty g_i(x) = 2.07317e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 1.335507e-06 
+	Rel. diff. of cost = 2.130582e-10
+	Rel. diff. of cost (w.r.t. optimal) = 8.324091e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.8419e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731745402003460e-01	
+	max_Lbar=1.28e+07	tk=6453.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13000
+	minus-likelihood = 3.65290687e-01	 penalty g_i(x) = 2.07326e-03	 Cost = 3.67363950e-01
+	Rel. residual of vec. = 5.465577e-07 
+	Rel. diff. of cost = 1.242630e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.662568e-08
+	Costs in the last 20 steps: [3.673640e-01, 3.673640e-01],	Rel-diff. = 1.6322e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732633704110917e-01	
+	max_Lbar=1.00e+05	tk=6503.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13100
+	minus-likelihood = 3.65290948e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.726148e-06 
+	Rel. diff. of cost = 4.891842e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.354825e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6761e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729957495177265e-01	
+	max_Lbar=1.00e+05	tk=6553.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13200
+	minus-likelihood = 3.65291253e-01	 penalty g_i(x) = 2.07270e-03	 Cost = 3.67363949e-01
+	Rel. residual of vec. = 8.562412e-07 
+	Rel. diff. of cost = 1.682909e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.255872e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.4796e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726956067962032e-01	
+	max_Lbar=8.00e+05	tk=6603.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13300
+	minus-likelihood = 3.65291235e-01	 penalty g_i(x) = 2.07271e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 9.791578e-07 
+	Rel. diff. of cost = 1.809701e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.093963e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.1074e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727132102062965e-01	
+	max_Lbar=1.00e+05	tk=6653.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13400
+	minus-likelihood = 3.65290927e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.610454e-06 
+	Rel. diff. of cost = 6.690182e-11
+	Rel. diff. of cost (w.r.t. optimal) = 5.910894e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.9107e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730168741581795e-01	
+	max_Lbar=2.00e+05	tk=6703.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13500
+	minus-likelihood = 3.65290706e-01	 penalty g_i(x) = 2.07324e-03	 Cost = 3.67363949e-01
+	Rel. residual of vec. = 3.463088e-07 
+	Rel. diff. of cost = 7.329426e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.449767e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.9711e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732432634583456e-01	
+	max_Lbar=1.00e+05	tk=6753.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13600
+	minus-likelihood = 3.65290814e-01	 penalty g_i(x) = 2.07313e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 1.276559e-06 
+	Rel. diff. of cost = 1.654155e-10
+	Rel. diff. of cost (w.r.t. optimal) = 5.338314e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.2464e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731317265666022e-01	
+	max_Lbar=1.00e+05	tk=6803.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13700
+	minus-likelihood = 3.65291122e-01	 penalty g_i(x) = 2.07282e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.357985e-06 
+	Rel. diff. of cost = 1.363532e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.323767e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1844e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728237857430337e-01	
+	max_Lbar=4.00e+05	tk=6853.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13800
+	minus-likelihood = 3.65291265e-01	 penalty g_i(x) = 2.07268e-03	 Cost = 3.67363949e-01
+	Rel. residual of vec. = 1.438224e-07 
+	Rel. diff. of cost = 2.956657e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.363103e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.9378e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0726845677334346e-01	
+	max_Lbar=1.00e+05	tk=6903.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 13900
+	minus-likelihood = 3.65291074e-01	 penalty g_i(x) = 2.07287e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.426571e-06 
+	Rel. diff. of cost = 9.676948e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.437772e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.2584e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728702736931609e-01	
+	max_Lbar=1.00e+05	tk=6953.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14000
+	minus-likelihood = 3.65290793e-01	 penalty g_i(x) = 2.07315e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 1.005070e-06 
+	Rel. diff. of cost = 1.449119e-10
+	Rel. diff. of cost (w.r.t. optimal) = 6.784143e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.7161e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731536417052002e-01	
+	max_Lbar=3.20e+06	tk=7003.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14100
+	minus-likelihood = 3.65290746e-01	 penalty g_i(x) = 2.07320e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 5.718266e-07 
+	Rel. diff. of cost = 1.035945e-10
+	Rel. diff. of cost (w.r.t. optimal) = 1.054432e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5291e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0732015137500537e-01	
+	max_Lbar=1.00e+05	tk=7053.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14200
+	minus-likelihood = 3.65290978e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.429837e-06 
+	Rel. diff. of cost = 8.594903e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.765566e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.9514e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729661626698920e-01	
+	max_Lbar=1.00e+05	tk=7103.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14300
+	minus-likelihood = 3.65291216e-01	 penalty g_i(x) = 2.07273e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 5.944017e-07 
+	Rel. diff. of cost = 1.011804e-10
+	Rel. diff. of cost (w.r.t. optimal) = 9.407394e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1977e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727311151770658e-01	
+	max_Lbar=6.55e+09	tk=7153.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14400
+	minus-likelihood = 3.65291176e-01	 penalty g_i(x) = 2.07277e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 9.052368e-07 
+	Rel. diff. of cost = 1.288301e-10
+	Rel. diff. of cost (w.r.t. optimal) = 6.475974e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.3064e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727700263002050e-01	
+	max_Lbar=1.00e+05	tk=7203.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14500
+	minus-likelihood = 3.65290916e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.300384e-06 
+	Rel. diff. of cost = 6.551737e-11
+	Rel. diff. of cost (w.r.t. optimal) = 8.526782e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.0499e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730283902966695e-01	
+	max_Lbar=8.19e+08	tk=7253.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14600
+	minus-likelihood = 3.65290750e-01	 penalty g_i(x) = 2.07320e-03	 Cost = 3.67363948e-01
+	Rel. residual of vec. = 1.683832e-07 
+	Rel. diff. of cost = 2.997091e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.024342e-08
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0042e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731980368895175e-01	
+	max_Lbar=1.00e+05	tk=7303.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14700
+	minus-likelihood = 3.65290861e-01	 penalty g_i(x) = 2.07308e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.122022e-06 
+	Rel. diff. of cost = 1.055798e-10
+	Rel. diff. of cost (w.r.t. optimal) = 2.806194e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1561e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730843959603876e-01	
+	max_Lbar=1.00e+05	tk=7353.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14800
+	minus-likelihood = 3.65291116e-01	 penalty g_i(x) = 2.07283e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.063023e-06 
+	Rel. diff. of cost = 1.026521e-10
+	Rel. diff. of cost (w.r.t. optimal) = 3.062779e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7373e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728292267361123e-01	
+	max_Lbar=6.55e+09	tk=7403.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 14900
+	minus-likelihood = 3.65291213e-01	 penalty g_i(x) = 2.07273e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 2.319310e-07 
+	Rel. diff. of cost = 3.906875e-11
+	Rel. diff. of cost (w.r.t. optimal) = 9.142370e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.3517e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727343564648720e-01	
+	max_Lbar=1.00e+05	tk=7453.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15000
+	minus-likelihood = 3.65291039e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.214168e-06 
+	Rel. diff. of cost = 5.067724e-11
+	Rel. diff. of cost (w.r.t. optimal) = 5.374445e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2993e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729049858447843e-01	
+	max_Lbar=1.00e+05	tk=7503.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15100
+	minus-likelihood = 3.65290813e-01	 penalty g_i(x) = 2.07313e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 7.498237e-07 
+	Rel. diff. of cost = 9.704393e-11
+	Rel. diff. of cost (w.r.t. optimal) = 5.456382e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.8895e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731336196719133e-01	
+	max_Lbar=3.28e+09	tk=7553.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15200
+	minus-likelihood = 3.65290794e-01	 penalty g_i(x) = 2.07315e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 5.723521e-07 
+	Rel. diff. of cost = 8.256196e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.676357e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3132e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731520940329820e-01	
+	max_Lbar=1.00e+05	tk=7603.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15300
+	minus-likelihood = 3.65290998e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.184573e-06 
+	Rel. diff. of cost = 1.118194e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.464851e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.9467e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729457329417469e-01	
+	max_Lbar=1.02e+08	tk=7653.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15400
+	minus-likelihood = 3.65291184e-01	 penalty g_i(x) = 2.07276e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 3.972023e-07 
+	Rel. diff. of cost = 5.843304e-11
+	Rel. diff. of cost (w.r.t. optimal) = 7.016206e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3519e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727622777054716e-01	
+	max_Lbar=1.00e+05	tk=7703.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15500
+	minus-likelihood = 3.65291131e-01	 penalty g_i(x) = 2.07281e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 8.277291e-07 
+	Rel. diff. of cost = 9.015078e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.785484e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6764e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728146594990826e-01	
+	max_Lbar=1.00e+05	tk=7753.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15600
+	minus-likelihood = 3.65290910e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.049035e-06 
+	Rel. diff. of cost = 5.766054e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.004433e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.2149e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730342613664049e-01	
+	max_Lbar=1.28e+07	tk=7803.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15700
+	minus-likelihood = 3.65290787e-01	 penalty g_i(x) = 2.07316e-03	 Cost = 3.67363947e-01
+	Rel. residual of vec. = 4.094109e-08 
+	Rel. diff. of cost = 6.125322e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.228511e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.3576e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731598961171424e-01	
+	max_Lbar=1.00e+05	tk=7853.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15800
+	minus-likelihood = 3.65290897e-01	 penalty g_i(x) = 2.07305e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 9.827636e-07 
+	Rel. diff. of cost = 6.574008e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.412094e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4050e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730481256254460e-01	
+	max_Lbar=1.00e+05	tk=7903.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 15900
+	minus-likelihood = 3.65291108e-01	 penalty g_i(x) = 2.07284e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 8.288109e-07 
+	Rel. diff. of cost = 7.553513e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.719824e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3370e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728367425465191e-01	
+	max_Lbar=5.12e+07	tk=7953.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16000
+	minus-likelihood = 3.65291171e-01	 penalty g_i(x) = 2.07278e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 2.862963e-07 
+	Rel. diff. of cost = 3.949041e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.124301e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.7744e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727752452775677e-01	
+	max_Lbar=1.00e+05	tk=8003.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16100
+	minus-likelihood = 3.65291014e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.032532e-06 
+	Rel. diff. of cost = 2.321188e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.517302e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.0177e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729305811472937e-01	
+	max_Lbar=1.00e+05	tk=8053.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16200
+	minus-likelihood = 3.65290831e-01	 penalty g_i(x) = 2.07311e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 5.518345e-07 
+	Rel. diff. of cost = 6.377654e-11
+	Rel. diff. of cost (w.r.t. optimal) = 4.344397e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2926e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731148777134445e-01	
+	max_Lbar=8.19e+08	tk=8103.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16300
+	minus-likelihood = 3.65290833e-01	 penalty g_i(x) = 2.07311e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 5.569573e-07 
+	Rel. diff. of cost = 6.382161e-11
+	Rel. diff. of cost (w.r.t. optimal) = 4.207629e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0725e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731124139392981e-01	
+	max_Lbar=1.00e+05	tk=8153.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16400
+	minus-likelihood = 3.65291012e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.817668e-07 
+	Rel. diff. of cost = 1.956946e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.382381e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3806e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729319016821168e-01	
+	max_Lbar=8.19e+08	tk=8203.2		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16500
+	minus-likelihood = 3.65291157e-01	 penalty g_i(x) = 2.07279e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 2.490407e-07 
+	Rel. diff. of cost = 3.163070e-11
+	Rel. diff. of cost (w.r.t. optimal) = 5.223810e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.0156e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0727893367854450e-01	
+	max_Lbar=1.00e+05	tk=8253.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16600
+	minus-likelihood = 3.65291095e-01	 penalty g_i(x) = 2.07285e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 7.514336e-07 
+	Rel. diff. of cost = 6.212764e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.176096e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1987e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728497066403950e-01	
+	max_Lbar=1.00e+05	tk=8303.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16700
+	minus-likelihood = 3.65290908e-01	 penalty g_i(x) = 2.07304e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 8.442527e-07 
+	Rel. diff. of cost = 4.781842e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.059818e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.4382e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730362922065018e-01	
+	max_Lbar=1.60e+06	tk=8353.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16800
+	minus-likelihood = 3.65290818e-01	 penalty g_i(x) = 2.07313e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 4.947949e-08 
+	Rel. diff. of cost = 6.213252e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.088723e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2955e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731276543885585e-01	
+	max_Lbar=1.00e+05	tk=8403.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 16900
+	minus-likelihood = 3.65290924e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 8.581704e-07 
+	Rel. diff. of cost = 3.946110e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.630703e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.9260e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730202615309951e-01	
+	max_Lbar=1.00e+05	tk=8453.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17000
+	minus-likelihood = 3.65291099e-01	 penalty g_i(x) = 2.07285e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 6.410092e-07 
+	Rel. diff. of cost = 5.430256e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.344565e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0002e-09 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728455322233794e-01	
+	max_Lbar=2.05e+08	tk=8503.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17100
+	minus-likelihood = 3.65291136e-01	 penalty g_i(x) = 2.07281e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 3.163256e-07 
+	Rel. diff. of cost = 3.561906e-11
+	Rel. diff. of cost (w.r.t. optimal) = 4.076391e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.0212e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728091934382006e-01	
+	max_Lbar=1.00e+05	tk=8553.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17200
+	minus-likelihood = 3.65290995e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 8.748932e-07 
+	Rel. diff. of cost = 7.266632e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.882161e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.3474e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729493792074355e-01	
+	max_Lbar=1.68e+12	tk=8603.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17300
+	minus-likelihood = 3.65290848e-01	 penalty g_i(x) = 2.07310e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.966905e-07 
+	Rel. diff. of cost = 4.064282e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.409676e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.6196e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730971622982344e-01	
+	max_Lbar=3.28e+09	tk=8653.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17400
+	minus-likelihood = 3.65290865e-01	 penalty g_i(x) = 2.07308e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 5.299138e-07 
+	Rel. diff. of cost = 4.790279e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.614621e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.4182e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730800607204825e-01	
+	max_Lbar=1.00e+05	tk=8703.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17500
+	minus-likelihood = 3.65291021e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 8.099371e-07 
+	Rel. diff. of cost = 2.163292e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.411780e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.3826e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729230144808092e-01	
+	max_Lbar=2.10e+11	tk=8753.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17600
+	minus-likelihood = 3.65291132e-01	 penalty g_i(x) = 2.07281e-03	 Cost = 3.67363946e-01
+	Rel. residual of vec. = 1.373531e-07 
+	Rel. diff. of cost = 1.497957e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.848612e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.4381e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728134559124420e-01	
+	max_Lbar=1.00e+05	tk=8803.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17700
+	minus-likelihood = 3.65291067e-01	 penalty g_i(x) = 2.07288e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 6.754242e-07 
+	Rel. diff. of cost = 4.169531e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.209790e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.3589e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728776611256228e-01	
+	max_Lbar=1.00e+05	tk=8853.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17800
+	minus-likelihood = 3.65290909e-01	 penalty g_i(x) = 2.07304e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 6.756087e-07 
+	Rel. diff. of cost = 3.795053e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.038024e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.2780e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730354997211223e-01	
+	max_Lbar=1.28e+07	tk=8903.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 17900
+	minus-likelihood = 3.65290845e-01	 penalty g_i(x) = 2.07310e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.118602e-07 
+	Rel. diff. of cost = 1.175171e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.555125e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.9347e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0731000658029899e-01	
+	max_Lbar=1.00e+05	tk=8953.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18000
+	minus-likelihood = 3.65290945e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.455825e-07 
+	Rel. diff. of cost = 2.228928e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.775382e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.4516e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729988451662210e-01	
+	max_Lbar=1.00e+05	tk=9003.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18100
+	minus-likelihood = 3.65291090e-01	 penalty g_i(x) = 2.07285e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 4.910326e-07 
+	Rel. diff. of cost = 3.826428e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.980137e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.3215e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728547712126857e-01	
+	max_Lbar=4.00e+05	tk=9053.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18200
+	minus-likelihood = 3.65291108e-01	 penalty g_i(x) = 2.07284e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.293736e-07 
+	Rel. diff. of cost = 3.019429e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.698172e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.6562e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728372325425215e-01	
+	max_Lbar=1.00e+05	tk=9103.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18300
+	minus-likelihood = 3.65290981e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.415464e-07 
+	Rel. diff. of cost = 1.454170e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.086109e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1917e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729630032296192e-01	
+	max_Lbar=8.19e+08	tk=9153.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18400
+	minus-likelihood = 3.65290864e-01	 penalty g_i(x) = 2.07308e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.764512e-07 
+	Rel. diff. of cost = 2.505662e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.664771e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.6188e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730812105705659e-01	
+	max_Lbar=4.00e+05	tk=9203.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18500
+	minus-likelihood = 3.65290891e-01	 penalty g_i(x) = 2.07305e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 4.979485e-07 
+	Rel. diff. of cost = 3.533485e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.607901e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.4586e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730540644139470e-01	
+	max_Lbar=1.00e+05	tk=9253.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18600
+	minus-likelihood = 3.65291027e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.686348e-07 
+	Rel. diff. of cost = 2.069234e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.196010e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.7923e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729174843214249e-01	
+	max_Lbar=1.02e+08	tk=9303.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18700
+	minus-likelihood = 3.65291111e-01	 penalty g_i(x) = 2.07283e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 5.420281e-08 
+	Rel. diff. of cost = 5.082379e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.840824e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.2006e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728340394443923e-01	
+	max_Lbar=1.00e+05	tk=9353.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18800
+	minus-likelihood = 3.65291045e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.057697e-07 
+	Rel. diff. of cost = 2.745648e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.496343e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.7437e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728995557114732e-01	
+	max_Lbar=1.00e+05	tk=9403.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 18900
+	minus-likelihood = 3.65290911e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.393508e-07 
+	Rel. diff. of cost = 2.943823e-11
+	Rel. diff. of cost (w.r.t. optimal) = 9.764367e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.1107e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730332135132545e-01	
+	max_Lbar=2.56e+07	tk=9453.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19000
+	minus-likelihood = 3.65290868e-01	 penalty g_i(x) = 2.07308e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.541852e-07 
+	Rel. diff. of cost = 1.355427e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.486991e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4542e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730770838473309e-01	
+	max_Lbar=1.00e+05	tk=9503.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19100
+	minus-likelihood = 3.65290962e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.479416e-07 
+	Rel. diff. of cost = 1.144351e-11
+	Rel. diff. of cost (w.r.t. optimal) = 9.505086e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.1721e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729825663097123e-01	
+	max_Lbar=1.00e+05	tk=9553.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19200
+	minus-likelihood = 3.65291081e-01	 penalty g_i(x) = 2.07286e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.714590e-07 
+	Rel. diff. of cost = 2.643818e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.649164e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.2590e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728639322602962e-01	
+	max_Lbar=1.31e+10	tk=9603.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19300
+	minus-likelihood = 3.65291084e-01	 penalty g_i(x) = 2.07286e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.309106e-07 
+	Rel. diff. of cost = 2.462497e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.775507e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.0419e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728603353822270e-01	
+	max_Lbar=1.00e+05	tk=9653.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19400
+	minus-likelihood = 3.65290971e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.258789e-07 
+	Rel. diff. of cost = 5.819789e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.085066e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.0850e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729726831201889e-01	
+	max_Lbar=4.19e+11	tk=9703.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19500
+	minus-likelihood = 3.65290878e-01	 penalty g_i(x) = 2.07307e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.825430e-07 
+	Rel. diff. of cost = 1.453815e-11
+	Rel. diff. of cost (w.r.t. optimal) = 2.055790e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.5169e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730664142570460e-01	
+	max_Lbar=1.00e+05	tk=9753.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19600
+	minus-likelihood = 3.65290912e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.613629e-07 
+	Rel. diff. of cost = 2.539124e-11
+	Rel. diff. of cost (w.r.t. optimal) = 9.654133e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.8171e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730327967030407e-01	
+	max_Lbar=1.00e+05	tk=9803.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19700
+	minus-likelihood = 3.65291029e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.478361e-07 
+	Rel. diff. of cost = 1.811307e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.620566e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.7203e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729147740666759e-01	
+	max_Lbar=3.36e+12	tk=9853.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19800
+	minus-likelihood = 3.65291092e-01	 penalty g_i(x) = 2.07285e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 6.945007e-09 
+	Rel. diff. of cost = 5.573320e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.067712e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.2679e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728524782279348e-01	
+	max_Lbar=1.00e+05	tk=9903.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 19900
+	minus-likelihood = 3.65291027e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.380877e-07 
+	Rel. diff. of cost = 1.734546e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.268172e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.8166e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729170114586146e-01	
+	max_Lbar=1.00e+05	tk=9953.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20000
+	minus-likelihood = 3.65290915e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.261855e-07 
+	Rel. diff. of cost = 2.210876e-11
+	Rel. diff. of cost (w.r.t. optimal) = 8.799439e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.0004e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730294815167469e-01	
+	max_Lbar=1.02e+08	tk=10003.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20100
+	minus-likelihood = 3.65290888e-01	 penalty g_i(x) = 2.07306e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.802817e-07 
+	Rel. diff. of cost = 1.317035e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.717614e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7512e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730572340388784e-01	
+	max_Lbar=1.00e+05	tk=10053.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20200
+	minus-likelihood = 3.65290974e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.594173e-07 
+	Rel. diff. of cost = 4.671374e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.026557e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6748e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729702033724778e-01	
+	max_Lbar=1.00e+05	tk=10103.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20300
+	minus-likelihood = 3.65291071e-01	 penalty g_i(x) = 2.07287e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 2.747622e-07 
+	Rel. diff. of cost = 1.766853e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.344270e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.6664e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728732269830180e-01	
+	max_Lbar=1.60e+06	tk=10153.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20400
+	minus-likelihood = 3.65291065e-01	 penalty g_i(x) = 2.07288e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 3.227955e-07 
+	Rel. diff. of cost = 1.932343e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.147492e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.3296e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728797986250108e-01	
+	max_Lbar=1.00e+05	tk=10203.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20500
+	minus-likelihood = 3.65290965e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.266600e-07 
+	Rel. diff. of cost = 7.555956e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.031975e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.0312e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729793535613888e-01	
+	max_Lbar=1.28e+07	tk=10253.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20600
+	minus-likelihood = 3.65290892e-01	 penalty g_i(x) = 2.07305e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.101310e-07 
+	Rel. diff. of cost = 7.682521e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.574674e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.0905e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730530831608973e-01	
+	max_Lbar=1.00e+05	tk=10303.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20700
+	minus-likelihood = 3.65290929e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.235868e-07 
+	Rel. diff. of cost = 1.786349e-11
+	Rel. diff. of cost (w.r.t. optimal) = 5.652105e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.5169e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730156063271574e-01	
+	max_Lbar=1.00e+05	tk=10353.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20800
+	minus-likelihood = 3.65291030e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.478609e-07 
+	Rel. diff. of cost = 1.517542e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.783975e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.4462e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729137737597361e-01	
+	max_Lbar=2.10e+11	tk=10403.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 20900
+	minus-likelihood = 3.65291076e-01	 penalty g_i(x) = 2.07287e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 5.143439e-08 
+	Rel. diff. of cost = 3.511635e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.503401e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.8902e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728682578163102e-01	
+	max_Lbar=1.00e+05	tk=10453.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21000
+	minus-likelihood = 3.65291013e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.770552e-07 
+	Rel. diff. of cost = 1.048295e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.506848e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.4653e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729306812918361e-01	
+	max_Lbar=1.00e+05	tk=10503.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21100
+	minus-likelihood = 3.65290919e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.350149e-07 
+	Rel. diff. of cost = 1.637068e-11
+	Rel. diff. of cost (w.r.t. optimal) = 7.791947e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.0775e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730253592250325e-01	
+	max_Lbar=3.28e+09	tk=10553.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21200
+	minus-likelihood = 3.65290904e-01	 penalty g_i(x) = 2.07304e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.957982e-07 
+	Rel. diff. of cost = 1.190270e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.187403e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7685e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730407775083270e-01	
+	max_Lbar=1.00e+05	tk=10603.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21300
+	minus-likelihood = 3.65290983e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.833880e-07 
+	Rel. diff. of cost = 6.639134e-13
+	Rel. diff. of cost (w.r.t. optimal) = 3.332890e-13
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.3624e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729609480687688e-01	
+	max_Lbar=2.00e+05	tk=10653.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21400
+	minus-likelihood = 3.65291063e-01	 penalty g_i(x) = 2.07288e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 1.993496e-07 
+	Rel. diff. of cost = 1.160005e-11
+	Rel. diff. of cost (w.r.t. optimal) = 1.099606e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5300e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728814813414456e-01	
+	max_Lbar=6.40e+06	tk=10703.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21500
+	minus-likelihood = 3.65291049e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.114871e-07 
+	Rel. diff. of cost = 1.501488e-11
+	Rel. diff. of cost (w.r.t. optimal) = 7.427834e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.6955e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728953950998999e-01	
+	max_Lbar=1.00e+05	tk=10753.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21600
+	minus-likelihood = 3.65290960e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.450962e-07 
+	Rel. diff. of cost = 7.942536e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.066773e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.9404e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729839302463521e-01	
+	max_Lbar=4.10e+08	tk=10803.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21700
+	minus-likelihood = 3.65290903e-01	 penalty g_i(x) = 2.07304e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 5.505781e-08 
+	Rel. diff. of cost = 3.374412e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.215862e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1588e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730417446438795e-01	
+	max_Lbar=1.00e+05	tk=10853.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21800
+	minus-likelihood = 3.65290942e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.888871e-07 
+	Rel. diff. of cost = 1.244360e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.245328e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5501e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730020380613720e-01	
+	max_Lbar=1.00e+05	tk=10903.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 21900
+	minus-likelihood = 3.65291030e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.672220e-07 
+	Rel. diff. of cost = 1.246225e-11
+	Rel. diff. of cost (w.r.t. optimal) = 3.780092e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1166e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729137973491105e-01	
+	max_Lbar=4.10e+08	tk=10953.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22000
+	minus-likelihood = 3.65291063e-01	 penalty g_i(x) = 2.07288e-03	 Cost = 3.67363945e-01
+	Rel. residual of vec. = 8.322941e-08 
+	Rel. diff. of cost = 4.868328e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.103812e-09
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.3094e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728813322769174e-01	
+	max_Lbar=1.00e+05	tk=11003.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22100
+	minus-likelihood = 3.65291003e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.244738e-07 
+	Rel. diff. of cost = 5.977219e-12
+	Rel. diff. of cost (w.r.t. optimal) = 6.108514e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5490e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729411876212264e-01	
+	max_Lbar=1.00e+05	tk=11053.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22200
+	minus-likelihood = 3.65290923e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.610110e-07 
+	Rel. diff. of cost = 1.191713e-11
+	Rel. diff. of cost (w.r.t. optimal) = 6.789900e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.3255e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730209854058121e-01	
+	max_Lbar=2.10e+11	tk=11103.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22300
+	minus-likelihood = 3.65290917e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.033027e-07 
+	Rel. diff. of cost = 1.026401e-11
+	Rel. diff. of cost (w.r.t. optimal) = 8.184076e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6389e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730269935750081e-01	
+	max_Lbar=1.00e+05	tk=11153.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22400
+	minus-likelihood = 3.65290990e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.164748e-07 
+	Rel. diff. of cost = 1.565192e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.391021e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1700e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729541304532587e-01	
+	max_Lbar=1.64e+09	tk=11203.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22500
+	minus-likelihood = 3.65291055e-01	 penalty g_i(x) = 2.07289e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.386282e-07 
+	Rel. diff. of cost = 7.235990e-12
+	Rel. diff. of cost (w.r.t. optimal) = 8.834571e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6807e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728895788325760e-01	
+	max_Lbar=4.00e+05	tk=11253.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22600
+	minus-likelihood = 3.65291036e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.951569e-07 
+	Rel. diff. of cost = 1.132161e-11
+	Rel. diff. of cost (w.r.t. optimal) = 4.695808e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1097e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729085502250946e-01	
+	max_Lbar=1.00e+05	tk=11303.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22700
+	minus-likelihood = 3.65290957e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.735426e-07 
+	Rel. diff. of cost = 7.448042e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.322555e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0695e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729866913675152e-01	
+	max_Lbar=5.24e+10	tk=11353.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22800
+	minus-likelihood = 3.65290913e-01	 penalty g_i(x) = 2.07303e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.294522e-08 
+	Rel. diff. of cost = 6.912249e-13
+	Rel. diff. of cost (w.r.t. optimal) = 9.257559e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.4114e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730312775924695e-01	
+	max_Lbar=1.00e+05	tk=11403.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 22900
+	minus-likelihood = 3.65290953e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.533868e-07 
+	Rel. diff. of cost = 8.368195e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.768414e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7935e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729909266682495e-01	
+	max_Lbar=1.00e+05	tk=11453.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23000
+	minus-likelihood = 3.65291029e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.973515e-07 
+	Rel. diff. of cost = 9.827916e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.574896e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7425e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729150578040198e-01	
+	max_Lbar=6.55e+09	tk=11503.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23100
+	minus-likelihood = 3.65291051e-01	 penalty g_i(x) = 2.07289e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.046283e-07 
+	Rel. diff. of cost = 5.200063e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.950753e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.3385e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728931735547332e-01	
+	max_Lbar=1.00e+05	tk=11553.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23200
+	minus-likelihood = 3.65290995e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.734279e-07 
+	Rel. diff. of cost = 2.928990e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.839484e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.9876e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729494957145908e-01	
+	max_Lbar=2.00e+05	tk=11603.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23300
+	minus-likelihood = 3.65290928e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.998258e-07 
+	Rel. diff. of cost = 8.413492e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.768730e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7072e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730161812805006e-01	
+	max_Lbar=5.24e+10	tk=11653.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23400
+	minus-likelihood = 3.65290929e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.036005e-07 
+	Rel. diff. of cost = 8.476997e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.551901e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4257e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730151077405476e-01	
+	max_Lbar=1.00e+05	tk=11703.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23500
+	minus-likelihood = 3.65290995e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.588788e-07 
+	Rel. diff. of cost = 2.687184e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.947575e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.9472e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729492030438026e-01	
+	max_Lbar=1.28e+07	tk=11753.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23600
+	minus-likelihood = 3.65291047e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.106748e-08 
+	Rel. diff. of cost = 4.251932e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.069694e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0798e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0728969618850582e-01	
+	max_Lbar=6.55e+09	tk=11803.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23700
+	minus-likelihood = 3.65291025e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.771838e-07 
+	Rel. diff. of cost = 8.403278e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.929026e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6231e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729192820324360e-01	
+	max_Lbar=1.00e+05	tk=11853.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23800
+	minus-likelihood = 3.65290956e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.125047e-07 
+	Rel. diff. of cost = 6.578516e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.464660e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.0246e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729881095392599e-01	
+	max_Lbar=1.64e+09	tk=11903.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 23900
+	minus-likelihood = 3.65290922e-01	 penalty g_i(x) = 2.07302e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.833747e-08 
+	Rel. diff. of cost = 8.566481e-13
+	Rel. diff. of cost (w.r.t. optimal) = 7.007359e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7849e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730219607194614e-01	
+	max_Lbar=1.00e+05	tk=11953.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24000
+	minus-likelihood = 3.65290962e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.193197e-07 
+	Rel. diff. of cost = 5.434320e-12
+	Rel. diff. of cost (w.r.t. optimal) = 9.075829e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2299e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729820416788716e-01	
+	max_Lbar=1.00e+05	tk=12003.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24100
+	minus-likelihood = 3.65291027e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.387608e-07 
+	Rel. diff. of cost = 7.534195e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.252967e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.3873e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729171106762995e-01	
+	max_Lbar=4.19e+11	tk=12053.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24200
+	minus-likelihood = 3.65291041e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.176255e-07 
+	Rel. diff. of cost = 4.940492e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.667986e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.9510e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729035140923688e-01	
+	max_Lbar=1.00e+05	tk=12103.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24300
+	minus-likelihood = 3.65290988e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.264103e-07 
+	Rel. diff. of cost = 1.005640e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.566836e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.6485e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729558257624520e-01	
+	max_Lbar=3.20e+06	tk=12153.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24400
+	minus-likelihood = 3.65290933e-01	 penalty g_i(x) = 2.07301e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.509034e-07 
+	Rel. diff. of cost = 5.839995e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.867329e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2364e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730115728797077e-01	
+	max_Lbar=1.05e+11	tk=12203.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24500
+	minus-likelihood = 3.65290939e-01	 penalty g_i(x) = 2.07301e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.000244e-07 
+	Rel. diff. of cost = 6.858736e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.761345e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2033e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730052878843572e-01	
+	max_Lbar=1.00e+05	tk=12253.3		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24600
+	minus-likelihood = 3.65290998e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.087845e-07 
+	Rel. diff. of cost = 3.118172e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.453260e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.4150e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729457558711811e-01	
+	max_Lbar=5.24e+10	tk=12303.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24700
+	minus-likelihood = 3.65291041e-01	 penalty g_i(x) = 2.07290e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.361698e-08 
+	Rel. diff. of cost = 2.235545e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.607803e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.5517e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729038128791366e-01	
+	max_Lbar=1.00e+05	tk=12353.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24800
+	minus-likelihood = 3.65291016e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.578567e-07 
+	Rel. diff. of cost = 6.108669e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.781293e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2226e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729281580095957e-01	
+	max_Lbar=1.00e+05	tk=12403.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 24900
+	minus-likelihood = 3.65290955e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.615334e-07 
+	Rel. diff. of cost = 5.636380e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.529679e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.3043e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729887356468754e-01	
+	max_Lbar=1.64e+09	tk=12453.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25000
+	minus-likelihood = 3.65290930e-01	 penalty g_i(x) = 2.07301e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.170052e-08 
+	Rel. diff. of cost = 1.696865e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.322485e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1044e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730139487613769e-01	
+	max_Lbar=1.00e+05	tk=12503.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25100
+	minus-likelihood = 3.65290969e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.886152e-07 
+	Rel. diff. of cost = 3.379297e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.260214e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.2331e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729749746582665e-01	
+	max_Lbar=1.00e+05	tk=12553.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25200
+	minus-likelihood = 3.65291025e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.917413e-07 
+	Rel. diff. of cost = 5.768719e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.952765e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1010e-10 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729191183285040e-01	
+	max_Lbar=1.28e+07	tk=12603.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25300
+	minus-likelihood = 3.65291032e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.262774e-07 
+	Rel. diff. of cost = 4.505063e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.089031e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.9118e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729119625112569e-01	
+	max_Lbar=1.00e+05	tk=12653.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25400
+	minus-likelihood = 3.65290984e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.860930e-07 
+	Rel. diff. of cost = 1.543210e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.867395e-13
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.8876e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729606154244609e-01	
+	max_Lbar=1.68e+12	tk=12703.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25500
+	minus-likelihood = 3.65290938e-01	 penalty g_i(x) = 2.07301e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.096386e-07 
+	Rel. diff. of cost = 3.852696e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.000733e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.5815e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730067192633711e-01	
+	max_Lbar=1.64e+09	tk=12753.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25600
+	minus-likelihood = 3.65290948e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.921878e-07 
+	Rel. diff. of cost = 5.345502e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.468032e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.7297e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729966084488738e-01	
+	max_Lbar=1.00e+05	tk=12803.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25700
+	minus-likelihood = 3.65291001e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.618833e-07 
+	Rel. diff. of cost = 3.077094e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.607892e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.0854e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729436084758396e-01	
+	max_Lbar=1.31e+10	tk=12853.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25800
+	minus-likelihood = 3.65291034e-01	 penalty g_i(x) = 2.07291e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.426271e-08 
+	Rel. diff. of cost = 8.932854e-13
+	Rel. diff. of cost (w.r.t. optimal) = 4.336074e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.5627e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729105446502641e-01	
+	max_Lbar=1.00e+05	tk=12903.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 25900
+	minus-likelihood = 3.65291008e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.359028e-07 
+	Rel. diff. of cost = 4.263034e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.031601e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.8632e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729356719816661e-01	
+	max_Lbar=1.00e+05	tk=12953.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26000
+	minus-likelihood = 3.65290956e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.146062e-07 
+	Rel. diff. of cost = 4.551248e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.474234e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.8533e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729882023974072e-01	
+	max_Lbar=4.19e+11	tk=13003.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26100
+	minus-likelihood = 3.65290938e-01	 penalty g_i(x) = 2.07301e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.768621e-08 
+	Rel. diff. of cost = 2.010170e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.898935e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.0518e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730061160823515e-01	
+	max_Lbar=1.00e+05	tk=13053.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26200
+	minus-likelihood = 3.65290975e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.545342e-07 
+	Rel. diff. of cost = 1.874279e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.659251e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.1110e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729691944080150e-01	
+	max_Lbar=4.00e+05	tk=13103.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26300
+	minus-likelihood = 3.65291022e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.495276e-07 
+	Rel. diff. of cost = 4.157341e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.517355e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.2161e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729222222190638e-01	
+	max_Lbar=2.62e+10	tk=13153.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26400
+	minus-likelihood = 3.65291024e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.275501e-07 
+	Rel. diff. of cost = 3.772760e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.814080e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.1452e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729200807545498e-01	
+	max_Lbar=1.00e+05	tk=13203.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26500
+	minus-likelihood = 3.65290980e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.478113e-07 
+	Rel. diff. of cost = 7.931433e-13
+	Rel. diff. of cost (w.r.t. optimal) = 3.712586e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.9543e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729641375662183e-01	
+	max_Lbar=2.62e+10	tk=13253.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26600
+	minus-likelihood = 3.65290942e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.655304e-08 
+	Rel. diff. of cost = 2.412293e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.222607e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.7434e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0730018894802804e-01	
+	max_Lbar=1.60e+06	tk=13303.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26700
+	minus-likelihood = 3.65290955e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.812202e-07 
+	Rel. diff. of cost = 4.043432e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.585827e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.6144e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729892652264062e-01	
+	max_Lbar=1.00e+05	tk=13353.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26800
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.216626e-07 
+	Rel. diff. of cost = 2.828182e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.417689e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.1852e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729422590873769e-01	
+	max_Lbar=1.68e+12	tk=13403.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 26900
+	minus-likelihood = 3.65291028e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.529456e-09 
+	Rel. diff. of cost = 4.440892e-14
+	Rel. diff. of cost (w.r.t. optimal) = 3.343827e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5840e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729165210642894e-01	
+	max_Lbar=1.00e+05	tk=13453.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27000
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.150889e-07 
+	Rel. diff. of cost = 2.892575e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.706924e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.3029e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729418033901392e-01	
+	max_Lbar=1.00e+05	tk=13503.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27100
+	minus-likelihood = 3.65290957e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.756889e-07 
+	Rel. diff. of cost = 3.575806e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.355496e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.3988e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729870264910705e-01	
+	max_Lbar=1.68e+12	tk=13553.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27200
+	minus-likelihood = 3.65290945e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.728849e-08 
+	Rel. diff. of cost = 1.999068e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.842806e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5414e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729993190235579e-01	
+	max_Lbar=1.00e+05	tk=13603.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27300
+	minus-likelihood = 3.65290979e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.247915e-07 
+	Rel. diff. of cost = 9.268142e-13
+	Rel. diff. of cost (w.r.t. optimal) = 4.990452e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.0155e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729648622628813e-01	
+	max_Lbar=4.00e+05	tk=13653.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27400
+	minus-likelihood = 3.65291019e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.166304e-07 
+	Rel. diff. of cost = 2.992717e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.140434e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.1250e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729251338435301e-01	
+	max_Lbar=5.24e+10	tk=13703.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27500
+	minus-likelihood = 3.65291018e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.260876e-07 
+	Rel. diff. of cost = 3.123057e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.961018e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.3006e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729266097966553e-01	
+	max_Lbar=1.00e+05	tk=13753.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27600
+	minus-likelihood = 3.65290978e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.143263e-07 
+	Rel. diff. of cost = 1.062483e-12
+	Rel. diff. of cost (w.r.t. optimal) = 8.515411e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.5116e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729664729832234e-01	
+	max_Lbar=1.68e+12	tk=13803.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27700
+	minus-likelihood = 3.65290947e-01	 penalty g_i(x) = 2.07300e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.122658e-08 
+	Rel. diff. of cost = 1.440847e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.560852e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.7349e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729972979577418e-01	
+	max_Lbar=8.00e+05	tk=13853.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27800
+	minus-likelihood = 3.65290961e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.683554e-07 
+	Rel. diff. of cost = 3.000045e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.010367e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.8304e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729832784294988e-01	
+	max_Lbar=1.00e+05	tk=13903.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 27900
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.854797e-07 
+	Rel. diff. of cost = 2.399414e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.512146e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.7702e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729421097021952e-01	
+	max_Lbar=3.28e+09	tk=13953.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28000
+	minus-likelihood = 3.65291022e-01	 penalty g_i(x) = 2.07292e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.361136e-08 
+	Rel. diff. of cost = 3.810285e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.502329e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.4139e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729223337904495e-01	
+	max_Lbar=1.00e+05	tk=14003.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28100
+	minus-likelihood = 3.65290997e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.916351e-07 
+	Rel. diff. of cost = 1.883160e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.029710e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.3171e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729466329121279e-01	
+	max_Lbar=2.00e+05	tk=14053.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28200
+	minus-likelihood = 3.65290959e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.418375e-07 
+	Rel. diff. of cost = 2.707612e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.192837e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.0102e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729853282440544e-01	
+	max_Lbar=1.64e+09	tk=14103.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28300
+	minus-likelihood = 3.65290951e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.227300e-08 
+	Rel. diff. of cost = 1.810774e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.025855e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5821e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729931295908685e-01	
+	max_Lbar=1.00e+05	tk=14153.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28400
+	minus-likelihood = 3.65290983e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.950783e-07 
+	Rel. diff. of cost = 3.133049e-13
+	Rel. diff. of cost (w.r.t. optimal) = 6.918910e-13
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5822e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729615567998658e-01	
+	max_Lbar=1.60e+06	tk=14203.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28500
+	minus-likelihood = 3.65291016e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.038490e-08 
+	Rel. diff. of cost = 2.118750e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.782794e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.4920e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729281448921455e-01	
+	max_Lbar=1.68e+12	tk=14253.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28600
+	minus-likelihood = 3.65291012e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.214836e-07 
+	Rel. diff. of cost = 2.505329e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.362628e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.4064e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729321002561618e-01	
+	max_Lbar=1.00e+05	tk=14303.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28700
+	minus-likelihood = 3.65290976e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.869309e-07 
+	Rel. diff. of cost = 1.153744e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.287237e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.2695e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729680499575942e-01	
+	max_Lbar=3.28e+09	tk=14353.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28800
+	minus-likelihood = 3.65290950e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.313197e-08 
+	Rel. diff. of cost = 8.459899e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.097817e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.4659e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729937199735746e-01	
+	max_Lbar=2.10e+11	tk=14403.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 28900
+	minus-likelihood = 3.65290965e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.576817e-07 
+	Rel. diff. of cost = 2.290612e-12
+	Rel. diff. of cost (w.r.t. optimal) = 6.698175e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.5805e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729788789713696e-01	
+	max_Lbar=1.00e+05	tk=14453.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29000
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.612164e-07 
+	Rel. diff. of cost = 2.114309e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.663359e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.4762e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729418713431422e-01	
+	max_Lbar=1.64e+09	tk=14503.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29100
+	minus-likelihood = 3.65291018e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 2.446153e-08 
+	Rel. diff. of cost = 6.166179e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.012956e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.8198e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729261757714354e-01	
+	max_Lbar=1.00e+05	tk=14553.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29200
+	minus-likelihood = 3.65290994e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.765290e-07 
+	Rel. diff. of cost = 1.296296e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.675748e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.1436e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729499564214277e-01	
+	max_Lbar=8.00e+05	tk=14603.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29300
+	minus-likelihood = 3.65290960e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.196015e-07 
+	Rel. diff. of cost = 2.201128e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.100435e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.1731e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729843110626811e-01	
+	max_Lbar=8.39e+11	tk=14653.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29400
+	minus-likelihood = 3.65290955e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.604600e-08 
+	Rel. diff. of cost = 1.676881e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.568587e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5536e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729891034330047e-01	
+	max_Lbar=1.00e+05	tk=14703.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29500
+	minus-likelihood = 3.65290985e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.750871e-07 
+	Rel. diff. of cost = 3.108624e-15
+	Rel. diff. of cost (w.r.t. optimal) = 1.021405e-14
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.0305e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729594035444199e-01	
+	max_Lbar=1.05e+11	tk=14753.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29600
+	minus-likelihood = 3.65291013e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.048216e-08 
+	Rel. diff. of cost = 1.521894e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.507232e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.3477e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729306778203424e-01	
+	max_Lbar=1.68e+12	tk=14803.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29700
+	minus-likelihood = 3.65291008e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.167488e-07 
+	Rel. diff. of cost = 2.037481e-12
+	Rel. diff. of cost (w.r.t. optimal) = 9.726220e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.6830e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729363663242073e-01	
+	max_Lbar=1.00e+05	tk=14853.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29800
+	minus-likelihood = 3.65290975e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.640977e-07 
+	Rel. diff. of cost = 1.129319e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.592082e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4488e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729689986107097e-01	
+	max_Lbar=1.68e+12	tk=14903.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 29900
+	minus-likelihood = 3.65290954e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.867821e-08 
+	Rel. diff. of cost = 4.214407e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.687821e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5324e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729902046183069e-01	
+	max_Lbar=5.24e+10	tk=14953.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30000
+	minus-likelihood = 3.65290969e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.458673e-07 
+	Rel. diff. of cost = 1.711298e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.327450e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.5132e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729750964237439e-01	
+	max_Lbar=1.00e+05	tk=15003.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30100
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.363360e-07 
+	Rel. diff. of cost = 1.732392e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.299694e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.9482e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729424494860615e-01	
+	max_Lbar=1.68e+12	tk=15053.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30200
+	minus-likelihood = 3.65291014e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.148041e-08 
+	Rel. diff. of cost = 6.892265e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.530804e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.1580e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729304523408557e-01	
+	max_Lbar=1.00e+05	tk=15103.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30300
+	minus-likelihood = 3.65290991e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.562256e-07 
+	Rel. diff. of cost = 8.104628e-13
+	Rel. diff. of cost (w.r.t. optimal) = 8.305356e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1247e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729528110870576e-01	
+	max_Lbar=8.19e+08	tk=15153.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30400
+	minus-likelihood = 3.65290962e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.894665e-08 
+	Rel. diff. of cost = 1.689093e-12
+	Rel. diff. of cost (w.r.t. optimal) = 9.454970e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.2779e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729825056275317e-01	
+	max_Lbar=1.31e+10	tk=15203.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30500
+	minus-likelihood = 3.65290959e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.524670e-08 
+	Rel. diff. of cost = 1.432410e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.163707e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.2740e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729850120388185e-01	
+	max_Lbar=1.00e+05	tk=15253.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30600
+	minus-likelihood = 3.65290986e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.558712e-07 
+	Rel. diff. of cost = 1.925127e-13
+	Rel. diff. of cost (w.r.t. optimal) = 5.839773e-13
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.4051e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729578023537346e-01	
+	max_Lbar=3.28e+09	tk=15303.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30700
+	minus-likelihood = 3.65291011e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 5.587770e-08 
+	Rel. diff. of cost = 1.113998e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.287250e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.5486e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729328714439219e-01	
+	max_Lbar=5.24e+10	tk=15353.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30800
+	minus-likelihood = 3.65291005e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.116013e-07 
+	Rel. diff. of cost = 1.678657e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.182654e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 3.0965e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729396337103440e-01	
+	max_Lbar=1.00e+05	tk=15403.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 30900
+	minus-likelihood = 3.65290975e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.453934e-07 
+	Rel. diff. of cost = 1.053158e-12
+	Rel. diff. of cost (w.r.t. optimal) = 1.730638e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4529e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729693977065347e-01	
+	max_Lbar=1.64e+09	tk=15453.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31000
+	minus-likelihood = 3.65290957e-01	 penalty g_i(x) = 2.07299e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.318124e-09 
+	Rel. diff. of cost = 1.980638e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.387277e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.7393e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729873458293455e-01	
+	max_Lbar=8.39e+11	tk=15503.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31100
+	minus-likelihood = 3.65290972e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.353056e-07 
+	Rel. diff. of cost = 1.309841e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.957079e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.7642e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729724091541729e-01	
+	max_Lbar=1.00e+05	tk=15553.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31200
+	minus-likelihood = 3.65291001e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.205414e-07 
+	Rel. diff. of cost = 1.498579e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.065837e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.6074e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729428323997159e-01	
+	max_Lbar=4.10e+08	tk=15603.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31300
+	minus-likelihood = 3.65291011e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.585843e-08 
+	Rel. diff. of cost = 7.087664e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.258282e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 7.8035e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729331737009374e-01	
+	max_Lbar=1.00e+05	tk=15653.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31400
+	minus-likelihood = 3.65290989e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.459066e-07 
+	Rel. diff. of cost = 5.540013e-13
+	Rel. diff. of cost (w.r.t. optimal) = 4.388045e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5709e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729546664688045e-01	
+	max_Lbar=6.40e+06	tk=15703.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31500
+	minus-likelihood = 3.65290963e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 8.580790e-08 
+	Rel. diff. of cost = 1.410205e-12
+	Rel. diff. of cost (w.r.t. optimal) = 8.749290e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.7949e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729816341103885e-01	
+	max_Lbar=4.19e+11	tk=15753.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31600
+	minus-likelihood = 3.65290962e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.612923e-08 
+	Rel. diff. of cost = 1.306955e-12
+	Rel. diff. of cost (w.r.t. optimal) = 9.468448e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1441e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729825219958770e-01	
+	max_Lbar=1.00e+05	tk=15803.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31700
+	minus-likelihood = 3.65290987e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.436513e-07 
+	Rel. diff. of cost = 2.982059e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.539213e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.5337e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729566783356920e-01	
+	max_Lbar=5.24e+10	tk=15853.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31800
+	minus-likelihood = 3.65291010e-01	 penalty g_i(x) = 2.07293e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 4.473960e-08 
+	Rel. diff. of cost = 8.406609e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.133176e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.9979e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729345223305223e-01	
+	max_Lbar=2.62e+10	tk=15903.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 31900
+	minus-likelihood = 3.65291002e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.077900e-07 
+	Rel. diff. of cost = 1.416867e-12
+	Rel. diff. of cost (w.r.t. optimal) = 5.507172e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.6744e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729421170510018e-01	
+	max_Lbar=1.00e+05	tk=15953.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32000
+	minus-likelihood = 3.65290974e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.300993e-07 
+	Rel. diff. of cost = 9.692247e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.843858e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.4264e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729697141892425e-01	
+	max_Lbar=1.31e+10	tk=16003.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32100
+	minus-likelihood = 3.65290959e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.522454e-09 
+	Rel. diff. of cost = 2.864375e-14
+	Rel. diff. of cost (w.r.t. optimal) = 1.156970e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 5.6988e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729849381002599e-01	
+	max_Lbar=2.00e+05	tk=16053.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32200
+	minus-likelihood = 3.65290974e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.257434e-07 
+	Rel. diff. of cost = 1.005196e-12
+	Rel. diff. of cost (w.r.t. optimal) = 2.011924e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1902e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729701651134427e-01	
+	max_Lbar=8.00e+05	tk=16103.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32300
+	minus-likelihood = 3.65291001e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.066714e-07 
+	Rel. diff. of cost = 1.274536e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.638623e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.2530e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729435557587961e-01	
+	max_Lbar=6.55e+09	tk=16153.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32400
+	minus-likelihood = 3.65291008e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.776726e-08 
+	Rel. diff. of cost = 6.776801e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.027358e-10
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 8.2414e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729357215815059e-01	
+	max_Lbar=1.00e+05	tk=16203.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32500
+	minus-likelihood = 3.65290988e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.312138e-07 
+	Rel. diff. of cost = 3.825829e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.514433e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1507e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729558643752746e-01	
+	max_Lbar=2.10e+11	tk=16253.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32600
+	minus-likelihood = 3.65290964e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.422167e-08 
+	Rel. diff. of cost = 1.115996e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.360490e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.2454e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729798097325133e-01	
+	max_Lbar=2.62e+10	tk=16303.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32700
+	minus-likelihood = 3.65290964e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 7.161924e-08 
+	Rel. diff. of cost = 1.088019e-12
+	Rel. diff. of cost (w.r.t. optimal) = 7.423595e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.8149e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729798959847706e-01	
+	max_Lbar=1.00e+05	tk=16353.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32800
+	minus-likelihood = 3.65290988e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.272340e-07 
+	Rel. diff. of cost = 2.797762e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.702860e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6978e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729565267114400e-01	
+	max_Lbar=6.55e+09	tk=16403.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 32900
+	minus-likelihood = 3.65291007e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.932648e-08 
+	Rel. diff. of cost = 6.696865e-13
+	Rel. diff. of cost (w.r.t. optimal) = 9.343526e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.6094e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729368280900010e-01	
+	max_Lbar=4.19e+11	tk=16453.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33000
+	minus-likelihood = 3.65291000e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.840836e-08 
+	Rel. diff. of cost = 1.161071e-12
+	Rel. diff. of cost (w.r.t. optimal) = 4.420753e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 2.1959e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729439361248503e-01	
+	max_Lbar=1.00e+05	tk=16503.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33100
+	minus-likelihood = 3.65290975e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.175048e-07 
+	Rel. diff. of cost = 8.062440e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.560707e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.1934e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729689047633232e-01	
+	max_Lbar=1.05e+11	tk=16553.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33200
+	minus-likelihood = 3.65290962e-01	 penalty g_i(x) = 2.07298e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 6.327399e-10 
+	Rel. diff. of cost = 1.065814e-14
+	Rel. diff. of cost (w.r.t. optimal) = 9.536594e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 4.4582e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729826044198932e-01	
+	max_Lbar=2.00e+05	tk=16603.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33300
+	minus-likelihood = 3.65290975e-01	 penalty g_i(x) = 2.07297e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.124662e-07 
+	Rel. diff. of cost = 8.104628e-13
+	Rel. diff. of cost (w.r.t. optimal) = 1.630607e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7792e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729691109434570e-01	
+	max_Lbar=1.28e+07	tk=16653.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33400
+	minus-likelihood = 3.65290999e-01	 penalty g_i(x) = 2.07295e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 9.509644e-08 
+	Rel. diff. of cost = 1.002975e-12
+	Rel. diff. of cost (w.r.t. optimal) = 3.635026e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 1.7677e-11 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729453963322772e-01	
+	max_Lbar=4.19e+11	tk=16703.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33500
+	minus-likelihood = 3.65291006e-01	 penalty g_i(x) = 2.07294e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 3.316282e-08 
+	Rel. diff. of cost = 5.309087e-13
+	Rel. diff. of cost (w.r.t. optimal) = 8.134959e-11
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 6.3922e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729383515399061e-01	
+	max_Lbar=1.00e+05	tk=16753.4		range of ai =[4.15e-01, 8.71e+00]
+Iteration step = 33600
+	minus-likelihood = 3.65290988e-01	 penalty g_i(x) = 2.07296e-03	 Cost = 3.67363944e-01
+	Rel. residual of vec. = 1.149820e-07 
+	Rel. diff. of cost = 3.073097e-13
+	Rel. diff. of cost (w.r.t. optimal) = 2.174483e-12
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.1811e-12 (1.00e-12)
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729561271092559e-01	
+	max_Lbar=4.19e+11	tk=16803.4		range of ai =[4.15e-01, 8.71e+00]
+
+========================================================
+Solving coefficients for the reaction channel 0... finished.
+
+	Reason of termination:	Changes of the costs in the last 20 steps are under threshold.
+
+	Total steps=33623,	 Final cost = 3.67363944e-01,	 min_cost=3.67363944e-01 (at Step 27857)
+
+	Rel. residual of vec. = 1.152085e-07 
+	Rel. diff. of cost = 1.860734e-13
+	Rel. diff. of cost (w.r.t. optimal) = 9.354739e-13
+
+	Costs in the last 20 steps: [3.673639e-01, 3.673639e-01],	Rel-diff. = 9.3192e-13 (1.00e-12)
+
+	Results are written to: ./output/omega_vec_for_channel_0.txt
+	Corresponding cost : 3.673639e-01
+
+	Coeff. of Channel 0 (-2 0 0 0):
+		2.0729596068053313e-01	
+========================================================
+
+
+
+Runtime : 16.31 sec.
+
