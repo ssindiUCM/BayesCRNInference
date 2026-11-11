@@ -62,7 +62,14 @@ Writes `data/example5_network.json`, `data/example5_T{100,200,400}_trajectory.js
 Exports the example 5 trajectories for sparse-learning-CRN and prints the terminal commands that run it
 (`sparse_runs/example5_T*_lam*/`), for $\lambda = 0.01$ at each $T$ and a sweep of $\lambda$ at $T = 200$.
 
-The Section 5.3 tables are built by `../writing/comparison_tables.ipynb`.
+The LASSO fits use the long stopping rule of the other examples (`tot_step 300000`, stop after 100000 steps without a
+new minimum). Earlier fits with their default stopping rule had not converged; they are kept in
+`sparse_runs/_previous_default_stopping/`. LASSO-MA fits (candidate reactions only) are in
+`sparse_runs/example5_T{100,200,400}_lam0p01_massaction/`. All fits can be rerun with `scripts/run_lasso_overnight.sh`
+(see below).
+
+The Section 5.3 tables are built by `../writing/comparison_tables.ipynb` (Bayes, LASSO-MA and LASSO-BB $L^2$ errors;
+$\lambda$ sweep of LASSO-BB).
 
 ---
 
@@ -94,13 +101,41 @@ Writes `results/example6_T{T}/`, `results/example6_Tsweep/` (CSV and figure `pos
 
 ### `example6_aic_lasso.ipynb` — LASSO comparison
 Runs the sparse-learning-CRN LASSO ($\lambda = 0.01$) on the same prefixes in the black-box and the mass-action
-configuration. At $T = 100, 500$ the fits are computed with their program and checked against the independent solver of
-`src/sparse_learning_compare.py`; at $T = 1000, 5000$ their program would take many hours to days, so their objective is
-minimised with the independent solver (marked in the tables).
+configuration. All fits are computed with their program, run to convergence, and checked against the independent solver
+of `src/sparse_learning_compare.py`. The long fits ($T = 1000, 5000$) take 1–15 hours each; they were run with
+`scripts/run_lasso_overnight.sh`.
 Run folders: `sparse_runs/example6_T{T}_lam0p01_{massaction,blackbox}/`. Writes `results/example6_lasso/` and
 `writing/table_aic_lasso_comparison.tex`, `writing/table_aic_lasso_blackbox.tex`.
 * `RUN_LASSO = False` (default): post-processing only, about a minute.
-* `RUN_LASSO = True`: re-runs their programs, about 3 hours (mostly the black-box fit at $T = 500$).
+* `RUN_LASSO = True`: re-runs their programs one channel after another, about a day; use
+  `scripts/run_lasso_overnight.sh` to run the channels in parallel.
+
+---
+
+## Checks
+
+### `prior_sensitivity.ipynb` — sensitivity to the prior (manuscript appendix)
+Reruns the Bayesian inference for the ergodic example ($T = 100$), predator–prey ($T = 40$) and the random network
+($T = 100$) under the paper's prior and four alternatives (spike weight 0.5 or 0.9, a flatter or a tighter Gamma slab),
+with the paper's seeds. Writes `results/prior_sensitivity/`, `writing/table_prior_sensitivity.tex` and
+`writing/fig_prior_sensitivity.pdf`.
+* `RUN_MCMC = False` (default): reads the saved summaries, seconds.
+* `RUN_MCMC = True`: reruns all 15 combinations, about 35 minutes; finished combinations are skipped, so an interrupted
+  run can be resumed.
+
+### `verify_mcmc_speedup.ipynb` — new vs original sampler
+Compares `adaptive_mcmc_spike_slab` with the original implementation (`adaptive_mcmc_spike_slab_original`) on real
+data: same likelihood and prior values, same posterior, run times, and exact reproduction of a saved chain. About 8 minutes.
+
+---
+
+## Scripts (`../scripts/`)
+
+* `build_sparse_learning_mac.sh` — builds Zhang et al.'s `sparse_learning` program (their source, unchanged) on a Mac
+  without Homebrew, into `~/sparse-learning-build/`; the libconfig source it needs is in `scripts/vendor/`.
+* `run_lasso_overnight.sh` — runs the LASSO fits listed in the script with their program, one process per channel, in
+  parallel (`SPARSE_EXE=... caffeinate -i bash scripts/run_lasso_overnight.sh`). Then
+  `merge_lasso_overnight.sh` copies the results into the run folders.
 
 ---
 

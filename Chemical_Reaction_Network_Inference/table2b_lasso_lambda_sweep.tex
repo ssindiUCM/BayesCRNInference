@@ -5,7 +5,7 @@
 \caption{%
   Polynomial-space $L^2$ error of LASSO-BB (sparse-learning-CRN with all polynomials of order $\le 2$) at $T{=}200$
   across regularisation strengths $\lambda$.
-  Obs\ $=$ observed event count in the $T{=}200$ trajectory.
+  Events: number of events of the channel in the $T{=}200$ trajectory.
   \textbf{Bold}: minimum $L^2$ per channel.
   No single $\lambda$ minimises error across all channels simultaneously,
   illustrating the fundamental limitation of global regularisation.
@@ -13,7 +13,7 @@
 \label{tab:lasso-lambda-sweep}
 \begin{tabular}{lrrrrrrr}
 \toprule
-\textbf{Change} & \textbf{Obs} & $\lambda=0.001$ & $\lambda=0.005$ & $\lambda=0.01$ & $\lambda=0.05$ & $\lambda=0.1$ & $\lambda=0.5$ \\
+Channel & Events & $\lambda=0.001$ & $\lambda=0.005$ & $\lambda=0.01$ & $\lambda=0.05$ & $\lambda=0.1$ & $\lambda=0.5$ \\
 \midrule
 $-2A$ & 115 & 1.086 & 0.431 & 0.402 & 0.295 & 0.251 & \textbf{0.245} \\
 $-2A$, $+1X$, $+1Y$ & 263 & 1.941 & 0.938 & 0.874 & 0.629 & 0.571 & \textbf{0.556} \\
