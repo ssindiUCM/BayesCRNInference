@@ -104,7 +104,8 @@ Runs the sparse-learning-CRN LASSO ($\lambda = 0.01$) on the same prefixes in th
 configuration. All fits are computed with their program, run to convergence, and checked against the independent solver
 of `src/sparse_learning_compare.py`. The long fits ($T = 1000, 5000$) take 1–15 hours each; they were run with
 `scripts/run_lasso_overnight.sh`.
-Run folders: `sparse_runs/example6_T{T}_lam0p01_{massaction,blackbox}/`. Writes `results/example6_lasso/` and
+Run folders: `sparse_runs/example6_T{T}_lam0p01_{massaction,blackbox}/`. Writes `results/example6_lasso/` (including
+the $L^2$ propensity errors of Bayes, LASSO-MA and LASSO-BB, `l2_errors.csv`) and
 `writing/table_aic_lasso_comparison.tex`, `writing/table_aic_lasso_blackbox.tex`.
 * `RUN_LASSO = False` (default): post-processing only, about a minute.
 * `RUN_LASSO = True`: re-runs their programs one channel after another, about a day; use
@@ -122,6 +123,15 @@ with the paper's seeds. Writes `results/prior_sensitivity/`, `writing/table_prio
 * `RUN_MCMC = False` (default): reads the saved summaries, seconds.
 * `RUN_MCMC = True`: reruns all 15 combinations, about 35 minutes; finished combinations are skipped, so an interrupted
   run can be resumed.
+
+### `coverage_study.ipynb` — coverage of the credible intervals (antithetic integral controller)
+Simulates 100 independent trajectories of the controller up to $T = 500$ and runs the paper's sampler (same prior and
+settings, seeded) on each. Reports, for each active rate, how often the 95% credible interval contains the true value
+(with a Clopper–Pearson interval), misses below/above, mean bias and width, the joint-region coverage for the two rates
+of channel $+1X$, and how often the median probability model is the true network. Writes `results/coverage_study/`
+(one CSV per trajectory) and `writing/table_coverage.tex`.
+* `RUN = False` (default): reads the saved CSVs, seconds.
+* `RUN = True`: about 1.5 hours on 2 cores; finished trajectories are skipped, so an interrupted run can be resumed.
 
 ### `verify_mcmc_speedup.ipynb` — new vs original sampler
 Compares `adaptive_mcmc_spike_slab` with the original implementation (`adaptive_mcmc_spike_slab_original`) on real
