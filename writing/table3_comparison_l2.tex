@@ -5,18 +5,20 @@
 \caption{%
   Polynomial-space $L^2$ propensity error, $\|\hat{c} - c_{\mathrm{true}}\|_2$, for each stoichiometric
   channel and trajectory length $T$. The fitted propensity of each method is written in the basis
-  $1, A, \dots, Y, A^2, AB, \dots, Y^2$ and compared with the true propensity. Bayes: posterior mean rates;
-  MA and BB: LASSO-MA and LASSO-BB, the LASSO of \cite{siam_Zhang2019} at $\lambda = 0.01$
+  $1, A, \dots, Y, A^2, AB, \dots, Y^2$ and compared with the true propensity. Bayes: posterior mean rates of the reactions with
+  $\Pr(\text{off})<1/2$ (median probability model), the other rates set to $0$;
+  LASSO-MA and LASSO-BB: the LASSO of \cite{siam_Zhang2019} at $\lambda = 0.01$
   restricted to the same mass-action candidate reactions (MA) or with all polynomials of order $\le 2$ (BB).
   \textbf{Bold}: lowest error for each $(\text{channel},\,T)$.
 }
 \label{tab:comparison-l2}
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \begin{tabular}{l rrr rrr rrr}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{3}{c}{$T=100$} & \multicolumn{3}{c}{$T=200$} & \multicolumn{3}{c}{$T=400$} \\
 \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
-Channel & Bayes & MA & BB & Bayes & MA & BB & Bayes & MA & BB \\
+ & Bayes & LASSO- & LASSO- & Bayes & LASSO- & LASSO- & Bayes & LASSO- & LASSO- \\
+Channel & & MA & BB & & MA & BB & & MA & BB \\
 \midrule
 $-2A$ & \textbf{0.007} & 0.017 & 1.048 & \textbf{0.021} & 0.027 & 0.402 & \textbf{0.009} & 0.013 & 0.348 \\
 $-2A$, $+1X$, $+1Y$ & \textbf{0.059} & 0.070 & 0.772 & \textbf{0.043} & 0.050 & 0.874 & \textbf{0.009} & 0.014 & 1.012 \\

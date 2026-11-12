@@ -1,0 +1,40 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{MOCK-UP. Predator--prey system at $T=40$. For each stoichiometric channel: every candidate reaction (rows), then the channel's propensity polynomial and its $L^2$ distance to the true propensity, for every method. $k^*$ / True: true rate and true propensity. Bayes: posterior mean and 95\% credible interval (CrI) of the reactions in the median probability model, $\Pr(\text{off})<1/2$; the other reactions are shown as $0$ with their credible interval. LASSO-MA and LASSO-BB: the LASSO of \cite{siam_Zhang2019} at $\lambda=0.01$ restricted to the candidate reactions (MA) or with all polynomials of order $\le 2$ (BB). Polynomials show terms with $|c|\ge 0.001$. $^\dagger$~term not produced by any mass-action reaction in the channel, or negative.}
+\begin{tabular}{l l l l l}
+\toprule
+Reaction & $k^*$ / True & Bayes & LASSO-MA & LASSO-BB \\
+ & & $\hat k$ [95\% CrI] & $\hat k$ & \\
+\midrule
+\multicolumn{5}{l}{\textit{Channel $(+1,0)$: 1{,}933 events}} \\
+\quad $\emptyset\to A$ & $0$ & 0 [0, 0] & $0$ &  \\
+\quad $A\to 2A$ & \textbf{1.00} & 1.00 [0.958, 1.05] & $1.00$ &  \\
+\quad $B\to A+B$ & $0$ & 0 [0, 0] & $-0.00125$ &  \\
+\qquad\quad \textit{propensity} & $1.00\,A$ & $1.00\,A$ & $1.00\,A - 0.00125\,B$ & $0.0249 + 0.970\,A + 0.00203\,B$ \\
+\qquad\quad \textit{$L^2$ error} & & 0.00163 & 0.00427 & 0.0393 \\
+\midrule
+\multicolumn{5}{l}{\textit{Channel $(-1,0)$: 190 events}} \\
+\quad $A\to \emptyset$ & \textbf{0.100} & 0.0996 [0.0858, 0.114] & $0.110$ &  \\
+\quad $2A\to A$ & $0$ & 0 [0, 0] & $-0.000287$ &  \\
+\quad $A+B\to B$ & $0$ & 0 [0, 0] & $2.45e-05$ &  \\
+\qquad\quad \textit{propensity} & $0.100\,A$ & $0.0996\,A$ & $0.110\,A$ & $0.0256 + 0.0805\,A + 0.0159\,B{}^{\,\dagger}$ \\
+\qquad\quad \textit{$L^2$ error} & & 0.000399 & 0.00979 & 0.0359 \\
+\midrule
+\multicolumn{5}{l}{\textit{Channel $(-1,+1)$: 1{,}843 events}} \\
+\quad $A\to B$ & $0$ & 0 [0, 0] & $0.00293$ &  \\
+\quad $2A\to A+B$ & $0$ & 0 [0, 0] & $0.000105$ &  \\
+\quad $A+B\to 2B$ & \textbf{0.0100} & 0.0101 [0.00961, 0.0105] & $0.00998$ &  \\
+\qquad\quad \textit{propensity} & $0.0100\,AB$ & $0.0101\,AB$ & $0.00288\,A + 0.00998\,AB$ & $0.859 - 0.0236\,A - 0.00863\,B + 0.0102\,AB{}^{\,\dagger}$ \\
+\qquad\quad \textit{$L^2$ error} & & 7.09e-05 & 0.00288 & 0.859 \\
+\midrule
+\multicolumn{5}{l}{\textit{Channel $(0,-1)$: 1{,}837 events}} \\
+\quad $B\to \emptyset$ & \textbf{0.500} & 0.492 [0.469, 0.514] & $0.478$ &  \\
+\quad $2B\to B$ & $0$ & 0 [0, 0] & $0.000341$ &  \\
+\quad $A+B\to A$ & $0$ & 0 [0, 0] & $-0.000220$ &  \\
+\qquad\quad \textit{propensity} & $0.500\,B$ & $0.492\,B$ & $0.478\,B$ & $-0.0256\,A + 0.492\,B{}^{\,\dagger}$ \\
+\qquad\quad \textit{$L^2$ error} & & 0.00830 & 0.0220 & 0.0270 \\
+\bottomrule
+\end{tabular}
+\end{table}

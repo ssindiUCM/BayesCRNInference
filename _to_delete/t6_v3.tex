@@ -1,0 +1,40 @@
+% Table 3 — Bayes vs LASSO-MA vs LASSO-BB polynomial L2 comparison
+\begin{table}[htbp]
+\centering
+\small
+\caption{%
+  Polynomial-space $L^2$ propensity error, $\|\hat{c} - c_{\mathrm{true}}\|_2$, for each stoichiometric
+  channel and trajectory length $T$. The fitted propensity of each method is written in the basis
+  $1, A, \dots, Y, A^2, AB, \dots, Y^2$ and compared with the true propensity. Bayes: posterior mean rates of the reactions with
+  $\Pr(\text{off})<1/2$ (median probability model), the other rates set to $0$;
+  LASSO-MA and LASSO-BB: the LASSO of \cite{siam_Zhang2019} at $\lambda = 0.01$
+  restricted to the same mass-action candidate reactions (MA) or with all polynomials of order $\le 2$ (BB).
+  \textbf{Bold}: lowest error for each $(\text{channel},\,T)$.
+}
+\label{tab:comparison-l2}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{l rrr rrr rrr}
+\toprule
+\multicolumn{1}{c}{} & \multicolumn{3}{c}{$T=100$} & \multicolumn{3}{c}{$T=200$} & \multicolumn{3}{c}{$T=400$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+ & Bayes & LASSO- & LASSO- & Bayes & LASSO- & LASSO- & Bayes & LASSO- & LASSO- \\
+Channel  & MA & BB &  & MA & BB &  & MA & BB \\
+\midrule
+$-2A$ & \textbf{0.007} & 0.017 & 1.048 & \textbf{0.021} & 0.027 & 0.402 & \textbf{0.009} & 0.013 & 0.348 \\
+$-2A$, $+1X$, $+1Y$ & \textbf{0.059} & 0.070 & 0.772 & \textbf{0.043} & 0.050 & 0.874 & \textbf{0.009} & 0.014 & 1.012 \\
+$-2A$, $+1B$ & 0.062 & \textbf{0.050} & 1.031 & 0.051 & \textbf{0.043} & 1.144 & 0.080 & \textbf{0.075} & 1.099 \\
+$-2B$, $+1X$ & 0.056 & \textbf{0.051} & 0.729 & 0.036 & \textbf{0.032} & 0.697 & 0.019 & \textbf{0.016} & 0.723 \\
+$-1X$, $+1Y$ & \textbf{0.044} & 0.098 & 0.226 & \textbf{0.013} & 0.110 & 0.283 & \textbf{0.005} & 0.172 & 0.339 \\
+$-1Y$ & \textbf{0.109} & 0.552 & 0.644 & \textbf{0.028} & 0.071 & 0.443 & \textbf{0.038} & 0.053 & 0.190 \\
+$+1Y$ & \textbf{0.127} & 0.201 & 0.444 & \textbf{0.055} & 0.082 & 0.393 & \textbf{0.012} & 0.046 & 0.144 \\
+$+1X$, $-1Y$ & \textbf{0.034} & 0.067 & 0.146 & \textbf{0.004} & 0.041 & 0.183 & \textbf{0.019} & 0.080 & 0.183 \\
+$+1B$, $-1X$ & \textbf{0.098} & 0.118 & 1.005 & \textbf{0.063} & 0.094 & 0.879 & 0.044 & \textbf{0.043} & 0.730 \\
+$+1B$, $-1X$, $+1Y$ & 0.090 & \textbf{0.079} & 0.222 & 0.054 & \textbf{0.045} & 0.237 & 0.039 & \textbf{0.032} & 0.115 \\
+$+1B$, $-1Y$ & \textbf{0.064} & 0.161 & 0.358 & \textbf{0.064} & 0.064 & 0.153 & \textbf{0.043} & 0.043 & 0.168 \\
+$+1B$ & \textbf{0.164} & 0.543 & 0.708 & \textbf{0.088} & 0.230 & 0.347 & \textbf{0.048} & 0.178 & 0.233 \\
+$+2B$ & \textbf{0.021} & 0.044 & 0.796 & \textbf{0.034} & 0.049 & 0.163 & \textbf{0.043} & 0.055 & 0.201 \\
+$+1A$, $-1B$ & \textbf{0.047} & 0.650 & 0.975 & \textbf{0.068} & 0.110 & 0.242 & \textbf{0.032} & 0.253 & 0.263 \\
+$+1A$ & \textbf{0.038} & 0.069 & 0.455 & \textbf{0.020} & 0.178 & 0.229 & \textbf{0.068} & 0.179 & 0.170 \\
+\bottomrule
+\end{tabular}
+\end{table}
